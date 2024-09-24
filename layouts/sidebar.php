@@ -84,8 +84,8 @@
     <div id="facility" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">View Facility</a>
-            <a class="collapse-item" href="utilities-border.html">Add Facility</a>
+            <a class="collapse-item" href="../facility/view-facility.php">View Facility</a>
+            <a class="collapse-item" href="../facility/create-facility.php">Add Facility</a>
             
         </div>
     </div>

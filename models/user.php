@@ -1,0 +1,86 @@
+<?php
+include_once "../includes/db.php";
+
+class UserModel
+{
+
+    public $con;
+
+    public function getAllUser()
+    {
+        $this->con = Database::connect();
+        if ($this->con) {
+            $sql = "select * from users where deleted_at is null";
+            $statement = $this->con->prepare($sql);
+            $result = $statement->execute();
+            if ($result) {
+                return $statement->fetchAll();
+            } else {
+                return null;
+            }
+        }
+    }
+
+    public function insertUser($name, $email, $phone, $address)
+    {
+        $this->con = Database::connect();
+        if ($this->con) {
+            $sql = "insert into users(user_name,user_email,user_phone,user_address) values (:name,:email,:phone,:address)";
+            $statement = $this->con->prepare($sql);
+            $statement->bindParam(":name", $name);
+            $statement->bindParam(":email", $email);
+            $statement->bindParam(":phone", $phone);
+            $statement->bindParam(":address", $address);
+            $result = $statement->execute();
+            return $result;
+        }
+    }
+
+    public function getUserById($id)
+    {
+        $this->con = Database::connect();
+        if ($this->con) {
+            $sql = "select * from users where user_id = :id ";
+            $statement = $this->con->prepare($sql);
+            $statement->bindParam(":id", $id);
+            $result = $statement->execute();
+            if ($result) {
+                return $statement->fetch();
+            } else {
+                return null;
+            }
+        }
+    }
+
+    public function updateUser($id,$name,$email,$phone,$address){
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "update users set user_name=:name,user_email=:email,user_phone=:phone,user_address=:address where user_id=:id";
+            $statement = $this->con->prepare($sql);
+            $statement->bindParam(":id",$id);
+            $statement->bindParam(":name",$name);
+            $statement->bindParam(":email",$email);
+            $statement->bindParam(":phone",$phone);
+            $statement->bindParam(":address",$address);
+            $result = $statement->execute();
+            return $result;
+        }
+    }
+
+    public function deleteUser($id){
+        $this->con = Database::connect();
+        if($this->con){
+            $today = new DateTime();
+            $strDate = $today->format('Y-m-d H:i:s');
+            $this->con = Database::connect();
+            if($this->con){
+                $sql = "update users set deleted_at=:date where user_id=:id";
+                $statement = $this->con->prepare($sql);
+                $statement->bindParam(":date",$strDate);
+                $statement->bindParam(":id",$id);
+                $result = $statement->execute();
+                return $result;
+            }
+        }
+    }
+}
