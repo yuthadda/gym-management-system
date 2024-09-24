@@ -27,6 +27,21 @@
     Interface
 </div>
 
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Memberships</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">User Components:</h6>
+            <a class="collapse-item" href="../membership/view-memberships.php">View Memberships</a>
+            <a class="collapse-item" href="../membership/create-membership.php">Add Memberships</a>
+        </div>
+    </div>
+</li>
+
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#user"
