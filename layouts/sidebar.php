@@ -52,8 +52,8 @@
     <div id="trainer" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">View Trainer</a>
-            <a class="collapse-item" href="utilities-border.html">Add Trainer</a>
+            <a class="collapse-item" href="../trainer/trainers.php">view trainers</a>
+            <a class="collapse-item" href="../trainer/create-trainer.php">add trainer</a>
             
         </div>
     </div>
