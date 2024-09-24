@@ -1,19 +1,15 @@
 <?php
 
-include_once "layouts/header.php";
+    session_start();
+
+    if(isset($_SESSION['username']))
+    {
+        header('location:view/index.php');
+    }
+    else
+    {
+        header('location:login.php');
+    }
+
 
 ?>
-<body id="page-top">
-
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-
-        <?php include_once "layouts/sidebar.php" ?>
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-        
-        <?php include_once "layouts/main.php" ?>
-
-        <?php include_once "layouts/footer.php" ?>
