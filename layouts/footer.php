@@ -19,7 +19,8 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    
+    <script src="../scripts/jquery-3.7.1.min.js"></script>
+    <script src="../scripts/trainer-script.js"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -35,8 +36,8 @@
     <script src="../vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="../js/demo/chart-area-demo.js"></script>
+    <script src="../js/demo/chart-pie-demo.js"></script>
 
 </body>
 

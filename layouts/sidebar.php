@@ -14,7 +14,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="index.php">
+    <a class="nav-link" href="../view/index.php">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
@@ -29,33 +29,31 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#user"
+        aria-expanded="true" aria-controls="user">
         <i class="fas fa-fw fa-cog"></i>
         <span>User</span>
     </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="user" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">User Components:</h6>
-            <a class="collapse-item" href="buttons.html">View User</a>
-            <a class="collapse-item" href="cards.html">Add User</a>
+            <a class="collapse-item" href="../user/view-user.php">View User</a>
+            <a class="collapse-item" href="../user/create-user.php">Add User</a>
         </div>
     </div>
 </li>
 
 <!-- Nav Item - Utilities Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-        aria-expanded="true" aria-controls="collapseUtilities">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#trainer"
+        aria-expanded="true" aria-controls="trainer">
         <i class="fas fa-fw fa-wrench"></i>
         <span>Trainer</span>
     </a>
-    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+    <div id="trainer" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Trainer:</h6>
-            <a class="collapse-item" href="utilities-color.html">View Trainer</a>
-            <a class="collapse-item" href="utilities-border.html">Add Trainer</a>
+            <a class="collapse-item" href="../trainer/trainers.php">view trainers</a>
+            <a class="collapse-item" href="../trainer/create-trainer.php">add trainer</a>
             
         </div>
     </div>
@@ -65,7 +63,7 @@
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#plan"
         aria-expanded="true" aria-controls="plan">
         <i class="fas fa-fw fa-wrench"></i>
-        <span>Subscription And Plans</span>
+        <span>Subscription & Plans</span>
     </a>
     <div id="plan" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
@@ -87,7 +85,6 @@
     <div id="facility" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            
             <a class="collapse-item" href="utilities-color.html">View Facility</a>
             <a class="collapse-item" href="utilities-border.html">Add Facility</a>
             
@@ -148,7 +145,7 @@
 
 <!-- Sidebar Message -->
 <div class="sidebar-card d-none d-lg-flex">
-    <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+    <img class="sidebar-card-illustration mb-2" src="../img/undraw_rocket.svg" alt="...">
     <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
     <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
 </div>
