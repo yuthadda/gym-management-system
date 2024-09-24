@@ -19,7 +19,8 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    
+    <script src="../scripts/jquery-3.7.1.min.js"></script>
+    <script src="../scripts/trainer-script.js"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
