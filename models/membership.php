@@ -27,7 +27,7 @@ class Membership{
     public function getAllMemberships(){
         $this->con = Database::connect();
         if($this->con){
-            $sql = "SELECT memberships.*,users.* FROM memberships JOIN users WHERE memberships.user_id=users.user_id";
+            $sql = "SELECT memberships.*,users.* FROM memberships JOIN users WHERE memberships.user_id=users.user_id AND memberships.deleted_at is null AND users.deleted_at is null";
             $statment =  $this->con->prepare($sql);
             $result = $statment->execute();
             if($result) return $statment->fetchAll();
@@ -39,7 +39,7 @@ class Membership{
     public function getMembershipById($id){
         $this->con = Database::connect();
         if($this->con){
-            $sql = "SELECT memberships.*,users.*, FROM membderships WHERE member_id=:id";
+            $sql = "SELECT memberships.*,users.* FROM memberships join users WHERE memberships.member_id=:id AND memberships.user_id=users.user_id";
             $statment =  $this->con->prepare($sql);
             $statment->bindParam(":id",$id);
             $result = $statment->execute();
@@ -53,28 +53,25 @@ class Membership{
         $dateString = $today->format('Y-m-d H:i:s');
         $this->con = Database::connect();
         if($this->con){
-            $sql = "UPDATE trainers SET deleted_at=:date WHERE trainer_id=:id";
+            $sql = "UPDATE memberships SET deleted_at=:date WHERE member_id=:id";
             $statment =  $this->con->prepare($sql);
             $statment->bindParam(':date',$dateString);
             $statment->bindParam(":id",$id);
             $result = $statment->execute();
-            if($result) return $statment->fetch();
-            else return null;
+            return $result;
         }
     }
 
-    public function update($trainer_name,$trainer_email,$trainer_phone,$trainer_salary,$id){
+    public function updateMembership($trainer_id,$weight,$height,$id){
         $this->con = Database::connect();
         if($this->con){
-            $sql = "UPDATE trainers SET trainer_name=:name,
-            trainer_email=:email,
-            trainer_phone=:phone,
-            trainer_salary=:salary WHERE trainer_id=:id";
+            $sql = "UPDATE memberships SET trainer_id=:trainer_id,
+            weight=:weight,
+            height=:height WHERE member_id=:id";
             $statment =  $this->con->prepare($sql);
-            $statment->bindParam(':name',$trainer_name);
-            $statment->bindParam(':email',$trainer_email);
-            $statment->bindParam(':phone',$trainer_phone);
-            $statment->bindParam(':salary',$trainer_salary);
+            $statment->bindParam(':trainer_id',$trainer_id);
+            $statment->bindParam(':weight',$weight);
+            $statment->bindParam(':height',$height);
             $statment->bindParam(':id',$id);
            return  $statment->execute();
         }

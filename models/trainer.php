@@ -60,8 +60,7 @@ class Trainer{
             $statment->bindParam(':date',$dateString);
             $statment->bindParam(":id",$id);
             $result = $statment->execute();
-            if($result) return $statment->fetch();
-            else return null;
+            return $result;
         }
     }
 

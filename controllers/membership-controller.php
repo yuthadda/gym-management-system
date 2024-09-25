@@ -11,21 +11,21 @@ class MembershipController{
         return $membership->getAllMemberships();
     }
 
-    public function getTrainerById($id){
-        $trainer = new Trainer();
-        return $trainer->getTrainerById($id);
+    public function getMembershipById($id){
+        $membership = new Membership();
+        return $membership->getMembershipById($id);
     }
 
-    public function update($trainer_name,$trainer_email,$trainer_phone,$trainer_salary,$id){
+    public function update($trainer_id,$weight,$height,$id){
 
-        $trainer = new Trainer();
-        return $trainer->update($trainer_name,$trainer_email,$trainer_phone,$trainer_salary,$id);
+        $membership = new Membership();
+        return $membership->updateMembership($trainer_id,$weight,$height,$id);
         
     }
 
     public function delete($id){
-        $trainer = new Trainer();
-        return $trainer->delete($id);
+       $membership = new Membership();
+       return $membership->delete($id);
     }
     
 }

@@ -10,13 +10,13 @@ if(isset($_POST['id'])){
 
     if($result){
         $data = array(
-            "status" => 'success'
+            "status" => 'true'
         );
         echo json_encode($data);
         
     }else{
         $data = array(
-            "status" => 'fail'
+            "status" => 'false'
         );
         echo json_encode($data);
 
