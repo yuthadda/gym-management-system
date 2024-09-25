@@ -96,9 +96,9 @@ if(isset($_POST['submit']))
                     <form action="" method="POST">
 
 
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-8 my-3">
                             <label for="" class="form-label">User Name</label>
-                            <select name="user_id" id="" class=" form-select" required  >
+                            <select name="user_id" id="" class=" form-control" required  >
                                 <option value="">Choose User Name</option>
                                 <?php foreach($users as $user): ?>
                                     <option value="<?= $user['user_id'] ?>"><?= $user['user_name'] ?></option>
@@ -106,9 +106,9 @@ if(isset($_POST['submit']))
                             </select>
                         </div>
 
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-8 my-3">
                             <label for="" class="form-label">Trainer Name</label>
-                            <select name="trainer_id" id="" class="form-select">
+                            <select name="trainer_id" id="" class="form-control">
                             <option value="">Choose Trainer Name</option>
                             <option value="">No Trainer</option>
                             <?php foreach($trainers as $trainer): ?>
