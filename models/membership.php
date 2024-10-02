@@ -77,4 +77,15 @@ class Membership{
         }
     }
 
+    public function countAttendance($id){
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "UPDATE memberships SET attendance =attendance+1 WHERE member_id=:id";
+            $statment =  $this->con->prepare($sql);
+            $statment->bindParam(":id",$id);
+            $result = $statment->execute();
+            return $result;
+        }
+    }
+
 }

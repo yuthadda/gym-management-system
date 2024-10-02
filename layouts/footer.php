@@ -22,6 +22,8 @@
     <script src="../scripts/jquery-3.7.1.min.js"></script>
     <script src="../scripts/trainer-script.js"></script>
 
+    <script src="https://kit.fontawesome.com/a67197b46d.js" crossorigin="anonymous"></script>
+
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

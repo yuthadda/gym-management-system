@@ -6,10 +6,12 @@ include_once "../layouts/header.php";
 
 <?php 
 
-require_once "../controllers/membership-controller.php";
+require_once "../controllers/progress-controller.php";
 
-$membershipController = new MembershipController();
-$memberships = $membershipController->getAllMemberships();
+$id = $_GET['id'];
+
+$progressController = new ProgressController();
+$progresses = $progressController->getProgressById($id);
 
 ?>
 
@@ -67,32 +69,35 @@ $memberships = $membershipController->getAllMemberships();
 
 
 <div class="row">
-    <div class="col-md-9 mx-auto">
+    <div class="col-md-12 mx-auto">
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>No.</th>
                     <th>Member ID</th>
                     <th>Member Name</th>
+                   <th>New Weight</th>
+                   <th>New Height</th>
+                   <th>Date</th>
                    
-                    <th>Address</th>
-                    <th>Actions</th>
+                    <!-- <th>Actions</th> -->
                 </tr>
             </thead>
             <tbody><?php $count=1; ?>
-                    <?php foreach($memberships as $membership): ?>
-                        <tr id="<?= $membership['member_id'] ?>">
+                    <?php foreach($progresses as $progress): ?>
+                        <tr id="<?= $progress['prog_id'] ?>">
                             <td><?= $count++ ?></td>
-                            <td><?= 'GM-'.$membership['member_id'] ?></td>
-                            <td><?= $membership['user_name'] ?></td>
+                            <td><?= 'GM-'.$progress['member_id'] ?></td>
+                            <td><?= $progress['user_name'] ?></td>
+                            <td><?= $progress['new_weight'] ?></td>
+                            <td><?= $progress['new_height'] ?></td>
+                            <td><?= $progress['created_at'] ?></td>
                             
-                            <td><?= $membership['user_address'] ?></td>
-                            <td>
-                                <a href='./membership-detail.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-info" >More Info</a>
-                                <a href='./membership-progress.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-success" >progress</a>
-                                <a href='./edit-membership.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-success" >Edit</a>
-                                <a  class="btn btn-sm btn-danger btnDeleteMembership" >Del</a>
-                            </td>
+                            
+                            <!-- <td>
+                                <a href='./edit-membership.php?id=<?= $progress['prog_id'] ?>' class="btn btn-sm btn-success" >Edit</a>
+                                <a  class="btn btn-sm btn-danger btnDeleteProgress" >Del</a>
+                            </td> -->
                         </tr>
                     <?php endforeach; ?>
             </tbody>

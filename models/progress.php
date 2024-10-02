@@ -2,33 +2,31 @@
 
 include_once ('../includes/db.php');
 
-class Plan{
+class Progress{
 
-    public $planName,$planPrice,$planDuration,$planDescription;
-    public $con;
+        public $con;
 
     public function __construct()
     {
-        $this->planName         = "default";
-        $this->planPrice        = "default";
-        $this->planDuration     = "default";
-        $this->planDescription = "default";
+        
     }
 
 //----------------------------------------Start Add Data----------------------------------------------------------
-    public function addPlan($planName,$planPrice,$planDuration,$planDescription)
+    public function addProgress($memberId,$weight,$height)
     {
+        $today = new DateTime();
+        $dateString = $today->format('Y-m-d');
             $this->con = Database::connect();
             if($this->con)
             {
-                $sql = 'insert into plans(plan_name,plan_price,Plan_duration,Plan_description)
-                      values(:planName , :planPrice , :planDuration , :planDescription)';
+                $sql = 'insert into progresses(member_id,new_weight,new_height,created_at)
+                      values(:memberId , :weight , :height , :createdAt)';
 
                 $statement = $this->con->prepare($sql);
-                $statement->bindParam(':planName',$planName);
-                $statement->bindParam(':planPrice',$planPrice);
-                $statement->bindParam(':planDuration',$planDuration);
-                $statement->bindParam(':planDescription',$planDescription);
+                $statement->bindParam(':memberId',$memberId);
+                $statement->bindParam(':weight',$weight);
+                $statement->bindParam(':height',$height);
+                $statement->bindParam(':createdAt',$dateString);
                $result = $statement->execute();
                 return $result;
             }
@@ -37,10 +35,10 @@ class Plan{
 
 //----------------------------------------Start get Data----------------------------------------------------------
 
-    public function showPlan()
+    public function showAllProgress()
     {
         $this->con = Database::connect();
-        $sql       = 'select * from plans where deleted_at is null';
+        $sql       = 'select progresses.*,memberships.*,users.* from progresses join memberships join users where progresses.member_id=memberships.member_id and memberships.user_id=users.user_id and users.deleted_at is null and progresses.deleted_at is null and memberships.deleted_at is null';
         $statement = $this->con->prepare($sql);
         $result    = $statement->execute();
         if($result)
@@ -55,20 +53,30 @@ class Plan{
 
 //----------------------------------------Start get Data By Id----------------------------------------------------------
 
-public function getPlanByID($id)
+public function getProgressById($id)
         {
             $this->con=Database::connect();
-            $sql = "select * from plans where  plan_id=:id";
+             $sql = 'select progresses.*,memberships.*,users.* from
+              progresses join memberships join users
+               where memberships.member_id=:id 
+               and progresses.member_id=memberships.member_id
+               and memberships.user_id = users.user_id
+               and users.deleted_at is null
+               and  progresses.deleted_at is null
+                and memberships.deleted_at is null';
             $statement=$this->con->prepare($sql);
             $statement->bindParam(":id",$id);
             $result=$statement->execute();
             if($result)
             {
-                return $statement->fetch();
+                return $statement->fetchAll();
             }
             else
             return null;
         }
+
+
+
 
 
 }

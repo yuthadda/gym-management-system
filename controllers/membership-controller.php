@@ -27,5 +27,10 @@ class MembershipController{
        $membership = new Membership();
        return $membership->delete($id);
     }
+
+    public function countAttendance($id){
+        $membership = new Membership();
+        return $membership->countAttendance($id);
+     }
     
 }

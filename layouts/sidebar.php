@@ -117,32 +117,32 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#facility"
-        aria-expanded="true" aria-controls="facility">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#attendance"
+        aria-expanded="true" aria-controls="attendance">
         <i class="fas fa-fw fa-wrench"></i>
         <span>Attendance</span>
     </a>
-    <div id="facility" class="collapse" aria-labelledby="headingUtilities"
+    <div id="attendance" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="../facility/view-facility.php">Check In </a>
-            <a class="collapse-item" href="../facility/create-facility.php">View Attendance</a>
+            <a class="collapse-item" href="../attendance/view-attendance.php">View In </a>
+           
             
         </div>
     </div>
 </li>
 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#facility"
-        aria-expanded="true" aria-controls="facility">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#progress"
+        aria-expanded="true" aria-controls="progress">
         <i class="fas fa-fw fa-wrench"></i>
         <span>Member Progress</span>
     </a>
-    <div id="facility" class="collapse" aria-labelledby="headingUtilities"
+    <div id="progress" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="../facility/view-facility.php">Check In </a>
-            <a class="collapse-item" href="../facility/create-facility.php">View Attendance</a>
+            <a class="collapse-item" href="../progress/create-progress.php">Update Progress </a>
+            <a class="collapse-item" href="../progress/view-progress.php">View Progress</a>
             
         </div>
     </div>

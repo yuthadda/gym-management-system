@@ -99,4 +99,33 @@ $(document).ready(function(){
         }
     })
 
+//------------------------------------------------------------------Update Count----------------------------------------------------------
+    $(document).on('click','.btnCheckIn',function(){
+        let btnCheckIn = $(this);
+        let tr = btnCheckIn.parent().parent();
+        let id = tr.attr('id');
+        console.log(tr);
+        console.log(id);
+        let status = confirm("Are you sure to Check In?");
+        if(status){
+            $.ajax(
+                {
+                    url : 'check-in.php',
+                    method : 'post',
+                    data : {id:id},
+                    success:function(response){
+                        let result = JSON.parse(response);
+                        if(result.status=="true"){
+                            window.location.reload();
+                        }else{
+                            alert("You can't delete");
+                        }
+                    }
+                }
+            )
+        }
+     })
+
+
+
 })

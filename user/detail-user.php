@@ -9,6 +9,7 @@ if (isset($_GET['id'])) {
     $user = new UserController();
     $user = $user->getUserById($id);
 }
+var_dump($id);
 
 ?>
 

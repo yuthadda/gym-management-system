@@ -67,7 +67,7 @@ $memberships = $membershipController->getAllMemberships();
 
 
 <div class="row">
-    <div class="col-md-9 mx-auto">
+    <div class="col-md-12 mx-auto">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -76,7 +76,10 @@ $memberships = $membershipController->getAllMemberships();
                     <th>Member Name</th>
                    
                     <th>Address</th>
-                    <th>Actions</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Attendance Count</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody><?php $count=1; ?>
@@ -85,13 +88,14 @@ $memberships = $membershipController->getAllMemberships();
                             <td><?= $count++ ?></td>
                             <td><?= 'GM-'.$membership['member_id'] ?></td>
                             <td><?= $membership['user_name'] ?></td>
-                            
+                            <td><?= $membership['user_phone'] ?></td>
                             <td><?= $membership['user_address'] ?></td>
+                            <td><?= $membership['user_email'] ?></td>
+                            <td><?= $membership['attendance'].' Days' ?></td>
+
                             <td>
-                                <a href='./membership-detail.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-info" >More Info</a>
-                                <a href='./membership-progress.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-success" >progress</a>
-                                <a href='./edit-membership.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-success" >Edit</a>
-                                <a  class="btn btn-sm btn-danger btnDeleteMembership" >Del</a>
+                                
+                                <a  class="btn btn-sm btn-info btnCheckIn" >Check In</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

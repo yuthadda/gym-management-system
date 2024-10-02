@@ -1,15 +1,13 @@
 <?php
 
-include_once ('../controllers/planController.php');
+include_once ('../controllers/plan-controller.php');
 
 $planController = new PlanController();
 $plans = $planController->showPlan();
 
 ?>
 
-<?php
-include_once ('../controllers/planController.php');
-?>
+
 
 <?php include_once ('../layouts/header.php') ?>
 
@@ -48,8 +46,8 @@ include_once ('../controllers/planController.php');
                 echo "<td>" .$plan['plan_price']." $" ."</td>";
                 echo "<td>" .$plan['plan_duration']." months" ."</td>";
                 echo "<td>" .$plan['plan_description'] ."</td>";
-                echo "<td> <a class='btn btn-info mx-2' href='read-plan.php?plan_id=".$plan['plan_id']."'>Read </a>
-                           <a class='btn btn-warning mx-2' href='edit-plan.php?plan_id=".$plan['plan_id']."'>Edit</a>
+                echo "<td> <a class='btn btn-info mx-2' href='detail-plan.php?plan_id=".$plan['plan_id']."'>Read </a>
+                           <a class='btn btn-warning mx-2' href='edit-plan.php?plan_id=".$plan['plan_id']."'>Update</a>
                            <button class='btn btn-danger btnPlanDelete'>Delete</button>"
                         ."</td>";
                 

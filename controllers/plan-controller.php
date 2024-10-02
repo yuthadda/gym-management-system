@@ -11,12 +11,23 @@ class PlanController{
         return $result;
     }
 
+   
     public function showPlan()
     {
         $plan   = new Plan();
         $result = $plan->showPlan();
        return $result;
     }
+
+    
+    public function getPlanById($id)
+    {
+        $plan   = new Plan();
+        return $plan->getPlanById($id);
+       
+    }
+
+    
 
 }
 
