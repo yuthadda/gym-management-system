@@ -1,7 +1,14 @@
 // Sidebar
 .sidebar {
-    width: $sidebar-collapsed-width;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $sidebar-base-width;
+    //width: $sidebar-collapsed-width;
     min-height: 100vh;
+    z-index: 1000;
+    
+   
     
 
     .nav-item {
