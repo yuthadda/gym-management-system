@@ -1,3 +1,27 @@
+<?php
+
+    include_once "../controllers/trainer-controller.php";
+    include_once "../controllers/facility-controller.php";
+    include_once "../controllers/payment-controller.php";
+
+    $trainerController = new TrainerController();
+    $trainer = $trainerController->getTotalSalary();
+
+    $facilityController = new FacilityController();
+    $facilities = $facilityController->getTotalPrice();
+
+    $expense = $trainer['total'] + $facilities['total_fac'];
+
+    $paymentController = new PaymentController();
+    $payments = $paymentController->getAllPayment();
+    $totalPaymentPrice = 0;
+    foreach($payments as $payment){
+        $totalPaymentPrice += $payment['plan_price'];
+    }
+
+
+?>
+
 <!-- Main Content -->
 <div id="content">
 
@@ -23,8 +47,8 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Earnings (Monthly)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                Expense (Monthly)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $expense ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -42,7 +66,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Earnings (Annual)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $totalPaymentPrice ?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>

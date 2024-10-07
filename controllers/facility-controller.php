@@ -27,6 +27,11 @@ class FacilityController{
         $facility = new FacilityModel();
         return $facility->deleteFacility($id);
     }
+
+    public function getTotalPrice(){
+        $facility = new FacilityModel();
+        return $facility->getTotalPrice();
+    }
 }
 
 ?>

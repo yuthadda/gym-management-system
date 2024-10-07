@@ -27,5 +27,10 @@ class TrainerController{
         $trainer = new Trainer();
         return $trainer->delete($id);
     }
+
+    public function getTotalSalary(){
+        $trainer = new Trainer();
+        return $trainer->getTotalSalary();
+    }
     
 }

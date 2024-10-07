@@ -75,7 +75,21 @@ Class FacilityModel{
             $result = $statement->execute();
             return $result;
         }
+    
     }
+
+    public function getTotalPrice(){
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "SELECT SUM(fac_price * fac_qty) as total_fac FROM facilities WHERE deleted_at is null";
+            $statment =  $this->con->prepare($sql);
+            $result = $statment->execute();
+            if($result) return $statment->fetch();
+            else return null;
+        }
+
+    }
+
 }
 
 ?>

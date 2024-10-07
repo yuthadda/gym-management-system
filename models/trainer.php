@@ -81,4 +81,18 @@ class Trainer{
         }
     }
 
+    
+    public function getTotalSalary(){
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "SELECT SUM(trainer_salary) as total FROM trainers WHERE deleted_at is null";
+            $statment =  $this->con->prepare($sql);
+            $result = $statment->execute();
+            if($result) return $statment->fetch();
+            else return null;
+        }
+
+    }
+
+
 }
