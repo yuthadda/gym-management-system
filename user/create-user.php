@@ -31,10 +31,11 @@ if(isset($_POST['submit'])){
     }
 
     if(!$error){
+        $user = new UserController();
+        $user = $user->insertUser($name,$email,$phone,$address);
         header('location:view-user.php?msg=addsuccess');
     }
-    $user = new UserController();
-    $user = $user->insertUser($name,$email,$phone,$address);
+    
    
 }
 

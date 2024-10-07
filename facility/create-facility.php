@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
         $price = $_POST['price'];
     }
     if(empty($_POST['qty'])){
-        $error_qty = "Please enter qty";
+        $error_qty = "Please enter quantity";
         $error = true;
     }else{
         $qty = $_POST['qty'];
@@ -31,12 +31,13 @@ if(isset($_POST['submit'])){
     }
 
     if(!$error){
+        $facility = new FacilityController();
+        $facility = $facility->insertFacility($name,$price,$qty,$vendor);
         header("location:view-facility.php?msg=addsuccess");
     }
 
-    $facility = new FacilityController();
-    $facility = $facility->insertFacility($name,$price,$qty,$vendor);
-    var_dump($facility);
+    
+    
 }
 
 
