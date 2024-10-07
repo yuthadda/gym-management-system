@@ -10,7 +10,15 @@ class Payment{
     {
         $this->con = Database::connect();
         if ($this->con) {
-            $sql = "select * from payments where deleted_at is null";
+            $sql = "select payments.*,memberships.*,plans.*,users.user_name from payments
+             join memberships join plans join users
+             where payments.member_id=memberships.member_id
+             and payments.plan_id=plans.plan_id
+             and memberships.user_id=users.user_id
+             and memberships.deleted_at is null
+             and plans.deleted_at is null
+             and users.deleted_at is null
+             and payments.deleted_at is null";
             $statement = $this->con->prepare($sql);
             $result = $statement->execute();
             if ($result) {
@@ -98,6 +106,24 @@ class Payment{
                 $statement = $this->con->prepare($sql);
                 $statement->bindParam(":date",$strDate);
                 $statement->bindParam(":id",$id);
+                $result = $statement->execute();
+                return $result;
+            }
+        }
+    }
+
+    public function checkExpired(){
+        $this->con = Database::connect();
+        if($this->con){
+            $today = new DateTime();
+            $strDate = $today->format('Y-m-d');
+            $status = "expired";
+            $this->con = Database::connect();
+            if($this->con){
+                $sql = "update payments set status=:status where expired_date<:date";
+                $statement = $this->con->prepare($sql);
+                $statement->bindParam(':status',$status);
+                $statement->bindParam(":date",$strDate);
                 $result = $statement->execute();
                 return $result;
             }
