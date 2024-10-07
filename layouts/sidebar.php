@@ -27,20 +27,7 @@
     Interface
 </div>
 
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
-        <span>Memberships</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">User Components:</h6>
-            <a class="collapse-item" href="../membership/view-memberships.php">View Memberships</a>
-            <a class="collapse-item" href="../membership/create-membership.php">Add Memberships</a>
-        </div>
-    </div>
-</li>
+
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
@@ -53,6 +40,21 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="../user/view-user.php">View User</a>
             <a class="collapse-item" href="../user/create-user.php">Add User</a>
+        </div>
+    </div>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Memberships</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">User Components:</h6>
+            <a class="collapse-item" href="../membership/view-memberships.php">View Memberships</a>
+            <a class="collapse-item" href="../membership/create-membership.php">Add Memberships</a>
         </div>
     </div>
 </li>
@@ -143,6 +145,22 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="../progress/create-progress.php">Update Progress </a>
             <a class="collapse-item" href="../progress/view-progress.php">View Progress</a>
+            
+        </div>
+    </div>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#payment"
+        aria-expanded="true" aria-controls="payment">
+        <i class="fas fa-fw fa-wrench"></i>
+        <span>Payment</span>
+    </a>
+    <div id="payment" class="collapse" aria-labelledby="headingUtilities"
+        data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="../payment/create-payment.php">Make Payment </a>
+            <a class="collapse-item" href="../payment/view-payments.php">View Payment</a>
             
         </div>
     </div>

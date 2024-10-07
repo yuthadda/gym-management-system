@@ -34,5 +34,10 @@ class PaymentController{
         $payment = new Payment();
         return $payment->deletePayment($id);
     }
+
+    function checkExpire(){
+        $payment = new Payment();
+        return $payment->checkExpired();
+    }
     
 }
