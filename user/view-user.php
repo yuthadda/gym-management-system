@@ -63,7 +63,9 @@ $users = $user->getAllUser();
                                 <td>" . $user['user_email'] . "</td>
                                 <td>" . $user['user_phone'] . "</td>
                                 <td>" . $user['user_address'] . "</td>
-                                <td><a class='btn btn-primary' href='detail-user.php?id=" . $user['user_id'] . "'>Detail</a><a class='btn btn-primary' href='edit-user.php?id= ".$user['user_id']."'>Edit</a><a class='btn btn-primary btnDeleteUser'>Delete</a></td>
+                                <td><a class='btn btn-primary' href='detail-user.php?id=" . $user['user_id'] . "'>Detail</a>
+                                <a class='btn btn-primary' href='edit-user.php?id= ".$user['user_id']."'>Edit</a>
+                                <a class='btn btn-primary btnDeleteUser'>Delete</a></td>
                             </tr>
                             ";
                                 }

@@ -27,7 +27,11 @@ class Membership{
     public function getAllMemberships(){
         $this->con = Database::connect();
         if($this->con){
-            $sql = "SELECT memberships.*,users.* FROM memberships JOIN users WHERE memberships.user_id=users.user_id AND memberships.deleted_at is null AND users.deleted_at is null";
+            $sql = "SELECT memberships.*,users.*
+            FROM memberships JOIN users
+             WHERE memberships.user_id=users.user_id 
+             AND memberships.deleted_at is null 
+             AND users.deleted_at is null";
             $statment =  $this->con->prepare($sql);
             $result = $statment->execute();
             if($result) return $statment->fetchAll();
@@ -39,7 +43,10 @@ class Membership{
     public function getMembershipById($id){
         $this->con = Database::connect();
         if($this->con){
-            $sql = "SELECT memberships.*,users.* FROM memberships join users WHERE memberships.member_id=:id AND memberships.user_id=users.user_id";
+            $sql = "SELECT memberships.*,users.*
+             FROM memberships join users  
+             WHERE memberships.member_id=:id 
+             AND memberships.user_id=users.user_id";
             $statment =  $this->con->prepare($sql);
             $statment->bindParam(":id",$id);
             $result = $statment->execute();
@@ -86,6 +93,24 @@ class Membership{
             $result = $statment->execute();
             return $result;
         }
+    }
+
+
+    public function getAllMembershipsAttendance(){
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "SELECT memberships.*,users.*,attendances.*
+            FROM memberships JOIN users join attendances
+             WHERE memberships.user_id=users.user_id 
+             AND memberships.member_id=attendances.member_id 
+             AND memberships.deleted_at is null 
+             AND users.deleted_at is null";
+            $statment =  $this->con->prepare($sql);
+            $result = $statment->execute();
+            if($result) return $statment->fetchAll();
+            else return null;
+        }
+
     }
 
 }

@@ -6,10 +6,35 @@ include_once "../layouts/header.php";
 
 <?php 
 
+
+
 require_once "../controllers/membership-controller.php";
 
 $membershipController = new MembershipController();
-$memberships = $membershipController->getAllMemberships();
+$memberships = $membershipController->getAllMembershipsAttendance();
+
+include_once  "../controllers/attendance-controller.php";
+
+
+$attendanceController = new AttendanceController();
+
+
+if(isset($_GET['id'])){
+
+    $id = $_GET['id'];
+
+    
+    $attendance = $attendanceController->insertAttendanceById($id);
+    $exist = $attendanceController->getStatusdataById($id);
+    
+}
+
+
+
+
+
+
+
 
 ?>
 
@@ -78,7 +103,7 @@ $memberships = $membershipController->getAllMemberships();
                     <th>Address</th>
                     <th>Phone</th>
                     <th>Email</th>
-                    <th>Attendance Count</th>
+                    
                     <th>Action</th>
                 </tr>
             </thead>
@@ -91,12 +116,19 @@ $memberships = $membershipController->getAllMemberships();
                             <td><?= $membership['user_phone'] ?></td>
                             <td><?= $membership['user_address'] ?></td>
                             <td><?= $membership['user_email'] ?></td>
-                            <td><?= $membership['attendance'].' Days' ?></td>
+                            
+                            
 
                             <td>
-                                
-                                <a  class="btn btn-sm btn-info btnCheckIn" >Check In</a>
+                                <?php if($membership['atten_status']=='present') : ?>
+                           
+                                    <a  class="btn btn-sm btn-danger " >Already Checked</a>
+
+                                <?php else : ?>
+                           <a href="view-attendance.php?id=<?= $membership['member_id'] ?>" class="btn btn-sm btn-info btnCheck" >Check In</a>
+                           <?php endif; ?> 
                             </td>
+                            
                         </tr>
                     <?php endforeach; ?>
             </tbody>
