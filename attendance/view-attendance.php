@@ -16,23 +16,8 @@ $memberships = $membershipController->getAllMembershipsAttendance();
 include_once  "../controllers/attendance-controller.php";
 
 
+
 $attendanceController = new AttendanceController();
-
-
-if(isset($_GET['id'])){
-
-    $id = $_GET['id'];
-
-    
-    $attendance = $attendanceController->insertAttendanceById($id);
-    $exist = $attendanceController->getStatusdataById($id);
-    
-}
-
-
-
-
-
 
 
 
@@ -120,12 +105,12 @@ if(isset($_GET['id'])){
                             
 
                             <td>
-                                <?php if($membership['atten_status']=='present') : ?>
+                                <?php if($membership['atten_status']==null) : ?>
                            
-                                    <a  class="btn btn-sm btn-danger " >Already Checked</a>
+                                    <button disabled="true"  class="btn btn-sm btn-info btnCheck" >Check In</button>
 
                                 <?php else : ?>
-                           <a href="view-attendance.php?id=<?= $membership['member_id'] ?>" class="btn btn-sm btn-info btnCheck" >Check In</a>
+                                <span>Already checked</span>
                            <?php endif; ?> 
                             </td>
                             
@@ -143,5 +128,6 @@ if(isset($_GET['id'])){
 
 </div>
 <!-- End of Main Content -->
+
 
         <?php include_once "../layouts/footer.php" ?>

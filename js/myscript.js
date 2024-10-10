@@ -99,6 +99,28 @@ $(document).ready(function(){
         }
     })
 
+    //--------------------------------
+    $(document).on('click','.btnCheck',function(){
+        let btnCheck = $(this);
+        let tr = btnCheck.parent().parent();
+        let btn = tr.children()[6];
+        console.log(btn.innerText);
+        let id = tr.attr('id');
+
+        let status =confirm("Are you sure to check in?")
+        if(status){
+            $.ajax({
+                method : "post",
+                url: "new-check-in.php",
+                data: {id:id},
+                success: function (response) {
+                   btn.innerText = response
+                //    window.location.reload()
+                }
+            });
+        }
+    })
+
 //------------------------------------------------------------------Update Count----------------------------------------------------------
     $(document).on('click','.btnCheck',function(){
         // let btnCheckIn = $(this);
@@ -109,7 +131,7 @@ $(document).ready(function(){
         
         
                         
-                            window.location.reload();
+                            // window.location.reload();
                         
                     
                 

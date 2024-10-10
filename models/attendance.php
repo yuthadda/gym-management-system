@@ -28,7 +28,7 @@ public $atten_status = "present";
                 $statement = $this->con->prepare($sql);
                 $statement->bindParam(':id',$member_id);
                 $statement->bindParam(':date',$dateString);
-               $result = $statement->execute();
+                 $result = $statement->execute();
                 
                if($result)
                {
@@ -54,7 +54,6 @@ public $atten_status = "present";
             $statement->bindParam(':date',$dateString);
             $statement->bindParam(':atten_status',$this->atten_status);
              return  $result = $statement->execute();
-
                }
                
             }
@@ -65,16 +64,15 @@ public $atten_status = "present";
 
     public function getstatusById($member_id)
     {
+        $today = new DateTime();
+        $dateString = $today->format('Y-m-d');
         $this->con = Database::connect();
-        $sql       = 'Update attendances set atten_status="present"  where   member_id=:id';
+        $sql       = 'Update attendances set atten_status="present"  where   member_id=:id and check_date=:date';
         $statement = $this->con->prepare($sql);
         $statement->bindParam(":id",$member_id);
+        $statement->bindParam(':date',$dateString);
         $result    = $statement->execute();
-        if($result)
-        {
-            return $statement->fetch();  
-        }
-        return null;
+       return $result;
     }
 
 //----------------------------------------End get Data----------------------------------------------------------

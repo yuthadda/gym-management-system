@@ -37,5 +37,10 @@ class MembershipController{
         $membership = new Membership();
         return $membership->getAllMembershipsAttendance();
     }
+
+    public function memberCount(){
+        $membership = new Membership();
+        return $membership->membershipCount();
+    }
     
 }

@@ -33,7 +33,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#user"
         aria-expanded="true" aria-controls="user">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fa-solid fa-user fa-fw"></i>
         <span>User</span>
     </a>
     <div id="user" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -47,7 +47,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fa-solid fa-fw fa-dumbbell"></i>
         <span>Memberships</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -96,7 +96,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#facility"
         aria-expanded="true" aria-controls="facility">
-        <i class="fas fa-fw fa-wrench"></i>
+        <i class="fa-solid fa-fw fa-dumbbell"></i>
         <span>Facility</span>
     </a>
     <div id="facility" class="collapse" aria-labelledby="headingUtilities"

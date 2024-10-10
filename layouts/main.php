@@ -3,6 +3,7 @@
     include_once "../controllers/trainer-controller.php";
     include_once "../controllers/facility-controller.php";
     include_once "../controllers/payment-controller.php";
+    include_once "../controllers/membership-controller.php";
 
     $trainerController = new TrainerController();
     $trainer = $trainerController->getTotalSalary();
@@ -18,6 +19,9 @@
     foreach($payments as $payment){
         $totalPaymentPrice += $payment['plan_price'];
     }
+
+    $membershipController = new MembershipController();
+    $member = $membershipController->memberCount();
 
 
 ?>
@@ -112,11 +116,11 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Pending Requests</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                Total Gym Members</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $member['memberCount'] ?></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            <i class="fa-solid fa-people-group fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
