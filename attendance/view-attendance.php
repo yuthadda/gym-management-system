@@ -124,10 +124,10 @@ $today = new DateTime()
                                 <?php if($membership['check_date']==$today->format('Y-m-d')
                                 || $membership['atten_status']=='present') : ?>
                            
-                                    <button disabled="true"  class="btn btn-sm btn-info btnCheck" >Check In</button>
+                                    <button disabled="true"  class="btn btn-sm btn-danger" >Already Checked</button>
 
                                 <?php else : ?>
-                                <span>Already checked</span>
+                                <button class=" btn btn-info  btnCheck" >Check In</button>
                            <?php endif; ?> 
                             </td>
                             
