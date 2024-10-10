@@ -31,7 +31,7 @@ if(isset($_GET['id'])){
 
 
 
-
+$today = new DateTime()
 
 
 
@@ -120,7 +120,8 @@ if(isset($_GET['id'])){
                             
 
                             <td>
-                                <?php if($membership['atten_status']=='present') : ?>
+                                <?php if($membership['check_date']==$today->format('Y-m-d')
+                                || $membership['atten_status']=='present') : ?>
                            
                                     <a  class="btn btn-sm btn-danger " >Already Checked</a>
 
