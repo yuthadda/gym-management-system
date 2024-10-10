@@ -20,6 +20,22 @@ include_once  "../controllers/attendance-controller.php";
 $attendanceController = new AttendanceController();
 
 
+if(isset($_GET['id'])){
+
+    $id = $_GET['id'];
+
+    
+    $attendance = $attendanceController->insertAttendanceById($id);
+    $exist = $attendanceController->getStatusdataById($id);
+    
+}
+
+
+
+$today = new DateTime()
+
+
+
 
 ?>
 
@@ -105,7 +121,8 @@ $attendanceController = new AttendanceController();
                             
 
                             <td>
-                                <?php if($membership['atten_status']==null) : ?>
+                                <?php if($membership['check_date']==$today->format('Y-m-d')
+                                || $membership['atten_status']=='present') : ?>
                            
                                     <button disabled="true"  class="btn btn-sm btn-info btnCheck" >Check In</button>
 

@@ -135,9 +135,8 @@ class Membership{
              AND memberships.member_id=attendances.member_id 
              AND memberships.deleted_at is null 
              AND users.deleted_at is null
-           
-             ";
-            //  and attendances.atten_status is not null
+             AND attendances.deleted_at is null
+             Group by memberships.member_id";
             $statment =  $this->con->prepare($sql);
             // $statment->bindParam(':date',$dateString);
             $result = $statment->execute();
@@ -147,4 +146,18 @@ class Membership{
 
     }
 
+    // public function getAllMembershipsAttendance(){
+    //     $this->con = Database::connect();
+    //     if($this->con){
+    //         $sql = "SELECT memberships.*,users.*
+    //         FROM memberships JOIN users
+    //          WHERE memberships.user_id=users.user_id 
+    //          AND memberships.deleted_at is null 
+    //          AND users.deleted_at is null";
+    //         $statment =  $this->con->prepare($sql);
+    //         $result = $statment->execute();
+    //         if($result) return $statment->fetchAll();
+    //         else return null;
+    //     }
+    // }
 }

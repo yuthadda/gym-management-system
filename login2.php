@@ -1,3 +1,18 @@
+<?php
+session_start();
+    if(isset($_POST["submit"]))
+    {
+        if(!empty($_POST["email"]) && !empty($_POST["password"]))
+        {
+            $email = $_POST["email"];
+            $_SESSION['username']=$email;
+            header('location:view/index.php');
+        }
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,17 +26,18 @@
 <body>
     <div class="container">
         <div class="signin-signup">
-            <form action="" class="sign-in-form">
+            <form action=""method="post" class="sign-in-form">
                 <h2 class="title">Sign in</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Username">
+                    <input type="text" name="email" placeholder="Username" required>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password" required>
                 </div>
-                <input type="submit" value="Login" class="btn">
+                <button class="btn btn-dark" name="submit">Login</button>
+                
                 <p class="social-text">Or Sign in with social platform</p>
                 <div class="social-media">
                     <a href="#" class="social-icon">
@@ -76,21 +92,45 @@
             <div class="panel left-panel">
                 <div class="content">
                     <h3>Member of Brand?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
-                    <button class="btn" id="sign-in-btn">Sign in</button>
+                    <p>Already Have Account.Signin To Your Account</p>
+                    <button class="btn"  id="sign-in-btn">Sign in</button>
                 </div>
-                <img src="signin.svg" alt="" class="image">
+                <img src="img/signin.svg" alt="" class="image">
             </div>
             <div class="panel right-panel">
                 <div class="content">
                     <h3>New to Brand?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
+                    <p>Welcome To Our Grand Mandalay Gym </p>
                     <button class="btn" id="sign-up-btn">Sign up</button>
                 </div>
-                <img src="signup.svg" alt="" class="image">
+                <img src="img/signup.svg" alt="" class="image">
             </div>
         </div>
     </div>
-    <script src="app.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script >
+
+let sign_in_btn  = document.querySelector("#sign-in-btn");
+let sign_up_btn  = document.querySelector("#sign-up-btn");
+let container    = document.querySelector(".container");
+let sign_in_btn2 = document.querySelector("#sign-in-btn2");
+let sign_up_btn2 = document.querySelector("#sign-up-btn2");
+
+sign_up_btn.addEventListener("click", () => {
+    container.classList.add("sign-up-mode");
+});
+
+sign_in_btn.addEventListener("click", () => {
+    container.classList.remove("sign-up-mode");
+});
+
+sign_up_btn2.addEventListener("click", () => {
+    container.classList.add("sign-up-mode2");
+});
+sign_in_btn2.addEventListener("click", () => {
+    container.classList.remove("sign-up-mode2");
+});
+    </script>
 </body>
 </html>
