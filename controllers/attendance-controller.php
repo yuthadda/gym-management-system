@@ -12,6 +12,15 @@ class AttendanceController{
         
     }
 
+    public function CreateAttendance($member_id)
+    {
+        $attendance   = new Attendance();
+        $result =  $attendance->createAtten($member_id);
+        return $result;
+        
+    }
+
+
     // public function exit($member_id)
     // {
     //     $attendance   = new Attendance();
