@@ -56,6 +56,28 @@ class Membership{
 
     }
 
+    public function getAllMembershipsForAtten(){
+        $today = new DateTime();
+        $dateString = $today->format('Y-m-d');
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "SELECT memberships.*,users.*,attendances.*
+            FROM memberships JOIN users JOIN attendances
+             where attendances.check_date=:date
+             and memberships.member_id = attendances.member_id
+             and  memberships.user_id=users.user_id 
+             AND memberships.deleted_at is null 
+             AND users.deleted_at is null
+             order by attendances.member_id";
+            $statment =  $this->con->prepare($sql);
+            $statment->bindParam(':date',$dateString);
+            $result = $statment->execute();
+            if($result) return $statment->fetchAll();
+            else return null;
+        }
+
+    }
+
     public function getMembershipById($id){
         $this->con = Database::connect();
         if($this->con){

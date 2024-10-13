@@ -10,6 +10,7 @@ require_once "../controllers/membership-controller.php";
 
 $membershipController = new MembershipController();
 $memberships = $membershipController->getAllMemberships();
+$membershipsAtten = $membershipController->getAllMembershipsForAtten();
 
 ?>
 
@@ -60,36 +61,55 @@ $memberships = $membershipController->getAllMemberships();
                                 }
                             }
                              ?>
-
-                      
+               
     </div>
 </div>
 
 
 <div class="row">
-    <div class="col-md-12 mx-auto">
+    <div class="col-md-5 mx-auto">
         <table class="table table-sm border">
             <thead>
                 <tr>
-                    <th>No.</th>
                     <th>Member ID</th>
                     <th>Member Name</th>
-                   
-                    <th>Address</th>
-                    <th>Actions</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody><?php $count=1; ?>
                     <?php foreach($memberships as $membership): ?>
                         <tr id="<?= $membership['member_id'] ?>">
-                            <td><?= $count++ ?></td>
+                            
                             <td><?= 'GM-'.$membership['member_id'] ?></td>
                             <td><?= $membership['user_name'] ?></td>
-                            
-                            <td><?= $membership['user_address'] ?></td>
                             <td>
-                                <a  class="btn btn-sm btn-success btnNewCheckIn" >Check In</a>
+                                <a  class="btn btn-link btnNewCheckIn" >check in</a>
                             </td>
+                        </tr>
+                    <?php endforeach; ?>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-md-7 mx-auto">
+        <table class="table table-sm border">
+            <thead>
+                <tr>
+                    <th>Member ID</th>
+                    <th>Member Name</th>
+                    <th>Check Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody><?php $count=1; ?>
+                    <?php foreach($membershipsAtten as $membershipAtten): ?>
+                        <tr id="<?= $membership['member_id'] ?>">
+                            
+                            <td><?= 'GM-'.$membershipAtten['member_id'] ?></td>
+                            <td><?= $membershipAtten['user_name'] ?></td>
+                            <td><?= $membershipAtten['check_date'] ?></td>
+                            <td><a href="" class=" btn btn-link disabled"><?= $membershipAtten['atten_status'] ?></a></td>
+                           
                         </tr>
                     <?php endforeach; ?>
             </tbody>

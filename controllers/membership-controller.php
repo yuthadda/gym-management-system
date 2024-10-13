@@ -11,6 +11,11 @@ class MembershipController{
         return $membership->getAllMemberships();
     }
 
+    public function getAllMembershipsForAtten(){
+        $membership = new Membership();
+        return $membership->getAllMembershipsForAtten();
+    }
+
     public function getMembershipById($id){
         $membership = new Membership();
         return $membership->getMembershipById($id);

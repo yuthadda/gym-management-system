@@ -116,9 +116,9 @@ $(document).ready(function(){
                 success: function (response) {
                     
                    let msg =JSON.parse(response)
-                //    window.location.reload()
-                   btnCheck.prop('disabled',true).text('already checked')
+                //    btnCheck.prop('disabled',true).text('already checked')
                    alert(msg.msg)
+                   window.location.reload()
                 }
             });
         }

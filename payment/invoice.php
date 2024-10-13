@@ -27,7 +27,6 @@ if (isset($_GET['id'])) {
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2"></div>
                     <div class="col-md-8">
                         <table class="table table-striped">
                             <thead>
@@ -68,6 +67,23 @@ if (isset($_GET['id'])) {
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="  row justify-content-between border p-3 m-2 rounded">
+                    <div class="col-md-4">
+                        <h5>Member Name : <?= $payment['user_name'] ?></h5>
+                        <h5>Phone : <?= $payment['user_phone'] ?></h5>
+                        <h5>Email : <?= $payment['user_email'] ?></h5>
+                        <h5>Address : <?= $payment['user_address'] ?></h5>
+                    </div>
+
+                    <div class="col-md-4"></div>
+
+                    <div class="col-md-4 text-end">
+                        <h5>Invoice ID : <?= $invoice_id ?></h5>
+                        <h5>Invoice Date : <?= $payment['paid_date'] ?></h5>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
