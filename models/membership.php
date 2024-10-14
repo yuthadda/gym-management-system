@@ -21,24 +21,23 @@ class Membership{
             $statment->bindParam(':trainer_id',$trainer_id);
             $statment->bindParam(':weight',$weight);
             $statment->bindParam(':height',$height);
-          $result =  $statment->execute();
+            $result =  $statment->execute();
 
-          return $result;
+           if($result){
 
-        //    if($result){
+            $sql1 = "select max(member_id) as id from memberships";
+            $statment =  $this->con->prepare($sql1);
+            $result1 = $statment->execute();
+            if($result1){
+                $member = $statment->fetch();
+                $member_id = $member['id'];
+                $sql2 = "insert into attendances(member_id) values(:id)";
+            $statment =  $this->con->prepare($sql2);
+            $statment->bindParam(":id",$member_id);
+            return $statment->execute();
+            }
+           }
 
-        //     $sql1 = "select max(member_id) as id from memberships";
-        //     $statment =  $this->con->prepare($sql1);
-        //     $result1 = $statment->execute();
-        //     if($result1){
-        //         $member = $statment->fetch();
-        //         $member_id = $member['id'];
-        //         $sql2 = "insert into attendances(member_id) values(:id)";
-        //     $statment =  $this->con->prepare($sql2);
-        //     $statment->bindParam(":id",$member_id);
-        //     return $statment->execute();
-        //     }
-        //    }
         }
     }
 
@@ -51,6 +50,28 @@ class Membership{
              AND memberships.deleted_at is null 
              AND users.deleted_at is null";
             $statment =  $this->con->prepare($sql);
+            $result = $statment->execute();
+            if($result) return $statment->fetchAll();
+            else return null;
+        }
+
+    }
+
+    public function getAllMembershipsForAtten(){
+        $today = new DateTime();
+        $dateString = $today->format('Y-m-d');
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "SELECT memberships.*,users.*,attendances.*
+            FROM memberships JOIN users JOIN attendances
+             where attendances.check_date=:date
+             and memberships.member_id = attendances.member_id
+             and  memberships.user_id=users.user_id 
+             AND memberships.deleted_at is null 
+             AND users.deleted_at is null
+             order by attendances.member_id";
+            $statment =  $this->con->prepare($sql);
+            $statment->bindParam(':date',$dateString);
             $result = $statment->execute();
             if($result) return $statment->fetchAll();
             else return null;
@@ -113,8 +134,22 @@ class Membership{
         }
     }
 
+    public function membershipCount(){
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "SELECT count(*) as memberCount from memberships join users where memberships.user_id=users.user_id and memberships.deleted_at is null and  users.deleted_at is null";
+            $statment =  $this->con->prepare($sql);
+            $result = $statment->execute();
+            if($result) return $statment->fetch();
+            else return null;
+        }
+    }
+
 
     public function getAllMembershipsAttendance(){
+
+        $today = new DateTime();
+        $dateString = $today->format('Y-m-d');
         $this->con = Database::connect();
         if($this->con){
             $sql = "SELECT memberships.*,users.*,attendances.check_date as attdate
@@ -124,6 +159,7 @@ class Membership{
              AND users.deleted_at is null
              Group by memberships.member_id";
             $statment =  $this->con->prepare($sql);
+            // $statment->bindParam(':date',$dateString);
             $result = $statment->execute();
             if($result) return $statment->fetchAll();
             else return null;

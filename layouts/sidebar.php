@@ -33,7 +33,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#user"
         aria-expanded="true" aria-controls="user">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fa-solid fa-user fa-fw"></i>
         <span>User</span>
     </a>
     <div id="user" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -47,7 +47,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fa-solid fa-fw fa-dumbbell"></i>
         <span>Memberships</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -96,7 +96,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#facility"
         aria-expanded="true" aria-controls="facility">
-        <i class="fas fa-fw fa-wrench"></i>
+        <i class="fa-solid fa-fw fa-dumbbell"></i>
         <span>Facility</span>
     </a>
     <div id="facility" class="collapse" aria-labelledby="headingUtilities"
@@ -119,19 +119,9 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#attendance"
-        aria-expanded="true" aria-controls="attendance">
-        <i class="fas fa-fw fa-wrench"></i>
-        <span>Attendance</span>
-    </a>
-    <div id="attendance" class="collapse" aria-labelledby="headingUtilities"
-        data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="../attendance/view-attendance.php">View In </a>
-           
-            
-        </div>
-    </div>
+    <a class="nav-link" href="../attendance/c-atten.php">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Attendances</span></a>
 </li>
 
 <li class="nav-item">
@@ -167,13 +157,9 @@
 </li>
 
 <!-- Nav Item - Charts -->
-<!-- <li class="nav-item">
-    <a class="nav-link" href="charts.html">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Charts</span></a>
-</li>
 
-Nav Item - Tables -->
+
+<!-- Nav Item - Tables -->
 <!-- <li class="nav-item">
     <a class="nav-link" href="tables.html">
         <i class="fas fa-fw fa-table"></i>
