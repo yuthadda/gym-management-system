@@ -38,4 +38,5 @@ class MembershipController{
         return $membership->getAllMembershipsAttendance();
     }
     
+    
 }

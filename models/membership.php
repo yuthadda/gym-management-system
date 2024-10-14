@@ -5,6 +5,7 @@ class Membership{
     public $con;
 
     public $deleted_at;
+    public $atten_status = "present";
 
     public function __construct() {
         
@@ -20,7 +21,24 @@ class Membership{
             $statment->bindParam(':trainer_id',$trainer_id);
             $statment->bindParam(':weight',$weight);
             $statment->bindParam(':height',$height);
-           return  $statment->execute();
+          $result =  $statment->execute();
+
+          return $result;
+
+        //    if($result){
+
+        //     $sql1 = "select max(member_id) as id from memberships";
+        //     $statment =  $this->con->prepare($sql1);
+        //     $result1 = $statment->execute();
+        //     if($result1){
+        //         $member = $statment->fetch();
+        //         $member_id = $member['id'];
+        //         $sql2 = "insert into attendances(member_id) values(:id)";
+        //     $statment =  $this->con->prepare($sql2);
+        //     $statment->bindParam(":id",$member_id);
+        //     return $statment->execute();
+        //     }
+        //    }
         }
     }
 
@@ -99,13 +117,11 @@ class Membership{
     public function getAllMembershipsAttendance(){
         $this->con = Database::connect();
         if($this->con){
-            $sql = "SELECT memberships.*,users.*,attendances.*
+            $sql = "SELECT memberships.*,users.*,attendances.check_date as attdate
             FROM memberships JOIN users join attendances
              WHERE memberships.user_id=users.user_id 
-             AND memberships.member_id=attendances.member_id 
              AND memberships.deleted_at is null 
              AND users.deleted_at is null
-             AND attendances.deleted_at is null
              Group by memberships.member_id";
             $statment =  $this->con->prepare($sql);
             $result = $statment->execute();
@@ -115,18 +131,23 @@ class Membership{
 
     }
 
-    // public function getAllMembershipsAttendance(){
-    //     $this->con = Database::connect();
-    //     if($this->con){
-    //         $sql = "SELECT memberships.*,users.*
-    //         FROM memberships JOIN users
-    //          WHERE memberships.user_id=users.user_id 
-    //          AND memberships.deleted_at is null 
-    //          AND users.deleted_at is null";
-    //         $statment =  $this->con->prepare($sql);
-    //         $result = $statment->execute();
-    //         if($result) return $statment->fetchAll();
-    //         else return null;
-    //     }
-    // }
+//     public function getAllMembershipsAttendance(){
+//         $this->con = Database::connect();
+//         if($this->con){
+//           $sql='  SELECT memberships.*, users.*, attendances.*
+// FROM memberships
+// LEFT JOIN users ON memberships.user_id = users.user_id
+// LEFT JOIN attendances ON memberships.member_id = attendances.member_id
+// WHERE memberships.deleted_at IS NULL
+// and users.deleted_at is NULL
+// and attendances.deleted_at is NUll';
+//             $statment =  $this->con->prepare($sql);
+//             $result = $statment->execute();
+//             if($result) return $statment->fetchAll();
+//             else return null;
+//         }
+//     }
+
+
+
 }

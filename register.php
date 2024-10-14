@@ -1,64 +1,46 @@
 <?php
-session_start();
 
- $con;
+if(isset($_POST['submit']))
+{
+    $email            = $_POST['email'];
+    $password         = $_POST['password'];
+    $confirmpassword  = $_POST['confirmpassword'];
 
- $con= mysqli_connect("localhost","root","","gymsystemdb");
+    $error = false;
 
- 
-    if(isset($_POST["submit"]))
+    if(empty($_POST['email']))
     {
-        $error = false;
-
-        if(empty($_POST['email']))
-        {
-            $message = "please Enter Email";
-            $error = true;
-
-        }
-        else
-        {
-            $email =trim($_POST["email"]) ;
-        }
-
-        if(empty($_POST['password']))
-        {
-            $messagepass = "please Enter  Password";
-            $error = true;
-
-        }
-        else
-        {
-            $password =trim($_POST["password"]);
-        }
-
-        if(!$error)
-        {
-           
-            
-            
-            $sql       = "SELECT * from logins where user_email='$email' AND user_password='$password'";
-            $result1 = mysqli_query($con,$sql);
-
-            
-
-            if(mysqli_num_rows($result1)>=1)
-            {
-                $_SESSION['email']=$email;
-                header('location:view/index.php');
-            }
-            else
-            {
-                //$_SESSION['error']="invalid email or password";
-                //$wrong = "invalid email or password";
-                echo "<script>alert('invalid email or password')</script>";
-                header('location:login.php');
-            }
-            
-           
-        }
-        
+        $emailmessage = "Please Enter Email";
+        $error=true;
     }
+
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL))
+    {
+        $validmessage = "Please Enter Valid Email";
+    }
+
+    if(empty($password))
+    {
+        $passmessage = "Please Enter Password";
+    }
+    
+
+        if(strlen($password) < 6)
+    {
+        $qtymessage = "Password must be at least 6 characters";
+    }
+    
+
+    
+
+    if($password != $confirmpassword)
+    {
+        $matchmessage = "Password does not match";
+    }
+
+    
+    
+}
 
 ?>
 
@@ -82,33 +64,46 @@ session_start();
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Register Account</h3></div>
                                     <div class="card-body">
                                         <form method="post">
+
+                                        <span class="text-danger"><?php if(isset($emailmessage))echo $emailmessage;?></span>
+
+                                        <span class="text-danger"><?php if(isset($validmessage))echo $validmessage;?></span>
                                             <div class="form-floating mb-3">
                                             
-                                            <i class="fas fa-user" ></i>
+                                          
                                                 <input class="form-control" id="inputEmail" name="email" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Enter Email or UserName</label>
+                                                <label for="inputEmail">Enter Email</label>
                                             </div>
 
+                                            
+                                                
+                                           
+                                            <span class="text-danger"><?php if(isset($passmessage))echo $passmessage;?></span>
                     
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" />
                                                 <label for="inputPassword">Password</label>
                                             </div>
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+
+                                            
+
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputPassword" name="confirmpassword" type="password" placeholder="Confirm Password" />
+                                                <label for="inputPassword">ConfirmPassword</label>
                                             </div>
+
+                                            
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
-                                                <button class="btn btn-primary" name="submit">Login</button>
+                                                
+                                                <button class="btn btn-primary" name="submit">Create Account</button>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.php">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href="register.php">Already have account? Sign in!</a></div>
                                     </div>
                                 </div>
                             </div>

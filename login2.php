@@ -1,13 +1,63 @@
 <?php
 session_start();
+
+ $con;
+
+ $con= mysqli_connect("localhost","root","","gymsystemdb");
+
+ 
     if(isset($_POST["submit"]))
     {
-        if(!empty($_POST["email"]) && !empty($_POST["password"]))
+        $error = false;
+
+        if(empty($_POST['email']))
         {
-            $email = $_POST["email"];
-            $_SESSION['username']=$email;
-            header('location:view/index.php');
+            $message = "please Enter Email";
+            $error = true;
+
         }
+        else
+        {
+            $email =trim($_POST["email"]) ;
+        }
+
+        if(empty($_POST['password']))
+        {
+            $messagepass = "please Enter  Password";
+            $error = true;
+
+        }
+        else
+        {
+            $password =trim($_POST["password"]);
+        }
+
+        if(!$error)
+        {
+           
+            
+            
+            $sql       = "SELECT * from logins where user_email='$email' AND user_password='$password'";
+            $result1 = mysqli_query($con,$sql);
+
+            
+
+            if(mysqli_num_rows($result1)>=1)
+            {
+                $_SESSION['email']=$email;
+                header('location:view/index.php');
+            }
+            else
+            {
+                //$_SESSION['error']="invalid email or password";
+                //$wrong = "invalid email or password";
+                echo "<script>alert('invalid email or password')</script>";
+                header('location:login2.php');
+            }
+            
+           
+        }
+        
     }
 
 ?>
@@ -21,6 +71,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
+    
     <title>signin-signup</title>
 </head>
 <body>
@@ -30,12 +81,26 @@ session_start();
                 <h2 class="title">Sign in</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="email" placeholder="Username" required>
+                    <input type="text" name="email" placeholder="Username" >
                 </div>
+
+                <div>
+                    <span style="color:red"><?php if(isset($message))  echo $message; ?></span>
+                </div>
+                
                 <div class="input-field">
+                    
                     <i class="fas fa-lock"></i>
-                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Password" >
                 </div>
+
+                <div >
+                    <span style="color:red" ><?php if(isset($messagepass))  echo $messagepass;?></span>
+                </div>
+                <div>
+                    <span style="color:red"><?php if(isset($wrong))  echo $wrong;?></span>
+                </div>
+
                 <button class="btn btn-dark" name="submit">Login</button>
                 
                 <p class="social-text">Or Sign in with social platform</p>
@@ -132,5 +197,14 @@ sign_in_btn2.addEventListener("click", () => {
     container.classList.remove("sign-up-mode2");
 });
     </script>
+
+    <style>
+
+#errorshow
+{
+   color: red; 
+}
+         
+    </style>
 </body>
 </html>

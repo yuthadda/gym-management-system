@@ -23,9 +23,9 @@ if(isset($_GET['id'])){
 
     $id = $_GET['id'];
 
-    
-    $attendance = $attendanceController->insertAttendanceById($id);
-    $exist = $attendanceController->getStatusdataById($id);
+    //$membershipatten = $membershipController->insertAttendanceById($id);
+$attendance = $attendanceController->insertAttendanceById($id);
+    //$exist = $attendanceController->getStatusdataById($id);
     
 }
 
@@ -120,10 +120,9 @@ $today = new DateTime()
                             
 
                             <td>
-                                <?php if($membership['check_date']==$today->format('Y-m-d')
-                                || $membership['atten_status']=='present') : ?>
+                            <?php if($membership['attdate']==$today->format('Y-m-d')) : ?>
                            
-                                    <a  class="btn btn-sm btn-danger " >Already Checked</a>
+                                    <a  class="btn btn-sm btn-danger " disabled >Already Checked</a>
 
                                 <?php else : ?>
                            <a href="view-attendance.php?id=<?= $membership['member_id'] ?>" class="btn btn-sm btn-info btnCheck" >Check In</a>
