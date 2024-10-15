@@ -54,16 +54,17 @@ if (isset($_POST['submit'])) {
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
+        <div id="content">
             <?php include_once "../layouts/nav.php" ?>
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 card shadow p-5 mt-5">
                         <form action="" method="POST">
 
 
-                            <div class="col-md-8 my-3">
+                            <div class="from-group mb-3">
                                 <label for="" class="form-label">User Name</label>
                                 <select name="member_id" id="" class=" form-control" required>
                                     <option value="">Choose User Name</option>
@@ -76,7 +77,7 @@ if (isset($_POST['submit'])) {
 
 
 
-                            <div class=" form-group">
+                            <div class=" form-group mb-3">
                                 <label class=" form-label">New Weight</label>
                                 <!-- <p class="form-label">current weight:</p> -->
                                 <input type="text" name="weight" class=" form-control" id="weight" value="<?php if(isset($weight)) echo $weight ?>">
@@ -89,7 +90,7 @@ if (isset($_POST['submit'])) {
                                 </span>
                             </div>
 
-                            <div class=" form-group">
+                            <div class=" form-group mb-3">
                                 <label class=" form-label">New Height</label>
                                 <input type="text" name="height" class=" form-control" id="height" value="<?php if(isset($height)) echo $height ?>">
                                 <span class="text-danger">
@@ -102,11 +103,12 @@ if (isset($_POST['submit'])) {
                             </div>
 
                             <div class="mb-3">
-                                <button type="submit" name="submit" class="btn btn-primary float-right ">Add Progress</button>
+                                <button type="submit" name="submit" class="btn btn-primary  ">Update Progress</button>
                             </div>
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
 
             <?php include_once "../layouts/footer.php" ?>

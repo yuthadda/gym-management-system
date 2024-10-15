@@ -67,17 +67,14 @@ if (isset($_POST['submit'])) {
                 <!-- Begin Page Content -->
                 <div class="container">
 
-                    <div class="container border p-5">
-                        <div class="row my-2 ">
-                            <div class=" col-md-12 text-center">
-
-                                <h5 class="">New trainer form</h5>
-                            </div>
-                        </div>
+                    <div class="container ">
+                        
                         <div class="row">
-                            <div class="col-md-6 my-3 mx-auto">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6 card shadow p-5 mt-5">
+                                <h4 class="text-center mb-3">Add Trainer Informations</h4>
                                 <form action="" method="post" class="">
-                                    <div class=" form-group">
+                                    <div class=" control-group mb-3">
                                         <label for="trainerName" class=" form-label">Name</label>
                                         <input type="text" name="trainerName" class=" form-control" id="trainerName" value="<?php if(isset($trainer_name)) echo $trainer_name ?>">
                                         <span class="text-danger">
@@ -85,7 +82,7 @@ if (isset($_POST['submit'])) {
                                         </span>
                                     </div>
 
-                                    <div class=" form-group">
+                                    <div class=" control-group mb-3">
                                         <label for="trainerName" class=" form-label">Email</label>
                                         <input type="text" name="trainerEmail" class=" form-control" id="trainerEmail" value="<?php if(isset($trainer_email)) echo $trainer_email ?>">
                                         <span class="text-danger">
@@ -93,7 +90,7 @@ if (isset($_POST['submit'])) {
                                         </span>
                                     </div>
 
-                                    <div class=" form-group">
+                                    <div class=" control-group mb-3">
                                         <label for="trainerName" class=" form-label">Phone</label>
                                         <input type="text" name="trainerPhone" class=" form-control" id="trainerPhone" value="<?php if(isset($trainer_phone)) echo $trainer_phone ?>">
                                         <span class="text-danger">
@@ -101,7 +98,7 @@ if (isset($_POST['submit'])) {
                                         </span>
                                     </div>
 
-                                    <div class=" form-group">
+                                    <div class=" control-group mb-3">
                                         <label for="trainerName" class=" form-label">Salary</label>
                                         <input type="number" name="trainerSalary" class=" form-control" id="trainerSalary" value="<?php if(isset($trainer_salary)) echo $trainer_salary ?>">
                                         <span class="text-danger">

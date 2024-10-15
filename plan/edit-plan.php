@@ -40,12 +40,13 @@ if (isset($_POST['submit'])) {
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 card shadow p-5 mt-5">
+                        <h4 class="text-center mb-3">Update Plan Informations</h4>
                         <form action="" method="POST">
                             
                             <div class="mb-3">
-                                <label for="" class="form-label">Enter User Name</label>
+                                <label for="" class="form-label">Enter Plan Name</label>
                                 <input type="text" name="name" class="form-control" value="<?php
 
                                                                                             echo $user['user_name'];
@@ -101,7 +102,7 @@ if (isset($_POST['submit'])) {
                                 </span>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" name="submit" class="btn btn-primary float-right ">Update User</button>
+                                <button type="submit" name="submit" class="btn btn-primary ">Update Plan</button>
                             </div>
                         </form>
                     </div>
