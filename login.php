@@ -3,6 +3,9 @@ session_start();
 
  $con;
 
+ $email="";
+ $password="";
+
  $con= mysqli_connect("localhost","root","","gymsystemdb");
 
  
@@ -12,7 +15,7 @@ session_start();
 
         if(empty($_POST['email']))
         {
-            $message = "please Enter Email";
+            $emailmessage = "Please Enter Email";
             $error = true;
 
         }
@@ -23,7 +26,7 @@ session_start();
 
         if(empty($_POST['password']))
         {
-            $messagepass = "please Enter  Password";
+            $messagepass = "Please Enter  Password";
             $error = true;
 
         }
@@ -85,18 +88,24 @@ session_start();
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                         <form method="post">
+
+                                        <span class="text-danger "><?php if(isset($emailmessage))echo $emailmessage;?></span>
                                             <div class="form-floating mb-3">
                                             
-                                            <i class="fas fa-user" ></i>
-                                                <input class="form-control" id="inputEmail" name="email" type="email" placeholder="name@example.com" />
+                                            
+
+                                                <input class="form-control" id="inputEmail" name="email" type="email" placeholder="name@example.com" value="<?php echo $email ?>"/>
                                                 <label for="inputEmail">Enter Email or UserName</label>
                                             </div>
 
-                    
+                                            
+                                            
+                                            <span class="text-danger mb-2"><?php if(isset($messagepass))echo $messagepass;?></span>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" />
+                                                <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" value="<?php echo $password ?>"/>
                                                 <label for="inputPassword">Password</label>
                                             </div>
+                                            
                                             <div class="form-check mb-3">
                                                 <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
                                                 <label class="form-check-label" for="inputRememberPassword">Remember Password</label>

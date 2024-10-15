@@ -1,5 +1,9 @@
 <?php
 
+    $email="";
+    $password="";
+    $confirmpassword="";
+
 if(isset($_POST['submit']))
 {
     $email            = $_POST['email'];
@@ -12,26 +16,32 @@ if(isset($_POST['submit']))
     {
         $emailmessage = "Please Enter Email";
         $error=true;
-    }
-
-    if(!filter_var($email,FILTER_VALIDATE_EMAIL))
+    }else
+    {
+        if(!filter_var($email,FILTER_VALIDATE_EMAIL))
     {
         $validmessage = "Please Enter Valid Email";
     }
+    }
+
+    
 
     if(empty($password))
     {
         $passmessage = "Please Enter Password";
-    }
-    
-
-        if(strlen($password) < 6)
+        $error = true;
+    }else
     {
-        $qtymessage = "Password must be at least 6 characters";
+        if(strlen($password) < 6)
+        {
+            $qtymessage = "Password must be at least 6 characters";
+        }
     }
     
 
     
+    
+
 
     if($password != $confirmpassword)
     {
@@ -74,7 +84,7 @@ if(isset($_POST['submit']))
                                             <div class="form-floating mb-3">
                                             
                                           
-                                                <input class="form-control" id="inputEmail" name="email" type="email" placeholder="name@example.com" />
+                                                <input class="form-control" id="inputEmail"  name="email" type="email" placeholder="name@example.com" value="<?php echo $email ?>" />
                                                 <label for="inputEmail">Enter Email</label>
                                             </div>
 
@@ -82,16 +92,18 @@ if(isset($_POST['submit']))
                                                 
                                            
                                             <span class="text-danger"><?php if(isset($passmessage))echo $passmessage;?></span>
+                                            <span class="text-danger"><?php if(isset($qtymessage))echo $qtymessage;?></span>
                     
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" />
+                                                <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" value="<?php echo $password ?>"/>
                                                 <label for="inputPassword">Password</label>
                                             </div>
 
                                             
-
+                                            <span class="text-danger"><?php if(isset($matchmessage))echo $matchmessage;?></span>
+                    
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" name="confirmpassword" type="password" placeholder="Confirm Password" />
+                                                <input class="form-control" id="inputPassword" name="confirmpassword" type="password" placeholder="Confirm Password" value="<?php echo $confirmpassword ?>" />
                                                 <label for="inputPassword">ConfirmPassword</label>
                                             </div>
 
@@ -103,7 +115,7 @@ if(isset($_POST['submit']))
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.php">Already have account? Sign in!</a></div>
+                                        <div class="small"><a href="login.php">Already have account? Sign in!</a></div>
                                     </div>
                                 </div>
                             </div>
