@@ -67,7 +67,10 @@ $trainers = $trainerController->getAllTrainers();
 
 
 <div class="row">
-    <div class="col-md-9 mx-auto">
+<div class="col-md-12 text-center mb-3">
+                            <h2>Trainer Information</h2>
+                        </div>
+    <div class="col-md-12">
         <table class="table table-striped">
             <thead>
                 <tr>

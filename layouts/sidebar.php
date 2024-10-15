@@ -47,7 +47,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fa-solid fa-fw fa-dumbbell"></i>
+        <i class="fa-solid fa-people-group"></i>
         <span>Memberships</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -63,7 +63,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#trainer"
         aria-expanded="true" aria-controls="trainer">
-        <i class="fas fa-fw fa-wrench"></i>
+        <i class="fa-solid fa-user fa-fw"></i>
         <span>Trainer</span>
     </a>
     <div id="trainer" class="collapse" aria-labelledby="headingUtilities"

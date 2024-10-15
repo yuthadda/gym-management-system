@@ -38,6 +38,9 @@ $payments = $paymentController->getAllPayment();
 
 <!-- Error Showing Alerts -->
 <div class="row my-2">
+<div class="col-md-12 text-center mb-3">
+                            <h2>Payment Information</h2>
+                        </div>
     <div class="col-md-12">
                             <?php
                             if(isset($_GET['msg'])){

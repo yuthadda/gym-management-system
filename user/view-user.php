@@ -39,11 +39,14 @@ $users = $user->getAllUser();
                                 ?>
                             </div>
                 <div class="row">
-                    <h3 class="  ">User Information</h3>
+                    <div class="col-md-12 text-center mb-3">
+                    <h2>User Information</h2>
+                    </div>
                     <div class="col-md-12">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    
                                     <th>No</th>
                                     <th>Name</th>
                                     <th>Email</th>
@@ -58,7 +61,9 @@ $users = $user->getAllUser();
                                 foreach ($users as $user) {
                                     echo "
                             <tr id=".$user['user_id'].">
-                                <td>" . $count++ . "</td>
+                                
+                                <td class='d-flex'><img class='rounded-circle' src='../img/undraw_profile_2.svg'
+                            alt='...'>" . $count++ . "</td>
                                 <td>" . $user['user_name'] . "</td>
                                 <td>" . $user['user_email'] . "</td>
                                 <td>" . $user['user_phone'] . "</td>

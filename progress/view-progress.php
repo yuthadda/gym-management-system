@@ -67,6 +67,9 @@ $progresses = $progressController->showAllProgress();
 
 
 <div class="row">
+<div class="col-md-12 text-center mb-3">
+                            <h2>Progress Information</h2>
+                        </div>
     <div class="col-md-12 mx-auto">
         <table class="table table-striped">
             <thead>

@@ -4,7 +4,7 @@ include_once "../layouts/header.php";
 
 ?>
 
-<?php 
+<?php
 
 require_once "../controllers/trainer-controller.php";
 
@@ -26,32 +26,19 @@ $trainer = $trainerController->getTrainerById($id);
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-        
-       <!-- Main Content -->
-<div id="content">
+            <?php include_once "../layouts/nav.php" ?>
 
-<?php include_once "../layouts/nav.php" ?>
+            <div class="container">
+                <div class="card shadow mx-auto " style="width: 30rem;">
+                    <img class="card-img-top mx-auto mt-5" src='../img/undraw_profile_2.svg' alt="Card image cap" style="width: 10rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><?php echo $trainer['trainer_name'] ?></h5>
+                        <p><i class="fa-solid fa-envelope mr-2"></i>Email : <?php echo $trainer['trainer_email'] ?></p>
+                        <p><i class="fa-solid fa-phone mr-2"></i>Phone : <?php echo $trainer['trainer_phone'] ?></p>
+                        <p><i class="fa-solid fa-location-dot mr-2"></i>Salary : <?php echo $trainer['trainer_salary'] ?></p>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+            </div>
 
-<!-- Begin Page Content -->
-<div class="container">
-
-
-<div class="row">
-    <div class="col-md-12 bg-light">
-    <h3>Trainer name : <?= $trainer['trainer_name'] ?></h3>
-    <p>Trainer personal ID : <?= $trainer['trainer_id'] ?></p>
-    <p>email : <?= $trainer['trainer_email'] ?></p>
-    <p>phone : <?= $trainer['trainer_phone'] ?></p>
-    <p>salary : <?= $trainer['trainer_salary'] ?></p>
-
-    </div>
-</div>
-
-   
-</div>
-<!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
-
-        <?php include_once "../layouts/footer.php" ?>
+            <?php include_once "../layouts/footer.php" ?>

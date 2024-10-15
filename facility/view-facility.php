@@ -22,26 +22,28 @@ $facilitite = $facility->getAllFacility();
             <?php include_once "../layouts/nav.php" ?>
 
             <div class="container">
-            <div class="row">
-                                <?php
-                                if(isset($_GET['msg'])){
-                                    if($_GET['msg'] == 'updatesuccess'){
-                                        echo "
+                <div class="row">
+                    <?php
+                    if (isset($_GET['msg'])) {
+                        if ($_GET['msg'] == 'updatesuccess') {
+                            echo "
                                 <span class='alert alert-success'>facility successfully updated</span>
                                 ";
-                                    }else if($_GET['msg'] == 'addsuccess'){
-                                        echo "
+                        } else if ($_GET['msg'] == 'addsuccess') {
+                            echo "
                                     <span class='alert alert-success'>facility successfully added</span>
                                     ";
-                                    }
-                                }
-                                
-                                ?>
-                            </div>
+                        }
+                    }
+
+                    ?>
+                </div>
                 <div class="row">
-                    <h3 class="  ">Facility Information</h3>
+                    <div class="col-md-12 text-center mb-3">
+                        <h2>Facility Information</h2>
+                    </div>
                     <div class="col-md-12">
-                        
+
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -58,13 +60,13 @@ $facilitite = $facility->getAllFacility();
                                 $count = 1;
                                 foreach ($facilitite as $facility) {
                                     echo "
-                            <tr id=".$facility['fac_id'].">
+                            <tr id=" . $facility['fac_id'] . ">
                                 <td>" . $count++ . "</td>
                                 <td>" . $facility['fac_name'] . "</td>
                                 <td>" . $facility['fac_price'] . "</td>
                                 <td>" . $facility['fac_qty'] . "</td>
                                 <td>" . $facility['fac_vendor'] . "</td>
-                                <td><a class='btn btn-primary' href='detail-facility.php?id=" . $facility['fac_id'] . "'>Detail</a><a class='btn btn-primary' href='edit-facility.php?id= ".$facility['fac_id']."'>Edit</a><a class='btn btn-primary btnDeleteFacility'>Delete</a></td>
+                                <td><a class='btn btn-primary' href='detail-facility.php?id=" . $facility['fac_id'] . "'>Detail</a><a class='btn btn-primary' href='edit-facility.php?id= " . $facility['fac_id'] . "'>Edit</a><a class='btn btn-primary btnDeleteFacility'>Delete</a></td>
                             </tr>
                             ";
                                 }
