@@ -1,3 +1,4 @@
+
 <?php 
 
 include_once ('../includes/db.php');
@@ -94,6 +95,43 @@ public function getPlanByID($id)
             else
             return null;
         }
+
+
+        public function createAtten($member_id){
+            $this->con=Database::connect();
+            if($this->con)
+            {
+                $today = new DateTime();
+                $dateString = $today->format('Y-m-d');
+                $status = "present";
+
+                $sql = 'Select * from attendances where member_id=:id and check_date=:date';
+
+                $statement = $this->con->prepare($sql);
+                $statement->bindParam(':id',$member_id);
+                $statement->bindParam(':date',$dateString);
+                 $result = $statement->execute();
+                
+               if($result)
+               {
+                $existing =$statement->fetch();
+               }
+               if($existing)
+               {
+                    $exist = false;
+                  return $exist;
+                
+               }else{
+
+            $sql = "INSERT INTO attendances(member_id,check_date,atten_status)
+             values(:id,:date,:atten_status)";
+            $statement =  $this->con->prepare($sql);
+            $statement->bindParam(':id',$member_id);
+            $statement->bindParam(':date',$dateString);
+            $statement->bindParam(':atten_status',$status);
+            return  $result = $statement->execute();
+            
+            }}}
 
 
 }

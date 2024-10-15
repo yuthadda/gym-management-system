@@ -99,6 +99,31 @@ $(document).ready(function(){
         }
     })
 
+    //------------------------------------
+    $(document).on('click','.btnNewCheckIn',function(){
+        let btnCheck = $(this);
+        let tr = btnCheck.parent().parent();
+        // let btn = tr.children()[6];
+        // console.log(btn.innerText);
+        let id = tr.attr('id');
+
+        let status =confirm("Are you sure to check in?")
+        if(status){
+            $.ajax({
+                method : "post",
+                url: "new-check-in-2.php",
+                data: {id:id},
+                success: function (response) {
+                    
+                   let msg =JSON.parse(response)
+                //    btnCheck.prop('disabled',true).text('already checked')
+                   alert(msg.msg)
+                   window.location.reload()
+                }
+            });
+        }
+    })
+
     //--------------------------------
     $(document).on('click','.btnCheck',function(){
         let btnCheck = $(this);
