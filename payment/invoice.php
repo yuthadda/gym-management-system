@@ -28,9 +28,9 @@ $invoice_id = str_pad($payment['payment_id'], 4, "0", STR_PAD_LEFT);
 
             <?php include_once "../layouts/nav.php" ?>
 
-            <div class="container">
+            <div class="container ">
                 
-                <div class="container  justify-content-between border p-5 m-2 rounded">
+                <div class="container shadow justify-content-between border p-5 m-2 rounded">
                     <div class="row">
                         <div class="col-md-12">
                         <h3 class=" text-center">
@@ -124,6 +124,8 @@ $invoice_id = str_pad($payment['payment_id'], 4, "0", STR_PAD_LEFT);
                 </div>
                 </div>
                 
+            </div>
+            </div>
             </div>
 
             <?php include_once "../layouts/footer.php" ?>

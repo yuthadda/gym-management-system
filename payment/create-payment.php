@@ -95,7 +95,7 @@ if(isset($_POST['submit']))
         <div class="container">
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-md-8 card shadow p-5 my-auto">
                     <form action="" method="POST">
 
                     <div class="row">
@@ -145,6 +145,8 @@ if(isset($_POST['submit']))
                     </form>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
 
         <script src="../scripts/jquery-3.7.1.min.js" >

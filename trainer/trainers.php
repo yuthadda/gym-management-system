@@ -74,7 +74,8 @@ $trainers = $trainerController->getAllTrainers();
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>No.</th>
+                    <th></th>
+                    <th>No</th>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Actions</th>
@@ -83,9 +84,11 @@ $trainers = $trainerController->getAllTrainers();
             <tbody><?php $count=1; ?>
                     <?php foreach($trainers as $trainer): ?>
                         <tr id="<?= $trainer['trainer_id'] ?>">
-                            <td><?= $count++ ?></td>
-                            <td><?= $trainer['trainer_name'] ?></td>
-                            <td><?= $trainer['trainer_phone'] ?></td>
+                            <td><img class='rounded-circle' style='width:40px' src='../img/undraw_profile_2.svg'
+                            alt='...'></td>
+                            <td class='align-middle'><?= $count++ ?></td>
+                            <td class='align-middle'><?= $trainer['trainer_name'] ?></td>
+                            <td class='align-middle'><?= $trainer['trainer_phone'] ?></td>
                             <td>
                                 <a href='./trainer-detail.php?id=<?= $trainer['trainer_id'] ?>' class="btn btn-sm btn-info" >More Info</a>
                                 <a href='./edit-trainer.php?id=<?= $trainer['trainer_id'] ?>' class="btn btn-sm btn-success" >Edit</a>

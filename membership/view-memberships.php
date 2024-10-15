@@ -84,9 +84,9 @@ $memberships = $membershipController->getAllMemberships();
 
                                             <td><?= $membership['user_address'] ?></td>
                                             <td>
-                                                <a href='./membership-detail.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-info">More Info</a>
-                                                <a href='./membership-progress.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-success">progress</a>
-                                                <a href='./edit-membership.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-success">Edit</a>
+                                                <a href='./membership-detail.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-info mx-1">Detail</a>
+                                                <a href='./membership-progress.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-success mx-1">Progress</a>
+                                                <a href='./edit-membership.php?id=<?= $membership['member_id'] ?>' class="btn btn-sm btn-warning mx-1">Edit</a>
                                                 <a class="btn btn-sm btn-danger btnDeleteMembership">Delete</a>
                                             </td>
                                         </tr>
