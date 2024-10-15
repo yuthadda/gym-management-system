@@ -89,13 +89,14 @@ if(isset($_POST['submit']))
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-            
+            <div id="content">
         <?php include_once "../layouts/nav.php" ?>
         
         <div class="container">
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-8 card shadow p-5 my-auto">
+                <div class="col-md-8 card shadow p-5 mt-5">
+                <h4 class="text-center mb-3 ">Add Payment Information</h4>
                     <form action="" method="POST">
 
                     <div class="row">
@@ -116,7 +117,7 @@ if(isset($_POST['submit']))
 
                     <!-- PlanInputs -->
                      <div class="row">
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 mb-3">
                             <label for="" class="form-label">Available Plans</label>
                             <select name="plan_id" id="plan" class="form-control">
                             <option id="exampleOpt" value="">Choose A Plan</option>
@@ -127,12 +128,12 @@ if(isset($_POST['submit']))
                             </select>
                         </div>
                     
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 mb-3">
                         <label  class=" form-label" >Plan Price</label>
                         <input type="number"  class=" form-control" readonly required id="price">
                         </div>
 
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 mb-3">
                         <label  class=" form-label" >Plan Duration</label>
                         <input type="text"  class=" form-control" readonly required id="duration">
                         </div>
@@ -140,14 +141,14 @@ if(isset($_POST['submit']))
                      </div>
                     
                         <div class="mb-3">
-                            <button type="submit" name="submit" class="btn btn-primary float-right ">Make Payment</button>
+                            <button type="submit" name="submit" class="btn btn-primary ">Make Payment</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         </div>
-        </div>
+       
 
         <script src="../scripts/jquery-3.7.1.min.js" >
         </script>

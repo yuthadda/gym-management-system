@@ -27,7 +27,7 @@ $users = $user->getAllUser();
                     <div class="col-md-12 text-center mb-3">
                     <h2>User Information</h2>
                     </div>
-                    <div class="row">
+                    <div class="row col-md-12">
             <?php
                                 if(isset($_GET['msg'])){
                                     if($_GET['msg'] == 'updatesuccess'){
