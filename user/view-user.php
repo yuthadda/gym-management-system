@@ -46,7 +46,7 @@ $users = $user->getAllUser();
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    
+                                    <th></th>
                                     <th>No</th>
                                     <th>Name</th>
                                     <th>Email</th>
@@ -62,8 +62,9 @@ $users = $user->getAllUser();
                                     echo "
                             <tr id=".$user['user_id'].">
                                 
-                                <td class='d-flex'><img class='rounded-circle' src='../img/undraw_profile_2.svg'
-                            alt='...'>" . $count++ . "</td>
+                            
+            
+                                <td class='d-flex'>" . $count++ . "</td>
                                 <td>" . $user['user_name'] . "</td>
                                 <td>" . $user['user_email'] . "</td>
                                 <td>" . $user['user_phone'] . "</td>
