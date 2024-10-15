@@ -41,7 +41,7 @@ $payments = $paymentController->getAllPayment();
 <div class="col-md-12 text-center mb-3">
                             <h2>Payment Information</h2>
                         </div>
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
                             <?php
                             if(isset($_GET['msg'])){
                                 if($_GET['msg'] == 'fail'){
@@ -62,7 +62,7 @@ $payments = $paymentController->getAllPayment();
                                     echo "<span class=' alert alert-success' >Successfully updated</span>";
                                 }
                                 else{
-                                   echo "<span class=' alert alert-success' >Added Successfully</span>";
+                                   echo "<span class=' alert alert-success' >Payment Added Successfully</span>";
                                 }
                             }
                              ?>

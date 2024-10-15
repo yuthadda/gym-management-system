@@ -22,7 +22,12 @@ $users = $user->getAllUser();
             <?php include_once "../layouts/nav.php" ?>
 
             <div class="container">
-            <div class="row">
+            
+                <div class="row">
+                    <div class="col-md-12 text-center mb-3">
+                    <h2>User Information</h2>
+                    </div>
+                    <div class="row">
             <?php
                                 if(isset($_GET['msg'])){
                                     if($_GET['msg'] == 'updatesuccess'){
@@ -38,10 +43,6 @@ $users = $user->getAllUser();
                                 
                                 ?>
                             </div>
-                <div class="row">
-                    <div class="col-md-12 text-center mb-3">
-                    <h2>User Information</h2>
-                    </div>
                     <div class="col-md-12">
                         <table class="table table-striped">
                             <thead>
@@ -61,17 +62,16 @@ $users = $user->getAllUser();
                                 foreach ($users as $user) {
                                     echo "
                             <tr id=".$user['user_id'].">
-                                
-                            
-            
-                                <td class='d-flex'>" . $count++ . "</td>
-                                <td>" . $user['user_name'] . "</td>
-                                <td>" . $user['user_email'] . "</td>
-                                <td>" . $user['user_phone'] . "</td>
-                                <td>" . $user['user_address'] . "</td>
-                                <td><a class='btn btn-primary' href='detail-user.php?id=" . $user['user_id'] . "'>Detail</a>
-                                <a class='btn btn-primary' href='edit-user.php?id= ".$user['user_id']."'>Edit</a>
-                                <a class='btn btn-primary btnDeleteUser'>Delete</a></td>
+                                <td><img class='rounded-circle' style='width:40px' src='../img/undraw_profile_2.svg'
+                            alt='...'></td>
+                                <td class='align-middle'>" . $count++ . "</td>
+                                <td class='align-middle'>" . $user['user_name'] . "</td>
+                                <td class='align-middle'>" . $user['user_email'] . "</td>
+                                <td class='align-middle'>" . $user['user_phone'] . "</td>
+                                <td class='align-middle'>" . $user['user_address'] . "</td>
+                                <td><a class='btn btn-info mx-1' href='detail-user.php?id=" . $user['user_id'] . "'>Detail</a>
+                                <a class='btn btn-warning mx-1' href='edit-user.php?id= ".$user['user_id']."'>Edit</a>
+                                <a class='btn btn-danger mx-1 btnDeleteUser'>Delete</a></td>
                             </tr>
                             ";
                                 }
