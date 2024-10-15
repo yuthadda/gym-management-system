@@ -60,19 +60,20 @@ if (isset($_POST['submit'])) {
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
+            <div id="content">
             <?php include_once "../layouts/nav.php" ?>
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 card shadow p-5 mt-5">
+                    <h4 class="text-center mb-3">Add Membership Information</h4>
                         <form action="" method="POST">
 
 
-                            <div class="col-md-8 my-3">
+                            <div class="form-group mb-3">
                                 <label for="" class="form-label">User Name</label>
-                                <select name="user_id" id="" class=" form-control" required>
+                                <select name="user_id" id="" class="form-control"  required>
                                     <option value="">Choose User Name</option>
                                     <?php foreach ($users as $user): ?>
                                         <option value="<?= $user['user_id'] ?>"><?= $user['user_name'] ?></option>
@@ -81,7 +82,7 @@ if (isset($_POST['submit'])) {
 
                             </div>
 
-                            <div class="col-md-8 my-3">
+                            <div class="form-group mb-3">
                                 <label for="" class="form-label">Trainer Name</label>
                                 <select name="trainer_id" id="" class="form-control" required>
                                     <option value="">Choose Trainer Name</option>
@@ -95,7 +96,7 @@ if (isset($_POST['submit'])) {
                             </div>
 
 
-                            <div class=" form-group">
+                            <div class=" form-group mb-3">
                                 <label class=" form-label">Weight</label>
                                 <input type="text" name="weight" class=" form-control" id="weight" value="<?php if(isset($weight)) echo $weight ?>">
                                 <span class="text-danger">
@@ -107,7 +108,7 @@ if (isset($_POST['submit'])) {
                                 </span>
                             </div>
 
-                            <div class=" form-group">
+                            <div class=" form-group mb-3">
                                 <label class=" form-label">Height</label>
                                 <input type="text" name="height" class=" form-control" id="height" value="<?php if(isset($height)) echo $height ?>">
                                 <span class="text-danger">
@@ -120,11 +121,13 @@ if (isset($_POST['submit'])) {
                             </div>
 
                             <div class="mb-3">
-                                <button type="submit" name="submit" class="btn btn-primary float-right ">Add Member</button>
+                                <button type="submit" name="submit" class="btn btn-primary">Add Member</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+            </div>
+            <!-- </div> -->
 
             <?php include_once "../layouts/footer.php" ?>

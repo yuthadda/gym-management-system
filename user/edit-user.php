@@ -35,13 +35,14 @@ if (isset($_POST['submit'])) {
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
+            <div id="content">
             <?php include_once "../layouts/nav.php" ?>
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 card shadow p-5 mt-5">
+                    <h4 class="text-center mb-3 ">Update User Information</h4>
                         <form action="" method="POST">
                             
                             <div class="mb-3">
@@ -101,11 +102,12 @@ if (isset($_POST['submit'])) {
                                 </span>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" name="submit" class="btn btn-primary float-right ">Update User</button>
+                                <button type="submit" name="submit" class="btn btn-primary">Update User</button>
                             </div>
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
 
             <?php include_once "../layouts/footer.php" ?>
