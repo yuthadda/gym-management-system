@@ -83,7 +83,7 @@ $membershipsAtten = $membershipController->getAllMembershipsForAtten();
                             <td><?= 'GM-'.$membership['member_id'] ?></td>
                             <td><?= $membership['user_name'] ?></td>
                             <td>
-                                <a  class="btn btn-link btnNewCheckIn" >check in</a>
+                              <a  class="btn btn btnNewCheckIn" style="background: #04ab5c; color: white"><i class="fa-sharp fa-solid fa-check"></i> Check-In</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

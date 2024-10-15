@@ -28,6 +28,8 @@ if (isset($_GET['plan_id'])) {
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
+        <?php include_once "../layouts/nav.php" ?>
+
         <div class="content-header">
             <div id="route">
             <a href="../view/index.php" title="Go to Home" class="tip-bottom"><i class="fas fa-home"></i> Home</a>

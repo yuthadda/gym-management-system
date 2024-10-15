@@ -90,8 +90,8 @@ $trainers = $trainerController->getAllTrainers();
                             <td class='align-middle'><?= $trainer['trainer_name'] ?></td>
                             <td class='align-middle'><?= $trainer['trainer_phone'] ?></td>
                             <td>
-                                <a href='./trainer-detail.php?id=<?= $trainer['trainer_id'] ?>' class="btn btn-sm btn-info" >More Info</a>
-                                <a href='./edit-trainer.php?id=<?= $trainer['trainer_id'] ?>' class="btn btn-sm btn-success" >Edit</a>
+                                <a href='./trainer-detail.php?id=<?= $trainer['trainer_id'] ?>' class="btn btn-sm btn-info mx-1" >Detail</a>
+                                <a href='./edit-trainer.php?id=<?= $trainer['trainer_id'] ?>' class="btn btn-sm btn-warning mx-1" >Edit</a>
                                 <a  class="btn btn-sm btn-danger btnDeleteTrainer" >Del</a>
                             </td>
                         </tr>
