@@ -1,14 +1,22 @@
 <?php
+include_once ("includes/db.php");
+
+ $con;
 
     $email="";
     $password="";
     $confirmpassword="";
+    
 
 if(isset($_POST['submit']))
 {
     $email            = $_POST['email'];
     $password         = $_POST['password'];
     $confirmpassword  = $_POST['confirmpassword'];
+
+    
+    $passwordhash     = password_hash($password,PASSWORD_DEFAULT);
+
 
     $error = false;
 
@@ -39,17 +47,60 @@ if(isset($_POST['submit']))
     }
     
 
-    
-    
-
-
     if($password != $confirmpassword)
     {
         $matchmessage = "Password does not match";
+        $error= true;
     }
 
+
+//----------------------------------------------------Insert Data Into Database if no error----------------------------------------------------------------------------------------------
+
+    if(!$error)
+    {
+        $con = Database::connect();
+        if($con)
+        {
+            $sql = "SELECT * FROM logins WHERE user_email = '$email'";
+            $statement =$con->prepare($sql);
+             $statement->execute();
+            
+
+            if($statement->rowCount()>0)
+            {
+                $exist = "Email Already Exist";
+            }
+
+            else
+            {
+                $sql = "INSERT INTO logins (user_email , user_password) VALUE(:email, :passwordhash)";
+            $statement = $con->prepare($sql);
+            $statement->bindParam(':email',$email);
+            $statement->bindParam(':passwordhash',$passwordhash);
+            $result = $statement->execute();
+            
+            if($result)
+            {
+                //echo json_encode(['status' => 'success', 'message' => 'Registration successful!']);
+                header('location:login.php?msg=success');
+            }
+            else
+            {
+                header('location:login.php?msg=fail');
+            }
+            }
+           
+           
+
+            
+        }
     
-    
+
+    }
+
+
+//----------------------------------------------------End----------------------------------------------------------------------------------------------
+   
 }
 
 ?>
@@ -76,7 +127,9 @@ if(isset($_POST['submit']))
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Register Account</h3></div>
                                     <div class="card-body">
-                                        <form method="post">
+                                        <form method="POST" id="registrationform">
+
+                                       <?php if(isset($exist)) echo "<div class='alert alert-danger'>".$exist."</div>" ?>
 
                                         <span class="text-danger"><?php if(isset($emailmessage))echo $emailmessage;?></span>
 
@@ -110,7 +163,7 @@ if(isset($_POST['submit']))
                                             
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 
-                                                <button class="btn btn-primary" name="submit">Create Account</button>
+                                                <button class="btn btn-primary btnRegister" type="submit" name="submit">Create Account</button>
                                             </div>
                                         </form>
                                     </div>
@@ -126,7 +179,41 @@ if(isset($_POST['submit']))
             
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="scripts/jquery-3.7.1.min.js"></script>
         <script src="dist/js/scripts.js"></script>
+
+        <!-- <script>
+//-----------------------------------------------------------Register Messgae Start-----------------------------------------------------------------------
+$(document).ready(function(){
+            $('#registrationform').on('submit',function(e){
+
+                    e.preventDefault();
+
+                    var formdata = $(this).serialize();
+
+                    $.ajax({
+                            type:'POST',
+                            url:'register.php',
+                            data:formdata,
+                            dataType:'json',
+                            success:function(response)
+                            {
+                                if(response.status == "success")
+                                {
+                                    alert(response.message)
+                                    window.location.reload()
+                                 }
+        
+                             }
+
+                            })
+
+                    })
+
+                })
+//-----------------------------------------------------------Register Messgae End-----------------------------------------------------------------------
+
+        </script>  -->
     </body>
 
     <style>
