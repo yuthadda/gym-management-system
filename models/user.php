@@ -83,4 +83,18 @@ class UserModel
             }
         }
     }
+
+    public function searchUser($data){
+        $this->con= Database::connect();
+        $sql = "select * from users where user_name like :data or user_email like :data or user_phone like :data or user_address like :data and deleted_at is NULL";
+        $statement = $this->con->prepare($sql);
+        $search_data = "%".$data."%";
+        $statement ->bindParam(":data",$search_data);
+        $result = $statement->execute();
+        if($result){
+            return $statement->fetchAll();
+        }else{
+            return null;
+        }
+    }
 }

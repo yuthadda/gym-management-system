@@ -27,6 +27,11 @@ class UserController{
         $user = new UserModel();
         return $user->deleteUser($id);
     }
+
+    function searchUser($data){
+        $user  = new UserModel();
+        return $user->searchUser($data);
+    }
 }
 
 

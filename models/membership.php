@@ -185,5 +185,26 @@ class Membership{
 //     }
 
 
+    public function searchMembership($data){
+        $this->con= Database::connect();
+        $sql = "select memberships.*,users.* from memberships join users 
+        where memberships.user_id = users.user_id 
+        and memberships.member_id like :data 
+        or users.user_name like :data 
+        or users.user_address like :data
+        and memberships.deleted_at is NULL 
+        and users.deleted_at is NULL";
+        $statement = $this->con->prepare($sql);
+        $search_data = "%".$data."%";
+        $statement ->bindParam(":data",$search_data);
+        $result = $statement->execute();
+        if($result){
+            return $statement->fetchAll();
+        }else{
+            return null;
+        }
+    }
+
+
 
 }

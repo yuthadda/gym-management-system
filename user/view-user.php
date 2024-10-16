@@ -22,27 +22,32 @@ $users = $user->getAllUser();
             <?php include_once "../layouts/nav.php" ?>
 
             <div class="container">
-            
+
                 <div class="row">
                     <div class="col-md-12 text-center mb-3">
-                    <h2>User Information</h2>
+                        <h2>User Information</h2>
                     </div>
-                    <div class="row col-md-12">
-            <?php
-                                if(isset($_GET['msg'])){
-                                    if($_GET['msg'] == 'updatesuccess'){
-                                        echo "
+                    <div class="col-md-8 mb-3">
+                        <?php
+                        if (isset($_GET['msg'])) {
+                            if ($_GET['msg'] == 'updatesuccess') {
+                                echo "
                                 <span class='alert alert-success'>user successfully updated</span>
                                 ";
-                                    }else if($_GET['msg'] == 'addsuccess'){
-                                        echo "
-                                    <span class='alert alert-success'>user successfully added</span>
+                            } else if ($_GET['msg'] == 'addsuccess') {
+                                echo "
+                                    <span class='alert alert-success'>user successfully added!</span>
                                     ";
-                                    }
-                                }
-                                
-                                ?>
-                            </div>
+                            }
+                        }
+
+                        ?>
+                    </div>
+                    
+                    <div class="col-md-4 d-flex mb-3">
+                        <input type="text" name="data" class="form-control UserSearch" placeholder="Search user informations....">
+                        <button class="btn border-dark btnUserSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
                     <div class="col-md-12">
                         <table class="table table-striped">
                             <thead>
@@ -56,12 +61,12 @@ $users = $user->getAllUser();
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbody">
                                 <?php
                                 $count = 1;
                                 foreach ($users as $user) {
                                     echo "
-                            <tr id=".$user['user_id'].">
+                            <tr id=" . $user['user_id'] . ">
                                 <td><img class='rounded-circle' style='width:40px' src='../img/undraw_profile_2.svg'
                             alt='...'></td>
                                 <td class='align-middle'>" . $count++ . "</td>
@@ -70,7 +75,7 @@ $users = $user->getAllUser();
                                 <td class='align-middle'>" . $user['user_phone'] . "</td>
                                 <td class='align-middle'>" . $user['user_address'] . "</td>
                                 <td><a class='btn btn-info mx-1' href='detail-user.php?id=" . $user['user_id'] . "'>Detail</a>
-                                <a class='btn btn-warning mx-1' href='edit-user.php?id= ".$user['user_id']."'>Edit</a>
+                                <a class='btn btn-warning mx-1' href='edit-user.php?id= " . $user['user_id'] . "'>Edit</a>
                                 <a class='btn btn-danger mx-1 btnDeleteUser'>Delete</a></td>
                             </tr>
                             ";

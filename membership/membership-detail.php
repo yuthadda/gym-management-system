@@ -85,7 +85,7 @@ $payments = $paymentController->getPaymentByMembershipId($id);
                                     <div class="card-body">
                                         <h5 class="card-title">GM-<?php echo $membership['member_id'] ?></h5>
                                         <p class=" ">Membership Name : <?php echo $membership['user_name'] ?></p>
-                                        <p>Trainer Name : <?php
+                                        <p>Trainer : <?php
 
                                                             if (!$membership['trainer_id'] == null) {
                                                                 echo "<h3>";

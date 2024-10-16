@@ -19,47 +19,53 @@ $facilitite = $facility->getAllFacility();
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <?php include_once "../layouts/nav.php" ?>
+            <div id="content">
+                <?php include_once "../layouts/nav.php" ?>
 
-            <div class="container">
-                <div class="row">
-                    <?php
-                    if (isset($_GET['msg'])) {
-                        if ($_GET['msg'] == 'updatesuccess') {
-                            echo "
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12 text-center mb-3">
+                            <h2>Facility Information</h2>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <?php
+                            if (isset($_GET['msg'])) {
+                                if ($_GET['msg'] == 'updatesuccess') {
+                                    echo "
                                 <span class='alert alert-success'>facility successfully updated</span>
                                 ";
-                        } else if ($_GET['msg'] == 'addsuccess') {
-                            echo "
+                                } else if ($_GET['msg'] == 'addsuccess') {
+                                    echo "
                                     <span class='alert alert-success'>facility successfully added</span>
                                     ";
-                        }
-                    }
+                                }
+                            }
 
-                    ?>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center mb-3">
-                        <h2>Facility Information</h2>
-                    </div>
-                    <div class="col-md-12">
+                            ?>
+                        </div>
+                        <div class="col-md-4 d-flex mb-3">
+                            <input type="text" class="form-control FacSearch" placeholder="Search facility informations....">
+                            <button class="btn border-dark btnFacSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                        <div class="col-md-12">
 
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Quality</th>
-                                    <th>Vendor</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $count = 1;
-                                foreach ($facilitite as $facility) {
-                                    echo "
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Quality</th>
+                                        <th>Vendor</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody">
+                                    <?php
+                                    $count = 1;
+                                    foreach ($facilitite as $facility) {
+                                        echo "
                             <tr id=" . $facility['fac_id'] . ">
                                 <td>" . $count++ . "</td>
                                 <td>" . $facility['fac_name'] . "</td>
@@ -71,14 +77,15 @@ $facilitite = $facility->getAllFacility();
                                 <a class='btn btn-danger mx-1 btnDeleteFacility'>Delete</a></td>
                             </tr>
                             ";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-            </div>
+       
 
-            <?php include_once "../layouts/footer.php" ?>
+
+    <?php include_once "../layouts/footer.php" ?>
