@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => '__root__',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '04873793e32ab44bd47ebbf8cb75330805b17628',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '04873793e32ab44bd47ebbf8cb75330805b17628',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'cloudframework-io/tcpdi_cf' => array(
+            'pretty_version' => '1.0.4',
+            'version' => '1.0.4.0',
+            'reference' => '3f81f5cfabae5e3c0286c28f710abb97ce2cc8e0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cloudframework-io/tcpdi_cf',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'tecnickcom/tcpdf' => array(
+            'pretty_version' => '6.7.6',
+            'version' => '6.7.6.0',
+            'reference' => '4cf1ab192e87e6916d20f93077b2bdfa96a2f848',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../tecnickcom/tcpdf',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

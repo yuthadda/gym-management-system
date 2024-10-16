@@ -1,0 +1,6 @@
+{
+    "require": {
+        "tecnickcom/tcpdf": "^6.7",
+        "cloudframework-io/tcpdi_cf": "^1.0"
+    }
+}
