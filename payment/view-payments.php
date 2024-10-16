@@ -104,6 +104,8 @@ $payments = $paymentController->getAllPayment();
                                             </td>
                                             <td>
                                                 <a href='./invoice.php?id=<?= $payment['payment_id'] ?>' class="btn btn-info">view invoice</a>
+                                                <a href='./paymentpdf.php?id=<?= $payment['payment_id'] ?>' class="btn btn-info">Convert</a>
+                                                
 
                                             </td>
                                         </tr>

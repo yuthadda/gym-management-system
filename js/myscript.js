@@ -180,6 +180,7 @@ $('.btnMemberSearch').click(function(){
                 method:'post',
                 data: {value:data},
                 success:function(response){
+                    console.log('response',response);
                     tbody.children().remove();
                     tbody.append(response);
                 }
