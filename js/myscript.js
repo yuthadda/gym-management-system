@@ -181,11 +181,7 @@ $('.btnMemberSearch').click(function(){
                 method:'post',
                 data: {value:data},
                 success:function(response){
-<<<<<<< HEAD
-                    console.log(response);
-=======
                     console.log('response',response);
->>>>>>> 0bdf05c15b94436e7abaf23d8b920b77966284b5
                     tbody.children().remove();
                     tbody.append(response);
                 }
