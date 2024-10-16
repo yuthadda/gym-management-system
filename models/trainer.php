@@ -96,7 +96,7 @@ class Trainer{
 
     public function searchTrainer($data){
         $this->con= Database::connect();
-        $sql = "select * from trainers where trainer_name like :data or trainer_email like :data or trainer_phone like :data or trainer_salary like :data and deleted_at is NULL";
+        $sql = "select * from trainers where (trainer_name like :data or trainer_email like :data or trainer_phone like :data or trainer_salary like :data) and deleted_at is NULL";
         $statement = $this->con->prepare($sql);
         $search_data = "%".$data."%";
         $statement ->bindParam(":data",$search_data);

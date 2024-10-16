@@ -152,4 +152,21 @@ class Payment{
             return null;
         }
     }
+
+    public function getNoPaymentMember(){
+        $this->con= Database::connect();
+        $sql = "select users.*,memberships.* from memberships join users 
+        where memberships.member_id 
+        not in (select payments.member_id from payments) 
+        and users.user_id=memberships.user_id 
+        and  users.deleted_at is NULL 
+        and memberships.deleted_at is NULL";
+        $statement = $this->con->prepare($sql);
+        $result = $statement->execute();
+        if($result){
+            return $statement->fetchAll();
+        }else{
+            return null;
+        }
+    }
 }

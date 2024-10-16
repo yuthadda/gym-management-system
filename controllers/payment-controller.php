@@ -44,5 +44,10 @@ class PaymentController{
         $payment = new Payment();
         return $payment->searchPayment($data);
     }
+
+    function getNoPaymentMember(){
+        $payment = new Payment();
+        return $payment->getNoPaymentMember();
+    }
     
 }

@@ -187,13 +187,10 @@ class Membership{
 
     public function searchMembership($data){
         $this->con= Database::connect();
-        $sql = "select memberships.*,users.* from memberships join users 
-        where memberships.user_id = users.user_id 
-        and memberships.member_id like :data 
-        or users.user_name like :data 
-        or users.user_address like :data
-        and memberships.deleted_at is NULL 
-        and users.deleted_at is NULL";
+        $sql = "SELECT memberships.*,users.* from memberships
+        INNER JOIN users on users.user_id = memberships.user_id
+        where (users.user_name like :data or users.user_email like :data or users.user_address like :data)
+        and memberships.deleted_at is null";
         $statement = $this->con->prepare($sql);
         $search_data = "%".$data."%";
         $statement ->bindParam(":data",$search_data);

@@ -1,9 +1,12 @@
 <?php
 
+
+
 include_once "../controllers/membership-controller.php";
 $data = $_POST['value'];
 $membershipController = new MembershipController();
 $memberships = $membershipController->searchMembership($data);
+// var_dump($memberships);
 $count = 1;
 $output = "";
 foreach($memberships as $membership){

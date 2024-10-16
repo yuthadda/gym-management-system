@@ -92,7 +92,7 @@ Class FacilityModel{
 
     public function searchFacility($data){
         $this->con= Database::connect();
-        $sql = "select * from facilities where fac_name like :data or fac_price like :data or fac_qty like :data or fac_vendor like :data and deleted_at is NULL";
+        $sql = "select * from facilities where (fac_name like :data or fac_price like :data or fac_qty like :data or fac_vendor like :data) and deleted_at is NULL";
         $statement = $this->con->prepare($sql);
         $search_data = "%".$data."%";
         $statement ->bindParam(":data",$search_data);

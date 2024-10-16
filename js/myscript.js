@@ -160,6 +160,7 @@ $('.btnUserSearch').click(function(){
                 method:'post',
                 data: {value:data},
                 success:function(response){
+
                     tbody.children().remove();
                     tbody.append(response);
                 }
@@ -180,6 +181,7 @@ $('.btnMemberSearch').click(function(){
                 method:'post',
                 data: {value:data},
                 success:function(response){
+                    console.log(response);
                     tbody.children().remove();
                     tbody.append(response);
                 }
@@ -260,6 +262,7 @@ $('.btnPaymentSearch').click(function(){
                 method:'post',
                 data: {value:data},
                 success:function(response){
+                
                     tbody.children().remove();
                     tbody.append(response);
                 }

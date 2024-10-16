@@ -6,9 +6,7 @@ include_once "../controllers/plan-controller.php";
 include_once "../controllers/payment-controller.php";
 
 $paymentController = new PaymentController();
-
-$membershipController = new MembershipController();
-$memberships = $membershipController->getAllMemberships();
+$memberships = $paymentController->getNoPaymentMember();
 
 $planController = new PlanController();
 $plans = $planController->showPlan();

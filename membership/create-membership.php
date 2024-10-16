@@ -9,7 +9,7 @@ include_once "../controllers/trainer-controller.php";
 $membershipController = new MembershipController();
 
 $userController = new UserController();
-$users = $userController->getAllUser();
+$users = $userController->getNotMemberUser();
 
 $trainerController = new TrainerController();
 $trainers = $trainerController->getAllTrainers();

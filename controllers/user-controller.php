@@ -32,6 +32,11 @@ class UserController{
         $user  = new UserModel();
         return $user->searchUser($data);
     }
+
+    function getNotMemberUser(){
+        $user = new UserModel();
+        return $user->getNotMemberUser();
+    }
 }
 
 

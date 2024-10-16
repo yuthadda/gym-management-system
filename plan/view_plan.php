@@ -1,6 +1,6 @@
 <?php
 
-include_once ('../controllers/plan-controller.php');
+include_once('../controllers/plan-controller.php');
 
 $planController = new PlanController();
 $plans = $planController->showPlan();
@@ -9,74 +9,96 @@ $plans = $planController->showPlan();
 
 
 
-<?php include_once ('../layouts/header.php') ?>
+<?php include_once('../layouts/header.php') ?>
 
 <body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-    <?php include_once ('../layouts/sidebar.php') ?>
+        <?php include_once('../layouts/sidebar.php') ?>
 
         <!-- Content Wrapper -->
-        <duv id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <?php include_once('../layouts/nav.php') ?>
 
-        <?php include_once ('../layouts/nav.php') ?>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center mb-3">
+                            <h2>Plan Information</h2>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                        <?php
+                        if (isset($_GET['msg'])) {
+                            if ($_GET['msg'] == 'updatesuccess') {
+                                echo "
+                                <span class='alert alert-success'>plan successfully updated</span>
+                                ";
+                            } else if ($_GET['msg'] == 'success') {
+                                echo "
+                                    <span class='alert alert-success'>plan successfully added!</span>
+                                    ";
+                            }
+                        }
 
-        <div class="col-md-12">
-        <table class="table table-striped">
+                        ?>
+                    </div>
+                    
+                    <div class="col-md-4 d-flex mb-3">
+                        <input type="text" name="data" class="form-control PlanSearch" placeholder="Search plan informations....">
+                        <button class="btn border-dark btnPlanSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                        <div class="col-md-12 mb-3">
+                            <table class="table table-striped">
 
-        <thead>
-            <tr>
-                <th>NO</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Duration</th>
-                <th>Description</th>
-            </tr>
-        </thead>
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Duration</th>
+                                        <th>Description</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
 
-        <tbody id="tbody">
+                                <tbody id="tbody">
 
-            <?php 
-            $count=1;
-            foreach($plans as $plan)
-            {
-                echo "<tr id=".$plan['plan_id'].">";
-                echo "<td>" .$count++ ."</td>";
-                echo "<td>" .$plan['plan_name'] ."</td>";
-                echo "<td>" .$plan['plan_price']." $" ."</td>";
-                echo "<td>" .$plan['plan_duration']." months" ."</td>";
-                echo "<td>" .$plan['plan_description'] ."</td>";
-                echo "<td> <a class='btn btn-info mx-1' href='detail-plan.php?plan_id=".$plan['plan_id']."'>Detail </a>
-                           <a class='btn btn-warning mx-1' href='edit-plan.php?plan_id=".$plan['plan_id']."'>Edit</a>
+                                    <?php
+                                    $count = 1;
+                                    foreach ($plans as $plan) {
+                                        echo "<tr id=" . $plan['plan_id'] . ">";
+                                        echo "<td>" . $count++ . "</td>";
+                                        echo "<td>" . $plan['plan_name'] . "</td>";
+                                        echo "<td>" . $plan['plan_price'] . " $" . "</td>";
+                                        echo "<td>" . $plan['plan_duration'] . " months" . "</td>";
+                                        echo "<td>" . $plan['plan_description'] . "</td>";
+                                        echo "<td> <a class='btn btn-info mx-1' href='detail-plan.php?plan_id=" . $plan['plan_id'] . "'>Detail</a>
+                           <a class='btn btn-warning mx-1' href='edit-plan.php?plan_id=" . $plan['plan_id'] . "'>Edit</a>
                            <button class='btn btn-danger btnPlanDelete'>Delete</button>"
-                        ."</td>";
-                
-                echo "</tr>";
-            }
-            ?>
-        
+                                            . "</td>";
 
-        </tbody>
-
-        </table>
-        <div class="col-md-6">
-    <?php                                    
-        echo "<td><a class='btn btn-dark mx-2' href='../view/index.php'>Back</a></td>";
-    ?>
-    </div>  
-        </div>
-
-        
-    
-
-    
+                                        echo "</tr>";
+                                    }
+                                    ?>
 
 
-        </div>
-    </div>
-        <?php include_once ('../layouts/footer.php') ?>
+                                </tbody>
+
+                            </table>
+                            <div class="col-md-6">
+                                <?php
+                                echo "<td><a class='btn btn-dark mx-2' href='../view/index.php'>Back</a></td>";
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
 
 
 
@@ -84,3 +106,6 @@ $plans = $planController->showPlan();
 
 
 
+
+</body>
+<?php include_once('../layouts/footer.php') ?>
