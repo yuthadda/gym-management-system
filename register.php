@@ -14,8 +14,8 @@ if(isset($_POST['submit']))
     $password         = $_POST['password'];
     $confirmpassword  = $_POST['confirmpassword'];
 
-    
-    $passwordhash     = password_hash($password,PASSWORD_DEFAULT);
+
+    //$passwordhash     = password_hash($password,PASSWORD_DEFAULT);
 
 
     $error = false;
@@ -73,10 +73,10 @@ if(isset($_POST['submit']))
 
             else
             {
-                $sql = "INSERT INTO logins (user_email , user_password) VALUE(:email, :passwordhash)";
+                $sql = "INSERT INTO logins (user_email , user_password) VALUE(:email, :password)";
             $statement = $con->prepare($sql);
             $statement->bindParam(':email',$email);
-            $statement->bindParam(':passwordhash',$passwordhash);
+            $statement->bindParam(':password',$password);
             $result = $statement->execute();
             
             if($result)
