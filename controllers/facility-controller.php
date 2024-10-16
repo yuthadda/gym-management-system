@@ -32,6 +32,11 @@ class FacilityController{
         $facility = new FacilityModel();
         return $facility->getTotalPrice();
     }
+
+    public function searchFacility($data){
+        $facility = new FacilityModel();
+        return $facility->searchFacility($data);
+    }
 }
 
 ?>

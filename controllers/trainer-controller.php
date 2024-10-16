@@ -32,5 +32,10 @@ class TrainerController{
         $trainer = new Trainer();
         return $trainer->getTotalSalary();
     }
+
+    public function searchTrainer($data){
+        $trainer = new Trainer();
+        return $trainer->searchTrainer($data);
+    }
     
 }

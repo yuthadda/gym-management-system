@@ -25,7 +25,7 @@ $invoice_id = str_pad($payment['payment_id'], 4, "0", STR_PAD_LEFT);
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
+            <div id="content">
             <?php include_once "../layouts/nav.php" ?>
 
             <div class="container ">
@@ -126,6 +126,7 @@ $invoice_id = str_pad($payment['payment_id'], 4, "0", STR_PAD_LEFT);
                 
             </div>
             </div>
-            </div>
+            <!-- </div> -->
+            <!-- </div> -->
 
             <?php include_once "../layouts/footer.php" ?>

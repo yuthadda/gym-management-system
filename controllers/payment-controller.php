@@ -39,5 +39,10 @@ class PaymentController{
         $payment = new Payment();
         return $payment->checkExpired();
     }
+
+    function searchPayment($data){
+        $payment = new Payment();
+        return $payment->searchPayment($data);
+    }
     
 }

@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
 <body id="page-top">
 
     <!-- Page Wrapper -->
-    < id="wrapper">
+    <div id="wrapper">
 
         <?php include_once "../layouts/sidebar.php" ?>
 
@@ -43,7 +43,8 @@ if (isset($_GET['id'])) {
             </div>
             
 
-        </div>
+        <!-- </div> -->
+    <!-- </div> -->
         
 
             <?php include_once "../layouts/footer.php" ?>

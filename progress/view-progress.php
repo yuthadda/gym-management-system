@@ -33,9 +33,14 @@ $progresses = $progressController->showAllProgress();
 <!-- Begin Page Content -->
 <div class="container">
 
-<!-- Error Showing Alerts -->
-<div class="row my-2">
-    <div class="col-md-12">
+
+
+
+<div class="row">
+<div class="col-md-12 text-center mb-3">
+                            <h2>Progress Information</h2>
+                        </div>
+                        <div class="col-md-8 mb-3">
                             <?php
                             if(isset($_GET['msg'])){
                                 if($_GET['msg'] == 'fail'){
@@ -53,23 +58,20 @@ $progresses = $progressController->showAllProgress();
 
                                 }
                                 elseif($_GET['msg'] == 'updatesuccess'){
-                                    echo "<span class=' alert alert-success' >Successfully updated</span>";
+                                    echo "<span class=' alert alert-success' >progress successfully updated!</span>";
                                 }
                                 else{
-                                   echo "<span class=' alert alert-success' >Added Successfully</span>";
+                                   echo "<span class=' alert alert-success' >progress successfully added!</span>";
                                 }
                             }
                              ?>
 
                       
     </div>
-</div>
-
-
-<div class="row">
-<div class="col-md-12 text-center mb-3">
-                            <h2>Progress Information</h2>
-                        </div>
+    <div class="col-md-4 d-flex mb-3">
+                        <input type="text" class="form-control ProgressSearch " placeholder="Search progress informations....">
+                        <button class="btn border-dark btnProgressSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
     <div class="col-md-12 mx-auto">
         <table class="table table-striped">
             <thead>
@@ -84,7 +86,7 @@ $progresses = $progressController->showAllProgress();
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody><?php $count=1; ?>
+            <tbody id="tbody"><?php $count=1; ?>
                     <?php foreach($progresses as $progress): ?>
                         <tr id="<?= $progress['prog_id'] ?>">
                             <td><?= $count++ ?></td>
@@ -96,8 +98,8 @@ $progresses = $progressController->showAllProgress();
                             
                             
                             <td>
-                                <a href='./edit-membership.php?id=<?= $progress['prog_id'] ?>' class="btn btn-sm btn-warning" >Edit</a>
-                                <a  class="btn btn-sm btn-danger btnDeleteProgress" >Delete</a>
+                                <a href='./edit-membership.php?id=<?= $progress['prog_id'] ?>' class="btn btn-warning" >Edit</a>
+                                <a  class="btn btn-danger btnDeleteProgress" >Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

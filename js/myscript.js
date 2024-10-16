@@ -147,22 +147,125 @@ $(document).ready(function(){
     })
 
 //------------------------------------------------------------------Update Count----------------------------------------------------------
-    $(document).on('click','.btnCheck',function(){
-        // let btnCheckIn = $(this);
-        // let tr = btnCheckIn.parent().parent();
-        // let id = tr.attr('id');
-        // console.log(tr);
-        // console.log(id);
-        
-        
-                        
-                            // window.location.reload();
-                        
-                    
-                
-            
-        }
-     )
+   
+$('.btnUserSearch').click(function(){
+    let data = $('.UserSearch').val();
+    console.log(data);
+    let tbody = $('#tbody');
+    console.log(tbody);
+    if(data.length > 0){
+        $.ajax(
+            {
+                url:'search-user.php',
+                method:'post',
+                data: {value:data},
+                success:function(response){
+                    tbody.children().remove();
+                    tbody.append(response);
+                }
+            }
+        )
+    }
+})
 
+$('.btnMemberSearch').click(function(){
+    let data = $('.MemberSearch').val();
+    console.log(data);
+    let tbody = $('#tbody');
+    console.log(tbody);
+    if(data.length > 0){
+        $.ajax(
+            {
+                url:'search-membership.php',
+                method:'post',
+                data: {value:data},
+                success:function(response){
+                    tbody.children().remove();
+                    tbody.append(response);
+                }
+            }
+        )
+    }
+})
+
+$('.btnTrainerSearch').click(function(){
+    let data = $('.TrainerSearch').val();
+    console.log(data);
+    let tbody = $('#tbody');
+    console.log(tbody);
+    if(data.length > 0){
+        $.ajax(
+            {
+                url:'search-trainer.php',
+                method:'post',
+                data: {value:data},
+                success:function(response){
+                    tbody.children().remove();
+                    tbody.append(response);
+                }
+            }
+        )
+    }
+})
+
+$('.btnFacSearch').click(function(){
+    let data = $('.FacSearch').val();
+    console.log(data);
+    let tbody = $('#tbody');
+    console.log(tbody);
+    if(data.length > 0){
+        $.ajax(
+            {
+                url:'search-facility.php',
+                method:'post',
+                data: {value:data},
+                success:function(response){
+                    tbody.children().remove();
+                    tbody.append(response);
+                }
+            }
+        )
+    }
+})
+
+$('.btnProgressSearch').click(function(){
+    let data = $('.ProgressSearch').val();
+    console.log(data);
+    let tbody = $('#tbody');
+    console.log(tbody);
+    if(data.length > 0){
+        $.ajax(
+            {
+                url:'search-progress.php',
+                method:'post',
+                data: {value:data},
+                success:function(response){
+                    tbody.children().remove();
+                    tbody.append(response);
+                }
+            }
+        )
+    }
+})
+
+$('.btnPaymentSearch').click(function(){
+    let data = $('.PaymentSearch').val();
+    console.log(data);
+    let tbody = $('#tbody');
+    console.log(tbody);
+    if(data.length > 0){
+        $.ajax(
+            {
+                url:'search-payment.php',
+                method:'post',
+                data: {value:data},
+                success:function(response){
+                    tbody.children().remove();
+                    tbody.append(response);
+                }
+            }
+        )
+    }
+})
 
 })

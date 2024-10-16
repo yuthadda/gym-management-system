@@ -27,7 +27,11 @@ class ProgressController{
        return $result;
     }
 
-    
+    public function searchProgress($data){
+        $progress = new Progress();
+        $result = $progress->searchProgress($data);
+        return $result;
+    }
 
 }
 

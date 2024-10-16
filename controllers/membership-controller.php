@@ -47,6 +47,11 @@ class MembershipController{
         $membership = new Membership();
         return $membership->membershipCount();
     }
+
+    public function searchMembership($data){
+        $membership = new Membership();
+        return $membership->searchMembership($data);
+    }
     
     
 }

@@ -36,12 +36,11 @@ class AttendanceController{
         return $result;
     }
 
-    
-    public function getPlanById($id)
-    {
-        $plan   = new Plan();
-        return $plan->getPlanById($id);
-       
+
+    public function getTodayMember(){
+        $attendance = new Attendance();
+        $result = $attendance->getTodayMember();
+        return $result;
     }
 
     

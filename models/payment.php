@@ -138,4 +138,18 @@ class Payment{
             }
         }
     }
+
+    public function searchPayment($data){
+        $this->con= Database::connect();
+        $sql = "select * from payments where payment_id like :data and deleted_at is NULL";
+        $statement = $this->con->prepare($sql);
+        $search_data = "%".$data."%";
+        $statement ->bindParam(":data",$search_data);
+        $result = $statement->execute();
+        if($result){
+            return $statement->fetchAll();
+        }else{
+            return null;
+        }
+    }
 }
