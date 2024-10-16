@@ -58,16 +58,29 @@ session_start();
         {
            
             
-            
+            echo "Reached here";
             $sql       = "SELECT * from logins where user_email='$email' AND user_password='$password'";
             $result1 = mysqli_query($con,$sql);
 
             
 
-            if(mysqli_num_rows($result1)>=1)
+            if(mysqli_num_rows($result1)>=1 )
             {
-                $_SESSION['username']=$email;
-                header('location:view/index.php');
+                
+
+                $row = mysqli_fetch_array($result1);
+                $hash_password = $row['user_password'];
+
+                
+
+                
+                    $_SESSION['username']=$email;
+                    header('location:view/index.php');
+                
+
+               
+                
+                
             }
             else
             {
