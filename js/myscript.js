@@ -268,5 +268,4 @@ $('.btnPaymentSearch').click(function(){
     }
 })
 
-
 })

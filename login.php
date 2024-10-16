@@ -11,6 +11,8 @@ session_start();
  
     if(isset($_POST["submit"]))
     {
+        $email            = $_POST['email'];
+        $password         = $_POST['password'];
         $error = false;
 
         if(empty($_POST['email']))
@@ -18,22 +20,39 @@ session_start();
             $emailmessage = "Please Enter Email";
             $error = true;
 
-        }
-        else
+        }else 
         {
-            $email =trim($_POST["email"]) ;
+            if(!filter_var($email,FILTER_VALIDATE_EMAIL))
+           {$validmessage = "Please Enter Valid Email";
+            $error = true;} 
+            else
+            {
+                $email =trim($_POST["email"]) ;
+            }
         }
+       
+
+
 
         if(empty($_POST['password']))
         {
             $messagepass = "Please Enter  Password";
             $error = true;
 
-        }
-        else
+            
+
+        }else 
         {
-            $password =trim($_POST["password"]);
+            if(strlen($_POST['password'])<6)
+            {$qtymessage = "Password must be at least 6 characters";
+            $error = true;}
+            else
+            {
+                $password =trim($_POST["password"]);
+            }
         }
+        
+
 
         if(!$error)
         {
@@ -47,7 +66,7 @@ session_start();
 
             if(mysqli_num_rows($result1)>=1)
             {
-                $_SESSION['email']=$email;
+                $_SESSION['username']=$email;
                 header('location:view/index.php');
             }
             else
@@ -77,23 +96,37 @@ session_start();
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-info">
-        <div id="layoutAuthentication">
+    <body class="bg-info " img src="../img/background.jpg">
+        <div id="layoutAuthentication" class="pt-5">
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div><?php
+                                if(isset($_GET['msg'])){
+                                    if($_GET['msg'] == 'success'){
+                                        echo "
+                                <span class='alert alert-success'>Registration Account Successful!</span>
+                                ";
+                                    }else if($_GET['msg'] == 'fail'){
+                                        echo "
+                                    <span class='alert alert-danger'>Registration Account Fail!</span>
+                                    ";
+                                    }
+                                }
+                                
+                                ?></div>
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                         <form method="post">
 
+
                                         <span class="text-danger "><?php if(isset($emailmessage))echo $emailmessage;?></span>
+                                        <span class="text-danger "><?php if(isset($validmessage))echo $validmessage;?></span>
                                             <div class="form-floating mb-3">
                                             
-                                            
-
                                                 <input class="form-control" id="inputEmail" name="email" type="email" placeholder="name@example.com" value="<?php echo $email ?>"/>
                                                 <label for="inputEmail">Enter Email or UserName</label>
                                             </div>
@@ -101,6 +134,7 @@ session_start();
                                             
                                             
                                             <span class="text-danger mb-2"><?php if(isset($messagepass))echo $messagepass;?></span>
+                                            <span class="text-danger "><?php if(isset($qtymessage))echo $qtymessage;?></span>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" value="<?php echo $password ?>"/>
                                                 <label for="inputPassword">Password</label>
