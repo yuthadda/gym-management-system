@@ -114,10 +114,11 @@ $membershipsAtten = $membershipController->getAllMembershipsForAtten();
                     <?php endforeach; ?>
             </tbody>
         </table>
-
+        
     </div>
 </div>
 
+<a class='btn btn-dark mx-2' href='../view/index.php'>Back</a></td>
 
 </div>
 <!-- /.container-fluid -->

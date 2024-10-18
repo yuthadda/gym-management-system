@@ -29,6 +29,7 @@ if (isset($_GET['id'])) {
                 <div class="row">
                     <div class="col-md-4"></div>
                 <div class="col-md-4 card shadow p-3 mt-5 " style="width: 30rem;">
+                <a href="view-user.php"><i class="fa-solid fa-backward text-dark" ></i></a>
                     <img class="card-img-top mx-auto mt-5" src='../img/undraw_profile_2.svg' alt="Card image cap" style="width: 10rem;">
                     <div class="card-body">
                         <h5 class="card-title text-center"><?php echo $user['user_name'] ?></h5>
@@ -41,6 +42,7 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
             </div>
+            
             
 
         <!-- </div> -->

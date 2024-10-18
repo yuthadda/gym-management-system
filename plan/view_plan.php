@@ -85,13 +85,10 @@ $plans = $planController->showPlan();
 
 
                                 </tbody>
-
+                                
                             </table>
-                            <div class="col-md-6">
-                                <?php
-                                echo "<td><a class='btn btn-dark mx-2' href='../view/index.php'>Back</a></td>";
-                                ?>
-                            </div>
+                            <a class='btn btn-dark mx-2' href='../view/index.php'>Back</a></td>
+
                         </div>
                     </div>
                 </div>

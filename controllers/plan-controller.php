@@ -27,6 +27,22 @@ class PlanController{
        
     }
 
+    function updatePlan($id,$name,$price,$duration,$description){
+        $plan = new Plan();
+        return $plan->updatePlan($id,$name,$price,$duration,$description);
+    }
+
+    function deletePlan($id){
+        $plan = new Plan();
+        return $plan->deletePlan($id);
+    }
+
+    function searchUser($data){
+        $user  = new UserModel();
+        return $user->searchUser($data);
+    }
+
+
     
 
 }
