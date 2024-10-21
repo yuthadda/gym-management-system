@@ -3,23 +3,23 @@
 include_once "../layouts/header.php";
 include_once "../controllers/plan-controller.php";
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $user = new UserController();
-    $user = $user->getUserById($id);
+if (isset($_GET['plan_id'])) {
+    $id = $_GET['plan_id'];
+    $planController = new PlanController();
+    $plan = $planController->getPlanById($id);
 }
 
 if (isset($_POST['submit'])) {
 
-    if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['address'])) {
+    if (!empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['duration']) && !empty($_POST['description'])) {
         $name = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $address = $_POST['address'];
-        $user = new UserController();
-        $result = $user->updateUser($id, $name, $email, $phone, $address);
+        $price = $_POST['price'];
+        $duration = $_POST['duration'];
+        $description = $_POST['description'];
+        $planController = new PlanController();
+        $result = $planController->updatePlan($id, $name, $price, $duration, $description);
         if ($result) {
-            header('location:view-user.php?msg=updatesuccess');
+            header('location:view_plan.php?msg=updatesuccess');
         }
     }
 }
@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
                                 <label for="" class="form-label">Enter Plan Name</label>
                                 <input type="text" name="name" class="form-control" value="<?php
 
-                                                                                            echo $user['user_name'];
+                                                                                            echo $plan['plan_name'];
                                                                                             ?>">
                                 <span class="text-danger">
                                     <?php
@@ -60,43 +60,43 @@ if (isset($_POST['submit'])) {
                                 </span>
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Enter User Email</label>
-                                <input type="text" name="email" class="form-control" value="<?php
+                                <label for="" class="form-label">Enter Price</label>
+                                <input type="text" name="price" class="form-control" value="<?php
 
-                                                                                            echo $user['user_email'];
+                                                                                            echo $plan['plan_price'];
                                                                                             ?>">
                                 <span class="text-danger">
                                     <?php
-                                    if (isset($error_email)) {
-                                        echo $error_email;
+                                    if (isset($error_price)) {
+                                        echo $error_price;
                                     }
                                     ?>
                                 </span>
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Enter User Phone</label>
-                                <input type="text" name="phone" class="form-control" value="<?php
+                                <label for="" class="form-label">Enter Duration</label>
+                                <input type="text" name="duration" class="form-control" value="<?php
 
-                                                                                            echo $user['user_phone'];
+                                                                                            echo $plan['plan_duration'];
                                                                                             ?>">
                                 <span class="text-danger">
                                     <?php
-                                    if (isset($error_phone)) {
-                                        echo $error_phone;
+                                    if (isset($error_duration)) {
+                                        echo $error_duration;
                                     }
                                     ?>
                                 </span>
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Enter User Address</label>
-                                <input type="text" name="address" class="form-control" value="<?php
+                                <label for="" class="form-label">Enter Description</label>
+                                <input type="text" name="description" class="form-control" value="<?php
 
-                                                                                                echo $user['user_address'];
+                                                                                                echo $plan['plan_description'];
                                                                                                 ?>">
                                 <span class="text-danger">
                                     <?php
-                                    if (isset($error_address)) {
-                                        echo $error_address;
+                                    if (isset($error_description)) {
+                                        echo $error_description;
                                     }
                                     ?>
                                 </span>

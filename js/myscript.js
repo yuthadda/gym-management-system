@@ -99,6 +99,31 @@ $(document).ready(function(){
         }
     })
 
+    $(document).on('click','.btnPlanDelete',function(){
+        let btnPlanDelete = $(this);
+        let tr = btnPlanDelete.parent().parent();
+        let id = tr.attr('id');
+        console.log(id);
+        let status = confirm("Are you sure to delete?");
+        if(status){
+            $.ajax(
+                {
+                    url : 'delete-plan.php',
+                    method : 'post',
+                    data : {id:id},
+                    success:function(response){
+                        let result = JSON.parse(response);
+                        if(result.status=="true"){
+                            window.location.reload();
+                        }else{
+                            alert("You can't delete");
+                        }
+                    }
+                }
+            )
+        }
+    })
+
     //------------------------------------
     $(document).on('click','.btnNewCheckIn',function(){
         let btnCheck = $(this);

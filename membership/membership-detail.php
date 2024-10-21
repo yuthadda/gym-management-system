@@ -76,11 +76,12 @@ $payments = $paymentController->getPaymentByMembershipId($id);
 </div> -->
 
 
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8 card shadow p-3 mt-5" style="width: 30rem;">
+                    <div class="row mt-5">
+                        <div class="col-md-9 card shadow p-3  m-auto" >
+                       
                             <div class="d-flex">
                                 <div class="pl-4 bg-gray-800 text-gray-200 " style="width: 40%;">
+                                
                                     <img class="card-img-top mt-5" src='../img/undraw_profile_2.svg' alt="Card image cap" style="width: 10rem;">
                                     <div class="card-body">
                                         <h5 class="card-title">GM-<?php echo $membership['member_id'] ?></h5>
@@ -88,9 +89,9 @@ $payments = $paymentController->getPaymentByMembershipId($id);
                                         <p>Trainer : <?php
 
                                                             if (!$membership['trainer_id'] == null) {
-                                                                echo "<h3>";
+                                                                
                                                                 echo $trainer['trainer_name'];
-                                                                echo "</h3>";
+                                                                
                                                             } else {
                                                                 echo "No Trainer";
                                                             }
@@ -116,17 +117,31 @@ $payments = $paymentController->getPaymentByMembershipId($id);
                                         </div>
                                         <hr>
                                         
-                                        <div class="d-flex">
+                                            <?php 
+                                        foreach ($payments as $payment){
+                                        echo  '
+                                        <div class="d-flex justify-content-between">
                                             <div>
-                                                
+                                                <p>Paid Date : </p>
+                                                <p>'.$payment["paid_date"].'</p>
                                             </div>
                                             <div>
+                                                <p>Expired Date : </p>
+                                                <p>'.$payment["expired_date"] .'</p>
+                                            </div>
+                                            <div>
+                                            <p>Payment Status : </p>
+                                                <p>'. $payment["status"].' </p>
+                                            </div>
+                                            </div>
+                                        <hr>
 
-                                            </div>
-                                            <div>
 
-                                            </div>
-                                        </div>
+                                        ';
+                                        }
+                                        ?>
+
+                                      
                                       
 
                                         <div>
@@ -142,27 +157,22 @@ $payments = $paymentController->getPaymentByMembershipId($id);
                                                 echo "</p>";
 
                                                 echo "<p>";
-                                                echo "Plan Duration : " . $payment['plan_duration'];
+                                                echo "Plan Duration : " . $payment['plan_duration'] ." month";
                                                 echo "</p>";
 
                                                 echo "<p>";
                                                 echo "Plan Information : " . $payment['plan_description'];
                                                 echo "</p>";
 
-                                                echo "<p>";
-                                                echo "Paid Date : " . $payment['paid_date'];
+                                                
                                                 echo "</p>";
-
-                                                echo "<p>";
-                                                echo "Expired Date : " . $payment['expired_date'];
-                                                echo "</p>";
-
-                                                echo "<p>";
-                                                echo "Plan Status : " . $payment['status'];
-                                                echo "</p>";
+                                                
                                             }
 
                                             ?>
+                                        </div>
+                                        <div class="mt-5">
+                                        <a href="view-memberships.php"><i class="fa-solid fa-backward text-dark" ></i></a>
                                         </div>
                                     </div>
                                 </div>
