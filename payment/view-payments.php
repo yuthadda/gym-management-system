@@ -104,7 +104,7 @@ $payments = $paymentController->getAllPayment();
                                             </td>
                                             <td>
                                                 <a href='./invoice.php?id=<?= $payment['payment_id'] ?>' class="btn btn-info">view invoice</a>
-                                                <a href='./paymentpdf.php?id=<?= $payment['payment_id'] ?>' class="btn btn-info">Convert</a>
+                                                <button class="btn btn-dark" onclick="sendEmail(<?= $payment['payment_id'] ?>)">Send Email</button>
                                                 
 
                                             </td>
@@ -122,5 +122,23 @@ $payments = $paymentController->getAllPayment();
 
             </div>
             <!-- End of Main Content -->
+
+            <script>
+                function sendEmail(id){
+
+                    console.log(id);
+                    $.ajax({
+
+                        url:'send.php',
+                        method:'post',
+                        data:{id:id},
+                        success:function(response)
+                        {
+                            console.log(response);
+                            alert(response);
+                        }
+                    })
+                 }
+            </script>
 
             <?php include_once "../layouts/footer.php" ?>

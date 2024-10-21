@@ -1,9 +1,9 @@
 <?php
 
-// Start output buffering
+
 ob_start();
 
-require_once('../vendor/tecnickcom/tcpdf/tcpdf.php'); // Adjust the path if necessary
+require_once('../vendor/tecnickcom/tcpdf/tcpdf.php'); 
 include_once "../layouts/header.php";
 include_once "../controllers/payment-controller.php";
 
