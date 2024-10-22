@@ -153,11 +153,11 @@ $payments = $paymentController->getPaymentByMembershipId($id);
                                                 echo "</p>";
 
                                                 echo "<p>";
-                                                echo "Plan Price : " . $payment['plan_price'];
+                                                echo "Plan Price : " . $payment['plan_price'] ." $";
                                                 echo "</p>";
 
                                                 echo "<p>";
-                                                echo "Plan Duration : " . $payment['plan_duration'] ." month";
+                                                echo "Plan Duration : " . $payment['plan_duration'] ." months";
                                                 echo "</p>";
 
                                                 echo "<p>";
@@ -171,7 +171,7 @@ $payments = $paymentController->getPaymentByMembershipId($id);
 
                                             ?>
                                         </div>
-                                        <div class="mt-5">
+                                        <div class="" style="margin-top:80px">
                                         <a href="view-memberships.php"><i class="fa-solid fa-backward text-dark" ></i></a>
                                         </div>
                                     </div>

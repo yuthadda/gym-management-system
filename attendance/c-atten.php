@@ -68,7 +68,7 @@ $membershipsAtten = $membershipController->getAllMembershipsForAtten();
 
 <div class="row">
     <div class="col-md-5 mx-auto">
-        <table class="table table-sm border">
+        <table class="table table-sm table-striped border">
             <thead>
                 <tr>
                     <th>Member ID</th>
@@ -92,7 +92,7 @@ $membershipsAtten = $membershipController->getAllMembershipsForAtten();
 
     </div>
     <div class="col-md-7 mx-auto">
-        <table class="table table-sm border">
+        <table class="table table-sm table-striped border">
             <thead>
                 <tr>
                     <th>Member ID</th>
