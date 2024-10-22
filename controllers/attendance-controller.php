@@ -43,6 +43,18 @@ class AttendanceController{
         return $result;
     }
 
+    public function memberAttenDetail($id){
+        $attendance = new Attendance();
+        $result = $attendance->memberAttenDetail($id);
+        return $result;
+    }
+
+    public function attendanceCount($id){
+        $attendance = new Attendance();
+        $result = $attendance->attendanceCount($id);
+        return $result;
+    }
+
     
 
 }

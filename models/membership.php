@@ -22,21 +22,7 @@ class Membership{
             $statment->bindParam(':weight',$weight);
             $statment->bindParam(':height',$height);
             $result =  $statment->execute();
-
-           if($result){
-
-            $sql1 = "select max(member_id) as id from memberships";
-            $statment =  $this->con->prepare($sql1);
-            $result1 = $statment->execute();
-            if($result1){
-                $member = $statment->fetch();
-                $member_id = $member['id'];
-                $sql2 = "insert into attendances(member_id) values(:id)";
-            $statment =  $this->con->prepare($sql2);
-            $statment->bindParam(":id",$member_id);
-            return $statment->execute();
-            }
-           }
+            return $result;
 
         }
     }

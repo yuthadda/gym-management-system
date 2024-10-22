@@ -118,7 +118,7 @@ $invoice_id = str_pad($payment['payment_id'], 4, "0", STR_PAD_LEFT);
                 <div class="col-md-4 text-end">
                     <h5>BRLRLR Gym</h5>
                     <h5>101x56st, Aung Myay Tharzan Township, Mandalay</h5>
-                <?php  echo '<button class="btn btn-dark" onclick="sendEmail(' . $id . ')">Send Email</button>';  ?>
+                
                 </div>
 
                 </div>
@@ -127,7 +127,7 @@ $invoice_id = str_pad($payment['payment_id'], 4, "0", STR_PAD_LEFT);
                
             </div>
             <div>
-                <button class="btn btn-dark"><a href="payment.php">Back</a></button>
+            <a class='btn btn-dark mx-2' href='../view/index.php'>Back</a></td>
             </div>
             </div>
             <!-- </div> -->

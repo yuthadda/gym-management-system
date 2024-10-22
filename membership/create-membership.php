@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
     if (!$error) {
         $result = $membershipController->createMembership($user_id, $trainer_id, $weight, $height);
         if ($result) {
-            header('location:view-memberships.php?msg=success');
+            header('location:../payment/create-payment.php?msg=success');
         } else {
             header('location:view-memberships.php?msg=fail');
         }

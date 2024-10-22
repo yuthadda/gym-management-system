@@ -120,6 +120,34 @@ class Attendance
             return null;
         }
     }
+
+    public function memberAttenDetail($id){
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "SELECT memberships.*,users.*,attendances.*
+             FROM memberships join users join attendances
+             WHERE memberships.member_id=:id 
+             AND memberships.member_id = attendances.member_id
+             AND memberships.user_id=users.user_id";
+            $statment =  $this->con->prepare($sql);
+            $statment->bindParam(":id",$id);
+            $result = $statment->execute();
+            if($result) return $statment->fetchAll();
+            else return null;
+        }
+    }
+
+    public function attendanceCount($id){
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "SELECT count(*) as attenCount from attendances join memberships where memberships.member_id=:id and attendances.member_id = memberships.member_id";
+            $statment =  $this->con->prepare($sql);
+            $statment->bindParam(":id",$id);
+            $result = $statment->execute();
+            if($result) return $statment->fetch();
+            else return null;
+        }
+    }
 }
 
 

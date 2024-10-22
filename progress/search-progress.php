@@ -25,4 +25,6 @@ foreach($progresses as $progress){
     ";
 }
 
+echo $output;
+
 ?>

@@ -157,7 +157,7 @@ class Payment{
         $this->con= Database::connect();
         $sql = "select users.*,memberships.* from memberships join users 
         where memberships.member_id 
-        not in (select payments.member_id from payments) 
+        not in (select payments.member_id from payments where payments.status='active') 
         and users.user_id=memberships.user_id 
         and  users.deleted_at is NULL 
         and memberships.deleted_at is NULL";

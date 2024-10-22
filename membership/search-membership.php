@@ -9,12 +9,11 @@ $memberships = $membershipController->searchMembership($data);
 // var_dump($memberships);
 $count = 1;
 $output = "";
-$unique = [];
+
 foreach($memberships as $membership){
-    //$unique[$membership['member_id']] = $membership;
-    //var_dump($unique[$membership['member_id']]['member_id']=$membership);
+
     $output .= "
-    <tr id=" . $unique[$membership['member_id']]=$membership . ">
+    <tr id=" . $membership['member_id'].">
                                 <td><img class='rounded-circle' style='width:40px' src='../img/undraw_profile_2.svg'
                             alt='...'></td>
                                 <td class='align-middle'>" . $count++ . "</td>
@@ -29,7 +28,9 @@ foreach($memberships as $membership){
                                </td>
                             </tr>
     ";
-    echo $output;
+   
     
 }
+
+echo $output;
 ?>

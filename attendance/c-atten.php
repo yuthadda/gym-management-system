@@ -83,6 +83,9 @@ $membershipsAtten = $membershipController->getAllMembershipsForAtten();
                             <td><?= 'GM-'.$membership['member_id'] ?></td>
                             <td><?= $membership['user_name'] ?></td>
                             <td>
+                              <a href="detail-attendance.php?id=<?= $membership['member_id'] ?>" class="btn btn-info">Detail</a>
+                            </td>
+                            <td>
                               <a  class="btn btn btnNewCheckIn" style="background: #04ab5c; color: white"><i class="fa-sharp fa-solid fa-check"></i> Check-In</a>
                             </td>
                         </tr>
@@ -109,6 +112,8 @@ $membershipsAtten = $membershipController->getAllMembershipsForAtten();
                             <td><?= $membershipAtten['user_name'] ?></td>
                             <td><?= $membershipAtten['check_date'] ?></td>
                             <td><a href="" class=" btn btn-link disabled"><?= $membershipAtten['atten_status'] ?></a></td>
+
+            
                            
                         </tr>
                     <?php endforeach; ?>
