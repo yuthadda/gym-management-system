@@ -193,4 +193,22 @@ class Payment{
             return $statement->fetchAll();  
         }
     }
+
+    public function getMemberByPayment()
+    {
+        $this->con = Database::connect();
+        $sql = "SELECT 
+                YEAR(payments.paid_date) AS year, 
+                MONTH(payments.paid_date) AS month, 
+                COUNT(memberships.member_id) AS total_member
+            FROM payments JOIN memberships
+            WHERE payments.member_id = memberships.member_id
+            GROUP BY YEAR(payments.paid_date), MONTH(payments.paid_date) 
+            ORDER BY YEAR(payments.paid_date), MONTH(payments.paid_date)";
+        $statement = $this->con->prepare($sql);
+        $result = $statement->execute();
+        if ($result) {
+            return $statement->fetchAll();  
+        }
+    }
 }
