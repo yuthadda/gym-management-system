@@ -135,6 +135,7 @@ if(isset($_POST['submit']))
                     
                         <div class="mb-3">
                             <button type="submit" name="submit" class="btn btn-primary">Update Member</button>
+                            <a class=" btn btn-primary" href="view-memberships.php">cancel</a>
                         </div>
                     </form>
                 </div>

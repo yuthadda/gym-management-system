@@ -232,7 +232,7 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-area">
-                        <canvas id="myAreaChart"></canvas>
+                        <canvas id="myAreaChart2"></canvas>
                     </div>
                 </div>
             </div>

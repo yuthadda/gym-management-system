@@ -100,4 +100,22 @@ class Plan
             }
         }
     }
+
+    
+    public function searchPlan($data){
+        $this->con= Database::connect();
+        $this->con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "select * from plans 
+        where plan_name like :data
+        and deleted_at is NULL";
+        $statement = $this->con->prepare($sql);
+        $search_data = "%".$data."%";
+        $statement ->bindParam(":data",$search_data);
+        $result = $statement->execute();
+        if($result){
+            return $statement->fetchAll();
+        }else{
+            return null;
+        }
+    }
 }

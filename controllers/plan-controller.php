@@ -37,9 +37,9 @@ class PlanController{
         return $plan->deletePlan($id);
     }
 
-    function searchUser($data){
-        $user  = new UserModel();
-        return $user->searchUser($data);
+    function searchPlan($data){
+        $plan = new Plan();
+        return $plan->searchPlan($data);
     }
 
 

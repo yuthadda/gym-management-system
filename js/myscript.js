@@ -235,6 +235,26 @@ $('.btnTrainerSearch').click(function(){
     }
 })
 
+$('.btnPlanSearch').click(function(){
+    let data = $('.PlanSearch').val();
+    console.log(data);
+    let tbody = $('#tbody');
+    console.log(tbody);
+    if(data.length > 0){
+        $.ajax(
+            {
+                url:'search-plan.php',
+                method:'post',
+                data: {value:data},
+                success:function(response){
+                    tbody.children().remove();
+                    tbody.append(response);
+                }
+            }
+        )
+    }
+})
+
 $('.btnFacSearch').click(function(){
     let data = $('.FacSearch').val();
     console.log(data);

@@ -87,6 +87,8 @@ include_once "../layouts/header.php";
     
                 <div class="">
                     <button type="submit" class=" btn btn-primary" name="submit" >Update Trainer</button>
+                    <a href="trainers.php" class=" btn btn-primary" >cancel</a>
+
                 </div>
                 
                 

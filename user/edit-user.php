@@ -103,6 +103,7 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="mb-3">
                                 <button type="submit" name="submit" class="btn btn-primary">Update User</button>
+                                <a href="view-user.php" class=" btn btn-primary" >cancel</a>
                             </div>
                         </form>
                     </div>

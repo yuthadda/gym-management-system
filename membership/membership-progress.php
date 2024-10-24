@@ -1,20 +1,19 @@
 <?php
 
 include_once "../layouts/header.php";
-
-?>
-
-<?php 
-
-require_once "../controllers/progress-controller.php";
-
-$id = $_GET['id'];
+include_once "../controllers/attendance-controller.php";
+include_once "../controllers/membership-controller.php";
+include_once "../controllers/progress-controller.php";
 
 $progressController = new ProgressController();
-$progresses = $progressController->getProgressById($id);
+$progresses = $progressController->getProgressById($_GET['id']);
+
+
+$membershipController = new MembershipController();
+$membership = $membershipController->getMembershipById($_GET['id']);
+
 
 ?>
-
 
 <body id="page-top">
 
@@ -25,92 +24,55 @@ $progresses = $progressController->getProgressById($id);
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+            <?php include_once "../layouts/nav.php" ?>
 
-        
-       <!-- Main Content -->
-<div id="content">
+            <div class="container">
 
-<?php include_once "../layouts/nav.php" ?>
-
-<!-- Begin Page Content -->
-<div class="container">
-
-<!-- Error Showing Alerts -->
-<div class="row my-2">
-    <div class="col-md-12">
-                            <?php
-                            if(isset($_GET['msg'])){
-                                if($_GET['msg'] == 'fail'){
-                                   echo "<span class=' alert alert-danger' >Error in adding</span>";
+                <div class="row">
+                    <div class="col-md-12 text-center mb-3">
+                        <h2><?php echo $membership['user_name']?>'s Progress History</h2>
+                        <p><?php echo "Initial Weight - ". $membership['weight'] ?></p>
+                        <p><?php echo "Initial Height - ". $membership['height'] ?></p>
+                       
+                    </div>
+                    
+                    
+    
+                    <div class="col-md-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>No</th>
+                                    <th>Date</th>
+                                    <th>New Weight</th>
+                                    <th>New Height</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                                <?php
+                                $count = 1;
+                                foreach ($progresses as $progress) {
+                                    echo "
+                            <tr id=" . $progress['prog_id'] . ">
+                                <td><img class='rounded-circle' style='width:40px' src='../img/undraw_profile_2.svg'
+                            alt='...'></td>
+                                <td class='align-middle'>" . $count++ . "</td>
+                                <td class='align-middle'>" . $progress['created_at'] . "</td>
+                                <td class='align-middle'>" . $progress['new_weight'] . "</td>
+                                <td class='align-middle'>" . $progress['new_height'] . "</td>
+                            </tr>
+                            ";
                                 }
+                                ?>
+                            </tbody>
+                        </table>
+                        <a class='btn btn-dark mx-2' href='view-memberships.php'>Back</a></td>
 
-                                elseif($_GET['msg'] == 'updatefail'){
-                                    echo "<span class=' alert alert-danger' >Error in Updating</span>";
+                    </div>
+                </div>
+            </div>
+            </div>
 
-                                }elseif($_GET['msg'] == 'deleted'){
-                                    echo "<span class=' alert alert-success' >Successfully deleted</span>";
-
-                                }elseif($_GET['msg'] == 'faildelete'){
-                                    echo "<span class=' alert alert-danger' >Error in deleting</span>";
-
-                                }
-                                elseif($_GET['msg'] == 'updatesuccess'){
-                                    echo "<span class=' alert alert-success' >Successfully updated</span>";
-                                }
-                                else{
-                                   echo "<span class=' alert alert-success' >Added Successfully</span>";
-                                }
-                            }
-                             ?>
-
-                      
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-md-12 mx-auto">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Member ID</th>
-                    <th>Member Name</th>
-                   <th>New Weight</th>
-                   <th>New Height</th>
-                   <th>Date</th>
-                   
-                    <!-- <th>Actions</th> -->
-                </tr>
-            </thead>
-            <tbody><?php $count=1; ?>
-                    <?php foreach($progresses as $progress): ?>
-                        <tr id="<?= $progress['prog_id'] ?>">
-                            <td><?= $count++ ?></td>
-                            <td><?= 'GM-'.$progress['member_id'] ?></td>
-                            <td><?= $progress['user_name'] ?></td>
-                            <td><?= $progress['new_weight'] ?></td>
-                            <td><?= $progress['new_height'] ?></td>
-                            <td><?= $progress['created_at'] ?></td>
-                            
-                            
-                            <!-- <td>
-                                <a href='./edit-membership.php?id=<?= $progress['prog_id'] ?>' class="btn btn-sm btn-success" >Edit</a>
-                                <a  class="btn btn-sm btn-danger btnDeleteProgress" >Del</a>
-                            </td> -->
-                        </tr>
-                    <?php endforeach; ?>
-            </tbody>
-        </table>
-
-    </div>
-</div>
-
-
-</div>
-<!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
-
-        <?php include_once "../layouts/footer.php" ?>
+            <?php include_once "../layouts/footer.php" ?>

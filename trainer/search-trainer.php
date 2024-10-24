@@ -7,7 +7,6 @@ $trainerController = new TrainerController();
 $trainers = $trainerController->searchTrainer($data);
 $count = 1;
 $output = "";
-var_dump($trainers);
 foreach ($trainers as $trainer) {
     $output .= "
      <tr id=" . $trainer['trainer_id'] . ">
