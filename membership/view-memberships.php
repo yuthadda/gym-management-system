@@ -93,10 +93,10 @@ $memberships = $membershipController->getAllMemberships();
 
                                             <td class='align-middle'><?= $membership['user_address'] ?></td>
                                             <td>
-                                                <a href='./membership-detail.php?id=<?= $membership['member_id'] ?>' class="btn  btn-info mx-1">Detail</a>
-                                                <a href='./membership-progress.php?id=<?= $membership['member_id'] ?>' class="btn  btn-success mx-1">Progress</a>
-                                                <a href='./edit-membership.php?id=<?= $membership['member_id'] ?>' class="btn  btn-warning mx-1">Edit</a>
-                                                <a class="btn btn-danger btnDeleteMembership">Delete</a>
+                                                <a href='./membership-detail.php?id=<?= $membership['member_id'] ?>' class="btn  btn-info mx-1"><i class='fa-solid fa-circle-info'></i> Detail</a>
+                                                <a href='./membership-progress.php?id=<?= $membership['member_id'] ?>' class="btn  btn-success mx-1"><i class="fa-solid fa-bars-progress"></i> Progress</a>
+                                                <a href='./edit-membership.php?id=<?= $membership['member_id'] ?>' class="btn  btn-warning mx-1"><i class='fa-solid fa-pen-to-square'></i> Edit</a>
+                                                <a class="btn btn-danger btnDeleteMembership"><i class='fa-solid fa-trash'></i> Delete</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

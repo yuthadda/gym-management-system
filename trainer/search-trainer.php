@@ -17,9 +17,9 @@ foreach ($trainers as $trainer) {
                                 <td class='align-middle'>" . $trainer['trainer_name'] . "</td>
                                 <td class='align-middle'>" . $trainer['trainer_email'] . "</td>
                                 <td class='align-middle'>" . $trainer['trainer_phone'] . "</td>
-                                <td><a class='btn btn-info mx-1' href='trainer-detail.php?id=" . $trainer['trainer_id'] . "'>Detail</a>
-                                <a class='btn btn-warning mx-1' href='edit-trainer.php?id= " . $trainer['trainer_id'] . "'>Edit</a>
-                                <a class='btn btn-danger mx-1 btnDeleteTrainer'>Delete</a></td>
+                                <td><a class='btn btn-info mx-1' href='trainer-detail.php?id=" . $trainer['trainer_id'] . "'><i class='fa-solid fa-circle-info'></i> Detail</a>
+                                <a class='btn btn-warning mx-1' href='edit-trainer.php?id= " . $trainer['trainer_id'] . "'><i class='fa-solid fa-pen-to-square'></i> Edit</a>
+                                <a class='btn btn-danger mx-1 btnDeleteTrainer'><i class='fa-solid fa-trash'></i> Delete</a></td>
                             </tr>
      ";
 }

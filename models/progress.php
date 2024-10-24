@@ -78,7 +78,14 @@ public function getProgressById($id)
 
         public function searchProgress($data){
             $this->con= Database::connect();
-        $sql = "select * from progresses where prog_id like :data or member_id like :data or new_weight like :data or new_height like :data and deleted_at is NULL";
+        $sql = "SELECT progresses.*,memberships.*,users.*
+         FROM progresses JOIN memberships JOIN users
+         on memberships.user_id=users.user_id
+          and progresses.member_id=memberships.member_id
+         WHERE (users.user_name like :data)
+          and progresses.deleted_at is NULL
+          and memberships.deleted_at is NULL
+          and users.deleted_at is NULL";
         $statement = $this->con->prepare($sql);
         $search_data = "%".$data."%";
         $statement ->bindParam(":data",$search_data);

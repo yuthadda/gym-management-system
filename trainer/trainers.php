@@ -91,9 +91,9 @@ $trainers = $trainerController->getAllTrainers();
                                             <td class='align-middle'><?= $trainer['trainer_phone'] ?></td>
                                             
                                             <td>
-                                                <a href='./trainer-detail.php?id=<?= $trainer['trainer_id'] ?>' class="btn btn-info mx-1">Detail</a>
-                                                <a href='./edit-trainer.php?id=<?= $trainer['trainer_id'] ?>' class="btn btn-warning mx-1">Edit</a>
-                                                <a class="btn btn-danger btnDeleteTrainer">Delete</a>
+                                                <a href='./trainer-detail.php?id=<?= $trainer['trainer_id'] ?>' class="btn btn-info mx-1"><i class='fa-solid fa-circle-info'></i> Detail</a>
+                                                <a href='./edit-trainer.php?id=<?= $trainer['trainer_id'] ?>' class="btn btn-warning mx-1"><i class='fa-solid fa-pen-to-square'></i> Edit</a>
+                                                <a class="btn btn-danger btnDeleteTrainer"><i class='fa-solid fa-trash'></i> Delete</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

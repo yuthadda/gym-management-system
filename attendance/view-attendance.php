@@ -104,7 +104,7 @@ $today = new DateTime()
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody><?php $count = 1; ?>
+                                <tbody id="tbody"><?php $count = 1; ?>
                                     <?php foreach ($memberships as $membership): ?>
                                         <tr id="<?= $membership['member_id'] ?>">
                                             <td><?= $count++ ?></td>

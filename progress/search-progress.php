@@ -19,8 +19,8 @@ foreach($progresses as $progress){
                                 <td class='align-middle'>" . $progress['created_at'] . "</td>
                                 
                                 <td>
-                                <a class='btn btn-warning' href='edit-membership.php?id= " . $progress['prog_id'] . "'>Edit</a>
-                                <a class='btn btn-danger btnDeleteProgress'>Delete</a></td>
+                                <a class='btn btn-warning' href='edit-membership.php?id= " . $progress['prog_id'] . "'><i class='fa-solid fa-pen-to-square'></i> Edit</a>
+                                <a class='btn btn-danger btnDeleteProgress'><i class='fa-solid fa-trash'></i> Delete</a></td>
                             </tr>
     ";
 }
