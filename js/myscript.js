@@ -316,4 +316,25 @@ $('.btnPaymentSearch').click(function(){
     }
 })
 
+$('.btnSearchatten').click(function(){
+    let data = $('.MemberSearch1').val();
+    console.log(data);
+    let tbody = $('#tbody');
+    console.log(tbody);
+    if(data.length > 0){
+        $.ajax(
+            {
+                url:'search-membership1.php',
+                method:'post',
+                data: {value:data},
+                success:function(response){
+                    console.log('response',response);
+                    tbody.children().remove();
+                    tbody.append(response);
+                }
+            }
+        )
+    }
+})
+
 })

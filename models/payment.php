@@ -141,7 +141,13 @@ class Payment{
 
     public function searchPayment($data){
         $this->con= Database::connect();
-        $sql = "select * from payments where payment_id like :data and deleted_at is NULL";
+        $sql = "SELECT payments.*,memberships.*,users.*,plans.*
+         from payments Join memberships Join users Join plans
+         on payments.plan_id=plans.plan_id
+         and memberships.user_id=users.user_id
+         and payments.member_id=memberships.member_id
+         where(users.user_name like :data)
+         and payments.deleted_at is NULL";
         $statement = $this->con->prepare($sql);
         $search_data = "%".$data."%";
         $statement ->bindParam(":data",$search_data);

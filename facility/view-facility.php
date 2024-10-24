@@ -73,8 +73,8 @@ $facilitite = $facility->getAllFacility();
                                 <td>" . $facility['fac_qty'] . "</td>
                                 <td>" . $facility['fac_vendor'] . "</td>
                                 <td>
-                                <a class='btn btn-warning mx-1' href='edit-facility.php?id= " . $facility['fac_id'] . "'>Edit</a>
-                                <a class='btn btn-danger mx-1 btnDeleteFacility'>Delete</a></td>
+                                <a class='btn btn-warning mx-1' href='edit-facility.php?id= " . $facility['fac_id'] . "'><i class='fa-solid fa-pen-to-square'></i> Edit</a>
+                                <a class='btn btn-danger mx-1 btnDeleteFacility'><i class='fa-solid fa-trash'></i>  Delete</a></td>
                             </tr>
                             ";
                                     }

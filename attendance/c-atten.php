@@ -65,9 +65,14 @@ $membershipsAtten = $membershipController->getAllMembershipsForAtten();
     </div>
 </div>
 
-
+<div class="col-md-4 d-flex ">
+                        <input type="text" class="form-control MemberSearch1" placeholder="Search member informations....">
+                        <button class="btn border-dark btnSearchatten"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
 <div class="row">
+
     <div class="col-md-5 mx-auto">
+    
         <table class="table table-sm table-striped border">
             <thead>
                 <tr>
@@ -76,14 +81,14 @@ $membershipsAtten = $membershipController->getAllMembershipsForAtten();
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody><?php $count=1; ?>
+            <tbody id="tbody"><?php $count=1; ?>
                     <?php foreach($memberships as $membership): ?>
                         <tr id="<?= $membership['member_id'] ?>">
                             
-                            <td><?= 'GM-'.$membership['member_id'] ?></td>
-                            <td><?= $membership['user_name'] ?></td>
+                            <td class="align-middle"><?= 'GM-'.$membership['member_id'] ?></td>
+                            <td class="align-middle"><?= $membership['user_name'] ?></td>
                             <td>
-                              <a href="detail-attendance.php?id=<?= $membership['member_id'] ?>" class="btn btn-info">Detail</a>
+                              <a href="detail-attendance.php?id=<?= $membership['member_id'] ?>" class="btn btn-info"><i class='fa-solid fa-circle-info'></i> Detail</a>
                             </td>
                             <td>
                               <a  class="btn btn btnNewCheckIn" style="background: #04ab5c; color: white"><i class="fa-sharp fa-solid fa-check"></i> Check-In</a>

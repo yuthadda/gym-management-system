@@ -19,12 +19,12 @@ foreach($payments as $payment){
                                 <td class='align-middle'>" . $payment['plan_duration'] . "</td>
                                 <td class='align-middle'>" . $payment['expired_date'] . "</td>
                                <td>
-                                <a class='btn btn-info' href='invoice.php?id=" . $payment['payment_id'] . "'>view invoice</a>
-                                
+                                <a class='btn btn-info' href='invoice.php?id=" . $payment['payment_id'] . "'><i class='fa-solid fa-circle-info'></i> view invoice</a>
+                                <button class='btn btn-dark' onclick='sendEmail?id". $payment['payment_id'] ."'><i class='fa-solid fa-paper-plane'></i> Send</button>
                                </td>
                             </tr>
     ";
-    echo $output;
+    
 }
-
+echo $output;
 ?>

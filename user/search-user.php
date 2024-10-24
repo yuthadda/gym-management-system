@@ -16,9 +16,9 @@ foreach($users as $user){
                                 <td class='align-middle'>" . $user['user_email'] . "</td>
                                 <td class='align-middle'>" . $user['user_phone'] . "</td>
                                 <td class='align-middle'>" . $user['user_address'] . "</td>
-                                <td><a class='btn btn-info mx-1' href='detail-user.php?id=" . $user['user_id'] . "'>Detail</a>
-                                <a class='btn btn-warning mx-1' href='edit-user.php?id= " . $user['user_id'] . "'>Edit</a>
-                                <a class='btn btn-danger mx-1 btnDeleteUser'>Delete</a></td>
+                                <td><a class='btn btn-info mx-1' href='detail-user.php?id=" . $user['user_id'] . "'><i class='fa-solid fa-circle-info'></i>  Detail</a>
+                                <a class='btn btn-warning mx-1' href='edit-user.php?id= " . $user['user_id'] . "'><i class='fa-solid fa-pen-to-square'></i> Edit</a>
+                                <a class='btn btn-danger mx-1 btnDeleteUser'><i class='fa-solid fa-trash'></i>  Delete</a></td>
                             </tr>
     ";
 }

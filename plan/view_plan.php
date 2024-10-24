@@ -74,9 +74,9 @@ $plans = $planController->showPlan();
                                         echo "<td>" . $plan['plan_price'] . " $" . "</td>";
                                         echo "<td>" . $plan['plan_duration'] . " months" . "</td>";
                                         echo "<td>" . $plan['plan_description'] . "</td>";
-                                        echo "<td> <a class='btn btn-info mx-1' href='detail-plan.php?plan_id=" . $plan['plan_id'] . "'>Detail</a>
-                           <a class='btn btn-warning mx-1' href='edit-plan.php?plan_id=" . $plan['plan_id'] . "'>Edit</a>
-                           <button class='btn btn-danger btnPlanDelete'>Delete</button>"
+                                        echo "<td> <a class='btn btn-info mx-1' href='detail-plan.php?plan_id=" . $plan['plan_id'] . "'><i class='fa-solid fa-circle-info'></i> Detail</a>
+                           <a class='btn btn-warning mx-1' href='edit-plan.php?plan_id=" . $plan['plan_id'] . "'><i class='fa-solid fa-pen-to-square'></i> Edit</a>
+                           <button class='btn btn-danger btnPlanDelete'><i class='fa-solid fa-trash'></i> Delete</button>"
                                             . "</td>";
 
                                         echo "</tr>";

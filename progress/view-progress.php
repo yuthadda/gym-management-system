@@ -98,8 +98,8 @@ $progresses = $progressController->showAllProgress();
                             
                             
                             <td>
-                                <a href='./edit-membership.php?id=<?= $progress['prog_id'] ?>' class="btn btn-warning" >Edit</a>
-                                <a  class="btn btn-danger btnDeleteProgress" >Delete</a>
+                                <a href='./edit-membership.php?id=<?= $progress['prog_id'] ?>' class="btn btn-warning" ><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                                <a  class="btn btn-danger btnDeleteProgress" ><i class='fa-solid fa-trash'></i> Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
