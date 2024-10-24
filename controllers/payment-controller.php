@@ -55,4 +55,9 @@ class PaymentController{
         $payment = new Payment();
         return $payment->getPaymentByMonth();
     }
+
+    function getMemberByPayment(){
+        $payment = new Payment();
+        return $payment->getMemberByPayment();
+    }
 }
