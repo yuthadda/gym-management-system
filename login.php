@@ -58,7 +58,7 @@ session_start();
         {
            
             
-            echo "Reached here";
+            
             $sql       = "SELECT * from logins where user_email='$email' AND user_password='$password'";
             $result1 = mysqli_query($con,$sql);
 
@@ -85,9 +85,9 @@ session_start();
             else
             {
                 //$_SESSION['error']="invalid email or password";
-                //$wrong = "invalid email or password";
-                echo "<script>alert('invalid email or password')</script>";
-                header('location:login.php');
+                $wrong = "Invalid email or password! Please try again";
+                //echo "<script>alert('invalid email or password')</script>";
+                //header('location:login.php');
             }
             
            
@@ -109,7 +109,7 @@ session_start();
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-info " img src="../img/background.jpg">
+    <body  style="background-image: url('img/background.jpg'); background-size: cover; background-position: center">
         <div id="layoutAuthentication" class="pt-5">
             <div id="layoutAuthentication_content">
                 <main>
@@ -130,9 +130,12 @@ session_start();
                                     }
                                 }
                                 
-                                ?></div>
+                                ?>
+                                </div>
+
+                                <?php if(isset($wrong)) echo "<span class='alert alert-danger' style='background: #fflala'>".$wrong."</span>" ?>
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
-                                    <div class="card-body">
+                                    <div class="card-body ">
                                         <form method="post">
 
 
@@ -151,7 +154,10 @@ session_start();
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" value="<?php echo $password ?>"/>
                                                 <label for="inputPassword">Password</label>
+                                                
                                             </div>
+                                           
+                                            
                                             
                                             <div class="form-check mb-3">
                                                 <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />

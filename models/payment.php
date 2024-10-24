@@ -169,4 +169,22 @@ class Payment{
             return null;
         }
     }
+
+    public function getPaymentByMonth()
+    {
+        $this->con = Database::connect();
+        $sql = "SELECT 
+                YEAR(payments.paid_date) AS year, 
+                MONTH(payments.paid_date) AS month, 
+                SUM(plans.plan_price) AS total_income 
+            FROM payments JOIN plans
+            WHERE payments.plan_id = plans.plan_id
+            GROUP BY YEAR(payments.paid_date), MONTH(payments.paid_date) 
+            ORDER BY YEAR(payments.paid_date), MONTH(payments.paid_date)";
+        $statement = $this->con->prepare($sql);
+        $result = $statement->execute();
+        if ($result) {
+            return $statement->fetchAll();  
+        }
+    }
 }

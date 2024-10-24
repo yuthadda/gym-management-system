@@ -50,4 +50,9 @@ class PaymentController{
         return $payment->getNoPaymentMember();
     }
     
+    function getPaymentByMonth()
+    {
+        $payment = new Payment();
+        return $payment->getPaymentByMonth();
+    }
 }
