@@ -54,13 +54,18 @@ Chart.defaults.global.defaultFontColor = '#858796';
                 });
                 console.log(label)
                 console.log(data_value)
+
+                var monthLabels =label.map(function(month){
+                var monthNames= ['Jan','Feb','March','April','May','June','July','August','Sep','Oct','Nov','Dec'];
+                return monthNames[month-1];
+               })
                 //alert(response);
                        // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: label,
+    labels: monthLabels,
     datasets: [{
       label: "Income",
       lineTension: 0.3,
@@ -173,13 +178,18 @@ Chart.defaults.global.defaultFontColor = '#858796';
                 });
                 console.log(label)
                 console.log(data_value)
+
+               var monthLabels =label.map(function(month){
+                var monthNames= ['Jan','Feb','March','April','May','June','July','August','Sep','Oct','Nov','Dec'];
+                return monthNames[month-1];
+               })
                 //alert(response);
                        // Area Chart Example
  var ctx = document.getElementById("myAreaChart2");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: label,
+    labels: monthLabels,
     datasets: [{
       label: "Members",
       backgroundColor: "rgba(2,117,216,1)",
