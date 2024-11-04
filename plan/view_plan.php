@@ -87,7 +87,7 @@ $plans = $planController->showPlan();
                                 </tbody>
                                 
                             </table>
-                            <a class='btn btn-dark mx-2' href='add_plan.php'>Back</a></td>
+                            <a class='btn btn-dark mx-2' href='add_plan.php'>create plans</a></td>
 
                         </div>
                     </div>

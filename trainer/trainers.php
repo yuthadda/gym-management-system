@@ -99,7 +99,7 @@ $trainers = $trainerController->getAllTrainers();
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <a class='btn btn-dark mx-2' href='../view/index.php'>Back</a></td>
+                            <a class='btn btn-dark mx-2' href='./create-trainer.php'>create trainers</a></td>
 
                         </div>
                     </div>

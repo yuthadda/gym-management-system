@@ -1,9 +1,9 @@
-let table = new DataTable('#myTable', {
-    
-});
 
 $(document).ready(function(){
-
+    
+    let table = new DataTable('#myTable', {
+        
+    });
     
 
     $(document).on('click','.btnDeleteUser',function(){

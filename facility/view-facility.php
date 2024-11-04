@@ -81,7 +81,7 @@ $facilitite = $facility->getAllFacility();
                                     ?>
                                 </tbody>
                             </table>
-                            <a class='btn btn-dark mx-2' href='../view/index.php'>Back</a></td>
+                            <a class='btn btn-dark mx-2' href='./create-facility.php'>create facilities</a></td>
 
                         </div>
                     </div>

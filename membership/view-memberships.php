@@ -102,7 +102,7 @@ $memberships = $membershipController->getAllMemberships();
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <a class='btn btn-dark mx-2' href='../view/index.php'>Back</a></td>
+                            <a class='btn btn-dark mx-2' href='./create-membership.php'>create memberships</a></td>
 
                         </div>
                     </div>
