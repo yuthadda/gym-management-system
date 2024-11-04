@@ -7,6 +7,7 @@
     include_once "../controllers/payment-controller.php";
     include_once "../controllers/membership-controller.php";
     include_once "../controllers/attendance-controller.php";
+    include_once "../controllers/plan-controller.php";
 
     $trainerController = new TrainerController();
     $trainer = $trainerController->getTotalSalary();
@@ -28,6 +29,9 @@
 
     $attendanceController = new AttendanceController();
     $attendance = $attendanceController->getTodayMember();
+
+    $planController = new PlanController();
+    $plans = $planController->showPlan();
 
 
 ?>
@@ -191,14 +195,18 @@
                         <canvas id="myPieChart"></canvas>
                     </div>
                     <div class="mt-4 text-center small">
+
                         <span class="mr-2">
-                            <i class="fas fa-circle text-primary"></i> Direct
+                            <i class="fas fa-circle text-info"></i> Monthly Plan
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-success"></i> Social
+                            <i class="fas fa-circle text-primary"></i> Weight Gain
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Referral
+                            <i class="fas fa-circle text-success"></i> Weight Loss
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-warning"></i> Yoga
                         </span>
                     </div>
                 </div>

@@ -118,4 +118,17 @@ class Plan
             return null;
         }
     }
+
+    public function planCount(){
+        $this->con= Database::connect();
+        $this->con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT COUNT(*) as planCount from payments WHERE deleted_at is null GROUP by plan_id";
+        $statement = $this->con->prepare($sql);
+        $result = $statement->execute();
+        if($result){
+            return $statement->fetchAll();
+        }else{
+            return null;
+        }
+    }
 }

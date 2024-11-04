@@ -42,6 +42,11 @@ class PlanController{
         return $plan->searchPlan($data);
     }
 
+    function planCount(){
+        $plan = new Plan();
+        return $plan->planCount();
+    }
+
 
     
 
