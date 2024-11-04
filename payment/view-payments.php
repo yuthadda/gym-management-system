@@ -112,7 +112,7 @@ $payments = $paymentController->getAllPayment();
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <a class='btn btn-dark mx-2' href='../view/index.php'>Back</a></td>
+                            <a class='btn btn-dark mx-2' href='create-payment.php'>Back</a></td>
                         </div>
                     </div>
 
