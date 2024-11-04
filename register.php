@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
     $confirmpassword  = $_POST['confirmpassword'];
 
 
-    //$passwordhash     = password_hash($password,PASSWORD_DEFAULT);
+    $passwordhash     = password_hash($password,PASSWORD_DEFAULT);
 
 
     $error = false;
@@ -76,7 +76,7 @@ if(isset($_POST['submit']))
                 $sql = "INSERT INTO logins (user_email , user_password) VALUE(:email, :password)";
             $statement = $con->prepare($sql);
             $statement->bindParam(':email',$email);
-            $statement->bindParam(':password',$password);
+            $statement->bindParam(':password',$passwordhash);
             $result = $statement->execute();
             
             if($result)
@@ -117,7 +117,7 @@ if(isset($_POST['submit']))
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-info">
+    <body style="background-image: url('img/background.jpg'); background-size: cover; background-position: center">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -156,8 +156,14 @@ if(isset($_POST['submit']))
                                             <span class="text-danger"><?php if(isset($matchmessage))echo $matchmessage;?></span>
                     
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" name="confirmpassword" type="password" placeholder="Confirm Password" value="<?php echo $confirmpassword ?>" />
+                                                <input class="form-control" id="confirmPassword" name="confirmpassword" type="password" placeholder="Confirm Password" value="<?php echo $confirmpassword ?>" />
                                                 <label for="inputPassword">ConfirmPassword</label>
+                                            </div>
+
+                                            <div class="form-check mb-3">
+                                                <label>
+                                                    <input class="form-check-input" id="showpass" type="checkbox" onclick="togglePassword()" >Show Password</input>
+                                                </label>
                                             </div>
 
                                             
@@ -181,6 +187,18 @@ if(isset($_POST['submit']))
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="scripts/jquery-3.7.1.min.js"></script>
         <script src="dist/js/scripts.js"></script>
+
+        <script>
+            function togglePassword()
+            {
+                let passwordField  = document.getElementById('inputPassword');
+                let passwordFiled1 = document.getElementById('confirmPassword');
+                let showcheckbox   = document.getElementById('showpass');
+                
+                passwordField.type = passwordFiled1.type =showcheckbox.checked ? "text" : "password";
+                
+            }
+        </script>
 
         <!-- <script>
 //-----------------------------------------------------------Register Messgae Start-----------------------------------------------------------------------

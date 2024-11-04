@@ -139,10 +139,21 @@ class Attendance
 
     public function attendanceCount($id){
         $this->con = Database::connect();
+        
+        $current_year = date('Y');
+        $current_month = date('m');
+
         if($this->con){
-            $sql = "SELECT count(*) as attenCount from attendances join memberships where memberships.member_id=:id and attendances.member_id = memberships.member_id";
+            $sql = "SELECT count(*) as attenCount from 
+            attendances join memberships
+             where memberships.member_id=:id 
+             and attendances.member_id = memberships.member_id
+             and YEAR(attendances.check_date) = :year
+             and MONTH(attendances.check_date) = :month";
             $statment =  $this->con->prepare($sql);
             $statment->bindParam(":id",$id);
+            $statment->bindParam(":year",$current_year);
+            $statment->bindParam(":month",$current_month);
             $result = $statment->execute();
             if($result) return $statment->fetch();
             else return null;

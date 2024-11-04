@@ -49,6 +49,7 @@ session_start();
             else
             {
                 $password =trim($_POST["password"]);
+                //$newpass = password_hash($password,PASSWORD_DEFAULT);
             }
         }
         
@@ -59,27 +60,36 @@ session_start();
            
             
             
-            $sql       = "SELECT * from logins where user_email='$email' AND user_password='$password'";
-            $result1 = mysqli_query($con,$sql);
+            $sql       = "SELECT * from logins where user_email= ?";
+            $statement = mysqli_prepare($con,$sql);
+            mysqli_stmt_bind_param($statement,"s",$email);
+            mysqli_stmt_execute($statement);
+            $result1 = mysqli_stmt_get_result($statement);
+            //$result1 = mysqli_query($con,$sql);
 
             
 
-            if(mysqli_num_rows($result1)>=1 )
+            if($result1 && mysqli_num_rows($result1)==1 )
             {
                 
 
-                $row = mysqli_fetch_array($result1);
-                $hash_password = $row['user_password'];
-
+                $row = mysqli_fetch_assoc($result1);
+                $hash_password = trim($row['user_password']);
                 
-
-                
+                // echo"this is old pass". $hash_password;
+                // echo "this is new pass". $password;
+                // echo "this is hash pass". password_verify($password,$hash_password);
+                if(password_verify($password,$hash_password))
+                {
                     $_SESSION['username']=$email;
                     header('location:view/index.php');
-                
-
-               
-                
+                   
+                }
+                else
+                {
+                    $wrong = "Invalid email or password! Please try again";
+                     
+                } 
                 
             }
             else
@@ -157,12 +167,13 @@ session_start();
                                                 
                                             </div>
                                            
-                                            
-                                            
                                             <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                                <label>
+                                                    <input class="form-check-input" id="showpass" type="checkbox" onclick="togglePassword()" >Show Password</input>
+                                                </label>
                                             </div>
+                                            
+                                            
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="password.html">Forgot Password?</a>
                                                 <button class="btn btn-primary" name="submit">Login</button>
@@ -182,9 +193,25 @@ session_start();
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="dist/js/scripts.js"></script>
+        <script>
+            function togglePassword()
+            {
+                let passwordField = document.getElementById('inputPassword');
+                let showcheckbox  = document.getElementById('showpass');
+
+               //passwordField.type = showcheckbox.checked ? "text" : "password";
+               if(showcheckbox.checked)
+               {
+                console.log("checked");
+                passwordField.type = "text";
+               }
+               else
+               {
+                passwordField.type = "password";
+               }
+            }
+        </script>
     </body>
 
-    <style>
-        
-    </style>
+    
 </html>

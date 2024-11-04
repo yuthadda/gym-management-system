@@ -37,6 +37,9 @@ $membership = $membershipController->getMembershipById($_GET['id']);
                     
     
                     <div class="col-md-12">
+                        <div class="col-md-4">
+                        <input type="date" class="form-control" id="date">
+                        </div>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
