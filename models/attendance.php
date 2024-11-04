@@ -137,7 +137,7 @@ class Attendance
         }
     }
 
-    public function attendanceCount($id){
+    public function attendanceCountMonthly($id){
         $this->con = Database::connect();
         
         $current_year = date('Y');
