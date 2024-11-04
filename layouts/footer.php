@@ -22,6 +22,9 @@
     <script src="../scripts/jquery-3.7.1.min.js"></script>
     <script src="../scripts/trainer-script.js"></script>
 
+<!-- Data Table -->
+<script src="../DataTables/datatables.min.js"></script>
+
     <script src="https://kit.fontawesome.com/a67197b46d.js" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

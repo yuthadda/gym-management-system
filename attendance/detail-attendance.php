@@ -38,7 +38,8 @@ $membership = $membershipController->getMembershipById($_GET['id']);
     
                     <div class="col-md-12">
                         <div class="col-md-4">
-                        <input type="date" class="form-control" id="date">
+                        <input type="month" name="month" class="form-control inputMonth" id="month">
+                        
                         </div>
                         <table class="table table-striped">
                             <thead>
@@ -72,5 +73,33 @@ $membership = $membershipController->getMembershipById($_GET['id']);
                 </div>
             </div>
             </div>
+            
+            <script src="../scripts/jquery-3.7.1.min.js" >
+            </script>
+
+            <script>
+                 $(document).on('change','.inputMonth',function(){
+                    console.log("heeeeeeeeeee");
+                // let id = $(this).val()
+                // console.log(id);
+                let selectParent = $(this).parent()
+                // console.log(selectParent);
+                let price =selectParent.next().children('#price')
+                // console.log(price);
+                let exampleOpt = $(this).children('#exampleOpt');
+                console.log(exampleOpt);
+
+                // $.ajax({
+                //     method : "post",
+                //     url: "get-plan-price.php",
+                //     data: {id:id},
+                    
+                //     success: function (response) {
+                        
+                //     }
+                // });
+
+            })
+            </script>
 
             <?php include_once "../layouts/footer.php" ?>

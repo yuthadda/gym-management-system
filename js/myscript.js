@@ -1,4 +1,10 @@
+let table = new DataTable('#myTable', {
+    
+});
+
 $(document).ready(function(){
+
+    
 
     $(document).on('click','.btnDeleteUser',function(){
         let btnDeleteUser = $(this);

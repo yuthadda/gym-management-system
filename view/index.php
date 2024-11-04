@@ -246,13 +246,13 @@ $.ajax({
                
                 let data =JSON.parse(response)
                 console.log(data)
-                // let label = [];
-                //console.log(label)
+                let label = [];
+                console.log(label)
                 let data_value = []
                 let i =0;
                 data.forEach(element =>{
                     console.log("This is for btb"+element.month);
-                    // label[i] =element.month;
+                    label[i] =element.planName;
                     data_value[i] = element.planCount;
                     i++;
                 });
@@ -265,10 +265,10 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Direct", "Referral", "Social",'hi'],
+    labels: label,
     datasets: [{
       data: data_value,
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#17a673'],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#ffc107'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],

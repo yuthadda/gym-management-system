@@ -122,7 +122,7 @@ class Plan
     public function planCount(){
         $this->con= Database::connect();
         $this->con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT COUNT(*) as planCount from payments WHERE deleted_at is null GROUP by plan_id";
+        $sql = "SELECT COUNT(*) as planCount,plans.plan_name as planName from payments join plans WHERE payments.plan_id = plans.plan_id and payments.deleted_at is null GROUP by payments.plan_id ORDER BY plans.plan_name";
         $statement = $this->con->prepare($sql);
         $result = $statement->execute();
         if($result){

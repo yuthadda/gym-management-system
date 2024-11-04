@@ -197,13 +197,13 @@
                     <div class="mt-4 text-center small">
 
                         <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Monthly Plan
+                            <i class="fas fa-circle text-info"></i> Weight Loss
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-primary"></i> Weight Gain
+                            <i class="fas fa-circle text-primary"></i> Monthly Plan
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-success"></i> Weight Loss
+                            <i class="fas fa-circle text-success"></i> Weight Gain
                         </span>
                         <span class="mr-2">
                             <i class="fas fa-circle text-warning"></i> Yoga
