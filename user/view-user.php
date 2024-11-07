@@ -44,10 +44,10 @@ $users = $user->getAllUser();
                         ?>
                     </div>
                     
-                    <div class="col-md-4 d-flex mb-3">
+                    <!-- <div class="col-md-4 d-flex mb-3">
                         <input type="text" name="data" class="form-control UserSearch" placeholder="Search user informations....">
                         <button class="btn border-dark btnUserSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
+                    </div> -->
                     <div class="col-md-12">
                         <table class="table table-striped" id='myTable'>
                             <thead>

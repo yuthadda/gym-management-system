@@ -28,17 +28,18 @@ $membership = $membershipController->getMembershipById($_GET['id']);
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-12 text-center mb-3">
+                    <div class="col-md-12 text-center mb-3 attencount">
                         <h2><?php echo $membership['user_name']?>'s Attendance Information</h2>
                         <p><?php echo "Gmail - ". $membership['user_email'] ?></p>
-                        <p><?php echo "Attendance Day - ". $attenCount['attenCount']."days" ?></p>
+                        
                     </div>
                     
                     
     
                     <div class="col-md-12">
-                        <div class="col-md-4">
-                        <input type="month" name="month" class="form-control inputMonth" id="month">
+                        <div class="col-md-4 d-flex mb-2 btndiv">
+                        <input type="date" name="attendate" class="form-control inputMonth" id="attendate" value="<?= date('Y-m-d') ?>">
+                        <button memberid="<?= $_GET['id'] ?>" class="btn border-dark btndateSearch" id="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                         
                         </div>
                         <table class="table table-striped">
@@ -65,6 +66,7 @@ $membership = $membershipController->getMembershipById($_GET['id']);
                             ";
                                 }
                                 ?>
+                                <tr><td><h5 class='text-center'><?php echo "Total Check-in : ". $attenCount['attenCount']."days" ?></h5></td></tr>
                             </tbody>
                         </table>
                         <a class='btn btn-dark mx-2' href='c-atten.php'>Back</a></td>
@@ -78,16 +80,33 @@ $membership = $membershipController->getMembershipById($_GET['id']);
             </script>
 
             <script>
-                 $(document).on('change','.inputMonth',function(){
+                 $(document).on('click','.btndateSearch',function(){
                     console.log("heeeeeeeeeee");
-                // let id = $(this).val()
-                // console.log(id);
-                let selectParent = $(this).parent()
-                // console.log(selectParent);
-                let price =selectParent.next().children('#price')
-                // console.log(price);
-                let exampleOpt = $(this).children('#exampleOpt');
-                console.log(exampleOpt);
+                   
+                   let btn = $(this);
+                   let memberid = btn.attr('memberid');
+                   console.log(memberid);
+                   let id = btn.closest('.btndiv').find('#attendate').val();
+                    console.log(id);
+                    let tbody =$('#tbody');
+                    console.log(tbody);
+
+                    $.ajax({
+                        url:'search-atten.php',
+                        method:'post',
+                        data: {id:id,memberid:memberid},
+                        success:function(response){
+
+                    tbody.children().remove();
+                    console.log(response);
+                    tbody.append(response);
+                }
+                    })
+
+                
+
+
+
 
                 // $.ajax({
                 //     method : "post",

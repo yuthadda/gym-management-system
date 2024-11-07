@@ -44,13 +44,13 @@ $facilitite = $facility->getAllFacility();
 
                             ?>
                         </div>
-                        <div class="col-md-4 d-flex mb-3">
+                        <!-- <div class="col-md-4 d-flex mb-3">
                             <input type="text" class="form-control FacSearch" placeholder="Search facility informations....">
                             <button class="btn border-dark btnFacSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
+                        </div> -->
                         <div class="col-md-12">
 
-                            <table class="table table-striped">
+                            <table class="table table-striped" id="myTable">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -69,7 +69,7 @@ $facilitite = $facility->getAllFacility();
                             <tr id=" . $facility['fac_id'] . ">
                                 <td>" . $count++ . "</td>
                                 <td>" . $facility['fac_name'] . "</td>
-                                <td>" . $facility['fac_price'] . "</td>
+                                <td>" . $facility['fac_price'] . " $</td>
                                 <td>" . $facility['fac_qty'] . "</td>
                                 <td>" . $facility['fac_vendor'] . "</td>
                                 <td>

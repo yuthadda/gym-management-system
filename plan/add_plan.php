@@ -121,7 +121,8 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="control-group mb-3">
                                 <label for="" class="form-label">Enter Description</label>
-                                <input type="text" name="planDescription" class="form-control" id="" value="<?php if(isset($planDescription)) echo $planDescription ?>">
+                                <textarea type="text" name="planDescription" class="form-control" id="" value="<?php if(isset($planDescription)) echo $planDescription ?>">
+                                </textarea>
                                 <span class="text-danger">
                                     <?php
                                     if (isset($error_description)) {

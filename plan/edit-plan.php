@@ -89,17 +89,9 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Enter Description</label>
-                                <input type="text" name="description" class="form-control" value="<?php
-
-                                                                                                echo $plan['plan_description'];
-                                                                                                ?>">
-                                <span class="text-danger">
-                                    <?php
-                                    if (isset($error_description)) {
-                                        echo $error_description;
-                                    }
-                                    ?>
-                                </span>
+                                <textarea type="text" name="description" class="form-control " style="text-align: start;white-space: pre-wrap" >
+                                <?php echo htmlspecialchars(trim($plan['plan_description'])); ?>
+                                </textarea>
                             </div>
                             <div class="mb-3">
                                 <button type="submit" name="submit" class="btn btn-primary ">Update Plan</button>

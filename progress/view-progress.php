@@ -68,12 +68,12 @@ $progresses = $progressController->showAllProgress();
 
                       
     </div>
-    <div class="col-md-4 d-flex mb-3">
+    <!-- <div class="col-md-4 d-flex mb-3">
                         <input type="text" class="form-control ProgressSearch " placeholder="Search progress informations....">
                         <button class="btn border-dark btnProgressSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
+                    </div> -->
     <div class="col-md-12 mx-auto">
-        <table class="table table-striped">
+        <table class="table table-striped" id="myTable">
             <thead>
                 <tr>
                     <th>No.</th>

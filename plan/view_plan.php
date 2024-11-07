@@ -45,12 +45,12 @@ $plans = $planController->showPlan();
                         ?>
                     </div>
                     
-                    <div class="col-md-4 d-flex mb-3">
+                    <!-- <div class="col-md-4 d-flex mb-3">
                         <input type="text" name="data" class="form-control PlanSearch" placeholder="Search plan informations....">
                         <button class="btn border-dark btnPlanSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
+                    </div> -->
                         <div class="col-md-12 mb-3">
-                            <table class="table table-striped">
+                            <table class="table table-striped" id="myTable">
 
                                 <thead>
                                     <tr>
@@ -67,13 +67,18 @@ $plans = $planController->showPlan();
 
                                     <?php
                                     $count = 1;
+                                    $maxlength = 20;
                                     foreach ($plans as $plan) {
                                         echo "<tr id=" . $plan['plan_id'] . ">";
                                         echo "<td>" . $count++ . "</td>";
                                         echo "<td>" . $plan['plan_name'] . "</td>";
                                         echo "<td>" . $plan['plan_price'] . " $" . "</td>";
                                         echo "<td>" . $plan['plan_duration'] . " months" . "</td>";
-                                        echo "<td>" . $plan['plan_description'] . "</td>";
+                                        if(strlen($plan['plan_description'])> $maxlength)
+                                        {
+                                            echo "<td>" . substr($plan['plan_description'],0,$maxlength) . "..." . "</td>";
+                                        }
+                                        //echo "<td>" . $plan['plan_description'] . "</td>";
                                         echo "<td> <a class='btn btn-info mx-1' href='detail-plan.php?plan_id=" . $plan['plan_id'] . "'><i class='fa-solid fa-circle-info'></i> Detail</a>
                            <a class='btn btn-warning mx-1' href='edit-plan.php?plan_id=" . $plan['plan_id'] . "'><i class='fa-solid fa-pen-to-square'></i> Edit</a>
                            <button class='btn btn-danger btnPlanDelete'><i class='fa-solid fa-trash'></i> Delete</button>"

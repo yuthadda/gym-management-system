@@ -64,13 +64,13 @@ $memberships = $membershipController->getAllMemberships();
 
                         </div>
 
-                        <div class="col-md-4 d-flex mb-3">
+                        <!-- <div class="col-md-4 d-flex mb-3">
                         <input type="text" class="form-control MemberSearch" placeholder="Search member informations....">
                         <button class="btn border-dark btnMemberSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
+                    </div> -->
                     
                         <div class="col-md-12">
-                            <table class="table table-striped">
+                            <table class="table table-striped" id="myTable">
                                 <thead>
                                     <tr>
                                         <th></th>

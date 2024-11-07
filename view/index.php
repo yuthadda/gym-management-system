@@ -50,10 +50,12 @@ Chart.defaults.global.defaultFontColor = '#858796';
                     console.log(element.month);
                     label[i] =element.month;
                     data_value[i] = element.total_income;
+                    console.log("This is for btb"+data_value[i]);
                     i++;
                 });
                 console.log(label)
                 console.log(data_value)
+                
 
                 var monthLabels =label.map(function(month){
                 var monthNames= ['Jan','Feb','March','April','May','June','July','August','Sep','Oct','Nov','Dec'];
@@ -149,7 +151,7 @@ var myLineChart = new Chart(ctx, {
 
             }
         })
- 
+ //--------------------------------------------------------End Line Chart-----------------------------------------------------------------------
 </script>
 
 <script>
@@ -268,7 +270,7 @@ var myPieChart = new Chart(ctx, {
     labels: label,
     datasets: [{
       data: data_value,
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#ffc107'],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#ffc107','#800080','#DC143C',"#000000","#FF69B4"],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],

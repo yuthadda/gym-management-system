@@ -173,7 +173,7 @@
                 <!-- Card Header - Dropdown -->
                 <div
                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Popular Plans</h6>
                     <div class="dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -197,16 +197,28 @@
                     <div class="mt-4 text-center small">
 
                         <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Weight Loss
+                            <i class="fas fa-circle text-info"></i> Half-Year Transformation 
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-primary"></i> Monthly Plan
+                            <i class="fas fa-circle text-primary"></i> 90-Day Transformation
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-success"></i> Weight Gain
+                            <i class="fas fa-circle text-success"></i>  Cardio
                         </span>
                         <span class="mr-2">
-                            <i class="fas fa-circle text-warning"></i> Yoga
+                            <i class="fas fa-circle text-warning"></i> Monthly Plan
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle " style="color: #800080"></i> Weight Gain
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle " style="color: #DC143C"></i> Weight Loss
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle " style="color: #FF69B4"></i> Zumba
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle " style="color: #000000"></i> Yoga
                         </span>
                     </div>
                 </div>

@@ -74,7 +74,11 @@ class Payment{
     {
         $this->con = Database::connect();
         if ($this->con) {
-            $sql = "select payments.*,plans.* from payments join plans where payments.member_id = :id and payments.plan_id=plans.plan_id ";
+            $sql = "select payments.*,plans.* 
+            from payments join plans
+             where payments.member_id = :id 
+             and payments.status = 'active'
+             and payments.plan_id=plans.plan_id ";
             $statement = $this->con->prepare($sql);
             $statement->bindParam(":id", $id);
             $result = $statement->execute();
