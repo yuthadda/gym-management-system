@@ -108,7 +108,7 @@ class Payment{
         }
     }
 
-    public function deletePayment($id){
+    public function softdeletePayment($id){
         $this->con = Database::connect();
         if($this->con){
             $today = new DateTime();
@@ -122,6 +122,17 @@ class Payment{
                 $result = $statement->execute();
                 return $result;
             }
+        }
+    }
+
+    public function deletePayment($id){
+        $this->con = Database::connect();
+        if($this->con){
+            $sql = "delete from payments where payment_id=:id";
+            $statement = $this->con->prepare($sql);
+            $statement->bindParam(":id",$id);
+            $result = $statement->execute();
+            return $result;
         }
     }
 

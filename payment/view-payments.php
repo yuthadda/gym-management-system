@@ -103,8 +103,9 @@ $payments = $paymentController->getAllPayment();
                                                 ?>
                                             </td>
                                             <td>
+                                                <a href='./payment-delete.php?id=<?= $payment['payment_id'] ?>' class="btn btn-danger"><i class='fa-solid fa-trash'></i> delete</a>
                                                 <a href='./invoice.php?id=<?= $payment['payment_id'] ?>' class="btn btn-info"><i class='fa-solid fa-circle-info'></i> view invoice</a>
-                                                <button class="btn btn-dark" onclick="sendEmail(<?= $payment['payment_id'] ?>)"><i class="fa-solid fa-paper-plane"></i> Send</button>
+                                                <button class="btn btn-dark" onclick="sendEmail(<?= $payment['payment_id'] ?>)"><i class="fa-solid fa-paper-plane"></i> send</button>
                                                 
 
                                             </td>
