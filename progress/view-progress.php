@@ -73,7 +73,7 @@ $progresses = $progressController->showAllProgress();
                         <button class="btn border-dark btnProgressSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div> -->
     <div class="col-md-12 mx-auto">
-        <table class="table table-striped" id="myTable">
+        <table class="table table-striped display responsive nowrap" id="myTable">
             <thead>
                 <tr>
                     <th>No.</th>

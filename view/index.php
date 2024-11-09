@@ -61,47 +61,39 @@ Chart.defaults.global.defaultFontColor = '#858796';
                 var monthNames= ['Jan','Feb','March','April','May','June','July','August','Sep','Oct','Nov','Dec'];
                 return monthNames[month-1];
                })
+
+               let maxdata = Math.max(...data_value);
+               let maxYvalue = maxdata + (1*maxdata);
                 //alert(response);
                        // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
-  type: 'line',
+                            type: 'line',
   data: {
     labels: monthLabels,
     datasets: [{
       label: "Income",
       lineTension: 0.3,
-      backgroundColor: "rgba(78, 115, 223, 0.05)",
-      borderColor: "rgba(78, 115, 223, 1)",
-      pointRadius: 3,
-      pointBackgroundColor: "rgba(78, 115, 223, 1)",
-      pointBorderColor: "rgba(78, 115, 223, 1)",
-      pointHoverRadius: 3,
-      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-      pointHitRadius: 10,
+      backgroundColor: "rgba(2,117,216,0.2)",
+      borderColor: "rgba(2,117,216,1)",
+      pointRadius: 5,
+      pointBackgroundColor: "rgba(2,117,216,1)",
+      pointBorderColor: "rgba(255,255,255,0.8)",
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(2,117,216,1)",
+      pointHitRadius: 50,
       pointBorderWidth: 2,
       data: data_value,
     }],
   },
   options: {
-    maintainAspectRatio: false,
-    layout: {
-      padding: {
-        left: 10,
-        right: 25,
-        top: 25,
-        bottom: 0
-      }
-    },
     scales: {
       xAxes: [{
         time: {
           unit: 'date'
         },
         gridLines: {
-          display: false,
-          drawBorder: false
+          display: false
         },
         ticks: {
           maxTicksLimit: 7
@@ -109,46 +101,20 @@ var myLineChart = new Chart(ctx, {
       }],
       yAxes: [{
         ticks: {
-          maxTicksLimit: 5,
-          padding: 10,
-          
+          min: 0,
+          max: maxYvalue,
+          maxTicksLimit: 5
         },
         gridLines: {
-          color: "rgb(234, 236, 244)",
-          zeroLineColor: "rgb(234, 236, 244)",
-          drawBorder: false,
-          borderDash: [2],
-          zeroLineBorderDash: [2]
+          color: "rgba(0, 0, 0, .125)",
         }
       }],
     },
     legend: {
       display: false
-    },
-    tooltips: {
-      backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
-      titleMarginBottom: 10,
-      titleFontColor: '#6e707e',
-      titleFontSize: 14,
-      borderColor: '#dddfeb',
-      borderWidth: 1,
-      xPadding: 15,
-      yPadding: 15,
-      displayColors: false,
-      intersect: false,
-      mode: 'index',
-      caretPadding: 10,
-      callbacks: {
-        label: function(tooltipItem, chart) {
-          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
-        }
-      }
     }
   }
 });
-
             }
         })
  //--------------------------------------------------------End Line Chart-----------------------------------------------------------------------
@@ -262,7 +228,7 @@ $.ajax({
                 console.log(data_value)
 
   
-// Pie Chart Example
+// doughnut Chart Example
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',

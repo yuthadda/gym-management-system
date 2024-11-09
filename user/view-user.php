@@ -49,7 +49,7 @@ $users = $user->getAllUser();
                         <button class="btn border-dark btnUserSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div> -->
                     <div class="col-md-12">
-                        <table class="table table-striped" id='myTable'>
+                        <table class="table table-striped display responsive nowrap" id='myTable'>
                             <thead>
                                 <tr>
                                     <th></th>
@@ -74,9 +74,9 @@ $users = $user->getAllUser();
                                 <td class='align-middle'>" . $user['user_email'] . "</td>
                                 <td class='align-middle'>" . $user['user_phone'] . "</td>
                                 <td class='align-middle'>" . $user['user_address'] . "</td>
-                                <td><a class='btn btn-info btn-sm mx-1' href='detail-user.php?id=" . $user['user_id'] . "'><i class='fa-solid fa-circle-info'></i></a>
-                                <a class='btn btn-warning btn-sm mx-1' href='edit-user.php?id= " . $user['user_id'] . "'><i class='fa-solid fa-pen-to-square'></i></a>
-                                <a class='btn btn-danger btn-sm mx-1 btnDeleteUser'><i class='fa-solid fa-trash'></i></a></td>
+                                <td><a class='btn btn-info btn-sm mx-1' href='detail-user.php?id=" . $user['user_id'] . "'><i class='fa-solid fa-circle-info'></i> Detail</a>
+                                <a class='btn btn-warning btn-sm mx-1' href='edit-user.php?id= " . $user['user_id'] . "'><i class='fa-solid fa-pen-to-square'></i> Edit</a>
+                                <a class='btn btn-danger btn-sm mx-1 btnDeleteUser'><i class='fa-solid fa-trash'></i> Delete</a></td>
                             </tr>
                             ";
                                 }

@@ -70,8 +70,8 @@ $payments = $paymentController->getAllPayment();
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12 mx-auto">
-                            <table class="table table-striped" id="myTable">
+                        <div class="col-md-12">
+                            <table class="table table-striped display responsive nowrap" id="myTable">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
@@ -103,7 +103,7 @@ $payments = $paymentController->getAllPayment();
                                                 ?>
                                             </td>
                                             <td>
-                                                <a href='./invoice.php?id=<?= $payment['payment_id'] ?>' class="btn btn-info"><i class='fa-solid fa-circle-info'></i> view invoice</a>
+                                                <a href='./invoice.php?id=<?= $payment['payment_id'] ?>' class="btn btn-info"><i class='fa-solid fa-circle-info'></i> invoice</a>
                                                 <button class="btn btn-dark" onclick="sendEmail(<?= $payment['payment_id'] ?>)"><i class="fa-solid fa-paper-plane"></i> Send</button>
                                                 
 

@@ -50,7 +50,7 @@ $facilitite = $facility->getAllFacility();
                         </div> -->
                         <div class="col-md-12">
 
-                            <table class="table table-striped" id="myTable">
+                            <table class="table table-striped display responsive nowrap" id="myTable">
                                 <thead>
                                     <tr>
                                         <th>No</th>
