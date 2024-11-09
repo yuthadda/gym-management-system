@@ -63,7 +63,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#trainer"
         aria-expanded="true" aria-controls="trainer">
-        <i class="fa-solid fa-user fa-fw"></i>
+        <i class="fa-solid fa-person-military-pointing"></i>
         <span>Trainer</span>
     </a>
     <div id="trainer" class="collapse" aria-labelledby="headingUtilities"
@@ -79,7 +79,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#plan"
         aria-expanded="true" aria-controls="plan">
-        <i class="fas fa-fw fa-wrench"></i>
+        <i class="fa-solid fa-cart-shopping"></i>
         <span>Subscription & Plans</span>
     </a>
     <div id="plan" class="collapse" aria-labelledby="headingUtilities"
@@ -120,14 +120,14 @@
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link" href="../attendance/c-atten.php">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fa-solid fa-person-shelter"></i>
         <span>Attendances</span></a>
 </li>
 
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#progress"
         aria-expanded="true" aria-controls="progress">
-        <i class="fas fa-fw fa-wrench"></i>
+        <i class="fa-solid fa-bars-progress"></i>
         <span>Member Progress</span>
     </a>
     <div id="progress" class="collapse" aria-labelledby="headingUtilities"
@@ -143,7 +143,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#payment"
         aria-expanded="true" aria-controls="payment">
-        <i class="fas fa-fw fa-wrench"></i>
+        <i class="fa-solid fa-receipt"></i>
         <span>Payment</span>
     </a>
     <div id="payment" class="collapse" aria-labelledby="headingUtilities"

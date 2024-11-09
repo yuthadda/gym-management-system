@@ -66,7 +66,7 @@ $membership = $membershipController->getMembershipById($_GET['id']);
                             ";
                                 }
                                 ?>
-                                <tr><td><h5 class='text-center'><?php echo "Total Check-in : ". $attenCount['attenCount']."days" ?></h5></td></tr>
+                                <tr><td colspan="3" ><?php echo "Total Check-in : ". $attenCount['attenCount']."days" ?></td></tr>
                             </tbody>
                         </table>
                         <a class='btn btn-dark mx-2' href='c-atten.php'>Back</a></td>

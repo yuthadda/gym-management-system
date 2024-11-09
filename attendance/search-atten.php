@@ -21,6 +21,6 @@ $output = "";
     ";
  }
 
- $output .= "<tr><td><h5 class='text-center'>Total Check-in: " . $attencount['attenCount'] . " days</h5></td></tr>";
+ $output .= "<tr><td colspan='3' class=''>Total Check-in: " . $attencount['attenCount'] . " days</td></tr>";
  echo $output;
 ?>
