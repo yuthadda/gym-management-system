@@ -71,6 +71,7 @@ $payments = $paymentController->getAllPayment();
 
                     <div class="row">
                         <div class="col-md-12">
+                            <div class="table-responsive">
                             <table class="table table-striped display responsive nowrap" id="myTable">
                                 <thead>
                                     <tr>
@@ -104,7 +105,7 @@ $payments = $paymentController->getAllPayment();
                                             </td>
                                             <td>
                                                 <a href='./payment-delete.php?id=<?= $payment['payment_id'] ?>' class="btn btn-danger"><i class='fa-solid fa-trash'></i> delete</a>
-                                                <a href='./invoice.php?id=<?= $payment['payment_id'] ?>' class="btn btn-info"><i class='fa-solid fa-circle-info'></i> view invoice</a>
+                                                <a href='./invoice.php?id=<?= $payment['payment_id'] ?>' class="btn btn-info"><i class='fa-solid fa-circle-info'></i> invoice</a>
                                                 <button class="btn btn-dark" onclick="sendEmail(<?= $payment['payment_id'] ?>)"><i class="fa-solid fa-paper-plane"></i> send</button>
                                                 
 
@@ -113,6 +114,7 @@ $payments = $paymentController->getAllPayment();
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            </div>
                             <a class='btn btn-dark mx-2' href='create-payment.php'>create payments</a></td>
                         </div>
                     </div>
@@ -141,5 +143,11 @@ $payments = $paymentController->getAllPayment();
                     })
                  }
             </script>
+
+            <style>
+                .table-responsive {
+    overflow-x: auto;
+}
+            </style>
 
             <?php include_once "../layouts/footer.php" ?>
